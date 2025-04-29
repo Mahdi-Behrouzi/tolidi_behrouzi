@@ -65,3 +65,48 @@ body {
   margin-right: 200px;
   padding: 20px;
 }
+@media screen and (max-width: 768px) {
+  .site-header {
+    padding: 10px;
+  }
+
+  .logo-box img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .logo-box span {
+    font-size: 16px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: none;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .sidebar ul li {
+    border: none;
+  }
+
+  .sidebar ul li a {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .content {
+    margin: 0;
+    padding: 15px;
+  }
+}
