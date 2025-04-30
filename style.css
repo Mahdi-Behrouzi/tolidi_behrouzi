@@ -98,3 +98,27 @@ body {
     width: 180px;
   }
 }
+/* لودینگ */
+#loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-logo {
+  width: 100px;
+  animation: spin 2s linear infinite;
+}
+
+/* انیمیشن چرخش لوگو */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
