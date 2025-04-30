@@ -98,18 +98,3 @@ body {
     width: 180px;
   }
 }
-body {
-  margin: 0;
-  font-family: 'Vazirmatn', sans-serif;
-  direction: rtl;
-  background-color: #fff;
-  overflow-x: hidden;
-  
-  /* اضافه‌شده: افکت نرم ظاهر شدن */
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-body.loaded {
-  opacity: 1;
-}
