@@ -4,31 +4,146 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تولیدی بهروزی</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 100px;
+      opacity: 0.8;
+      animation: fade 3s infinite alternate;
+    }
+
+    @keyframes fade {
+      from {opacity: 0.6;}
+      to {opacity: 1;}
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #sidebar {
+      position: fixed;
+      right: -200px;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background: #333;
+      color: #fff;
+      transition: right 0.3s;
+      padding-top: 60px;
+    }
+
+    #sidebar.active {
+      right: 0;
+    }
+
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #sidebar ul li {
+      padding: 15px;
+      text-align: center;
+    }
+
+    #sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .socials a {
+      color: #ccc;
+      margin: 0 5px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        width: 80px;
+      }
+      #sidebar {
+        width: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- هدر -->
   <header>
-    <img src="images/logo.png" alt="لوگو" class="logo">
-    <button id="menuToggle">☰</button>
+    <div class="logo">
+      <img src="images/logo.png" alt="لوگو">
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
 
-  <!-- منو کناری -->
+  <!-- منو از کنار -->
   <nav id="sidebar">
     <ul>
-      <li><a href="#">خانه</a></li>
+      <li><a href="#">صفحه اصلی</a></li>
       <li><a href="#">محصولات</a></li>
       <li><a href="#">درباره ما</a></li>
       <li><a href="#">تماس با ما</a></li>
     </ul>
   </nav>
 
+  <!-- محتوای اصلی -->
   <main>
-    <h1>به تولیدی بهروزی خوش آمدید!</h1>
+    <h1>به وبسایت تولیدی بهروزی خوش آمدید</h1>
   </main>
 
-  <!-- فایل جاوااسکریپت -->
-  <script src="script.js"></script>
+  <!-- فوتر -->
+  <footer>
+    <div class="footer-content">
+      <p>آدرس: تهران، خیابان مثال، پلاک ۱۲۳</p>
+      <p>تماس: ۰۹۱۲۱۲۳۴۵۶۷</p>
+      <p>ایمیل: info@behrouzi.com</p>
+      <div class="socials">
+        <a href="#">اینستاگرام</a> | <a href="#">واتساپ</a>
+      </div>
+      <p id="counter"></p>
+      <p>© تمامی حقوق محفوظ است - تولیدی بهروزی ۲۰۲۵</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    let count = localStorage.getItem('visitCount') || 0;
+    count++;
+    localStorage.setItem('visitCount', count);
+    document.getElementById('counter').innerText = `بازدید شما: ${count}`;
+  </script>
+
 </body>
 </html>
