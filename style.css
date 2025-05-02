@@ -44,19 +44,27 @@ header {
   border: none;
   color: #eee;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* سایدبار */
 .sidebar {
   position: fixed;
-  left: -100%;
+  left: -250px;
   top: 0;
   width: 250px;
   height: 100%;
   background-color: #1f1f1f;
   padding-top: 60px;
-  transition: 0.3s;
+  transition: 0.3s ease;
   z-index: 999;
+}
+
+/* وقتی منو باز میشه */
+.sidebar.active {
+  left: 0;
 }
 
 .sidebar a {
@@ -69,11 +77,6 @@ header {
 
 .sidebar a:hover {
   background-color: #333;
-}
-
-/* فعال شدن سایدبار */
-.sidebar.active {
-  left: 0;
 }
 
 /* فوتر حرفه‌ای */
@@ -143,5 +146,17 @@ header {
   .footer-container {
     flex-direction: column;
     text-align: center;
+  }
+
+  .menu-toggle {
+    font-size: 24px;
+  }
+
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar.active {
+    left: 0;
   }
 }
