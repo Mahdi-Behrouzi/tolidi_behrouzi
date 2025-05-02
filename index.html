@@ -4,146 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تولیدی بهروزی</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #f5f5f5;
-    }
-
-    header {
-      background: #222;
-      color: #fff;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo img {
-      width: 100px;
-      opacity: 0.8;
-      animation: fade 3s infinite alternate;
-    }
-
-    @keyframes fade {
-      from {opacity: 0.6;}
-      to {opacity: 1;}
-    }
-
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    #sidebar {
-      position: fixed;
-      right: -200px;
-      top: 0;
-      width: 200px;
-      height: 100%;
-      background: #333;
-      color: #fff;
-      transition: right 0.3s;
-      padding-top: 60px;
-    }
-
-    #sidebar.active {
-      right: 0;
-    }
-
-    #sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    #sidebar ul li {
-      padding: 15px;
-      text-align: center;
-    }
-
-    #sidebar ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    main {
-      padding: 20px;
-      text-align: center;
-    }
-
-    footer {
-      background: #111;
-      color: #ccc;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .socials a {
-      color: #ccc;
-      margin: 0 5px;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .logo img {
-        width: 80px;
-      }
-      #sidebar {
-        width: 150px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <!-- فونت زیبا -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- هدر -->
   <header>
-    <div class="logo">
-      <img src="images/logo.png" alt="لوگو">
-    </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <img src="logo.png" alt="لوگو" class="logo">
+    <button class="menu-toggle">☰</button>
   </header>
 
-  <!-- منو از کنار -->
-  <nav id="sidebar">
-    <ul>
-      <li><a href="#">صفحه اصلی</a></li>
-      <li><a href="#">محصولات</a></li>
-      <li><a href="#">درباره ما</a></li>
-      <li><a href="#">تماس با ما</a></li>
-    </ul>
+  <!-- منو کناری -->
+  <nav class="sidebar">
+    <a href="#">صفحه اصلی</a>
+    <a href="#">محصولات</a>
+    <a href="#">درباره ما</a>
+    <a href="#">تماس با ما</a>
   </nav>
 
   <!-- محتوای اصلی -->
-  <main>
-    <h1>به وبسایت تولیدی بهروزی خوش آمدید</h1>
+  <main style="padding: 100px 20px;">
+    <h1>به وب‌سایت تولیدی بهروزی خوش آمدید</h1>
+    <p>کیفیت، زیبایی و اصالت را با ما تجربه کنید.</p>
   </main>
 
-  <!-- فوتر -->
-  <footer>
-    <div class="footer-content">
-      <p>آدرس: تهران، خیابان مثال، پلاک ۱۲۳</p>
-      <p>تماس: ۰۹۱۲۱۲۳۴۵۶۷</p>
-      <p>ایمیل: info@behrouzi.com</p>
-      <div class="socials">
-        <a href="#">اینستاگرام</a> | <a href="#">واتساپ</a>
+  <!-- فوتر جدید -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <h4>درباره ما</h4>
+        <p>تولیدی بهروزی با بیش از ۲۰ سال تجربه در تولید کیف‌های با کیفیت ایرانی در خدمت شماست.</p>
       </div>
-      <p id="counter"></p>
-      <p>© تمامی حقوق محفوظ است - تولیدی بهروزی ۲۰۲۵</p>
+
+      <div class="footer-col">
+        <h4>لینک‌های سریع</h4>
+        <ul>
+          <li><a href="#">صفحه اصلی</a></li>
+          <li><a href="#">محصولات</a></li>
+          <li><a href="#">درباره ما</a></li>
+          <li><a href="#">تماس با ما</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>تماس با ما</h4>
+        <p>تهران، بازار بزرگ، پلاک ۱۲۳</p>
+        <p>تلفن: 0912-000-0000</p>
+        <p>ایمیل: info@behrouzi.com</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>دنبال کنید</h4>
+        <div class="social-links">
+          <a href="#">اینستاگرام</a>
+          <a href="#">تلگرام</a>
+          <a href="#">واتساپ</a>
+        </div>
+      </div>
+
     </div>
+
+    <div class="visit-counter" id="visit-count">تعداد بازدید: 0</div>
+    <p class="copyright">© تمامی حقوق محفوظ است - تولیدی بهروزی ۲۰۲۵</p>
+
   </footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('active');
-    }
-
-    let count = localStorage.getItem('visitCount') || 0;
-    count++;
-    localStorage.setItem('visitCount', count);
-    document.getElementById('counter').innerText = `بازدید شما: ${count}`;
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
