@@ -5,78 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تولیدی بهروزی</title>
   <link rel="stylesheet" href="style.css">
-  <!-- فونت زیبا -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- هدر -->
+  <!-- هدر با لوگو -->
   <header>
-    <!-- دکمه منو (سه‌خطی که تبدیل به ضربدر میشه) -->
-<button class="menu-toggle">&#9776;</button>
-    <img src="logo.png" alt="لوگو" class="logo">
-    <button class="menu-toggle">☰</button>
+    <button class="menu-toggle">&#9776;</button>
+    <div class="logo-title">
+      <img src="images/logo.png" alt="لوگو" class="logo">
+      <h1>تولیدی بهروزی</h1>
+    </div>
   </header>
 
-  
-  <!-- منو کناری -->
+  <!-- منوی کناری -->
   <nav class="sidebar">
-    <a href="#">صفحه اصلی</a>
-    <a href="#">محصولات</a>
-    <a href="#">درباره ما</a>
-    <a href="#">تماس با ما</a>
+    <ul>
+      <li><a href="#">صفحه اصلی</a></li>
+      <li><a href="#">محصولات</a></li>
+      <li><a href="#">درباره ما</a></li>
+      <li><a href="#">تماس با ما</a></li>
+    </ul>
   </nav>
 
   <!-- محتوای اصلی -->
-  <main style="padding: 100px 20px;">
-    <h1>به وب‌سایت تولیدی بهروزی خوش آمدید</h1>
-    <p>کیفیت، زیبایی و اصالت را با ما تجربه کنید.</p>
+  <main>
+    <h2>خوش آمدید!</h2>
+    <p>این سایت تولیدی بهروزی است.</p>
   </main>
 
-  <!-- فوتر جدید -->
-  <footer class="footer">
-    <div class="footer-container">
-
-      <div class="footer-col">
-        <h4>درباره ما</h4>
-        <p>تولیدی بهروزی با بیش از ۲۰ سال تجربه در تولید کیف‌های با کیفیت ایرانی در خدمت شماست.</p>
+  <!-- فوتر -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>تماس با ما</h3>
+        <p>آدرس: تهران، بازار بزرگ</p>
+        <p>تلفن: 0912-0000000</p>
+        <p>ایمیل: info@behrouzi.com</p>
       </div>
-
-      <div class="footer-col">
-        <h4>لینک‌های سریع</h4>
+      <div class="footer-section">
+        <h3>لینک‌ها</h3>
         <ul>
-          <li><a href="#">صفحه اصلی</a></li>
-          <li><a href="#">محصولات</a></li>
           <li><a href="#">درباره ما</a></li>
+          <li><a href="#">محصولات</a></li>
           <li><a href="#">تماس با ما</a></li>
         </ul>
       </div>
-
-      <div class="footer-col">
-        <h4>تماس با ما</h4>
-        <p>ایران-مشهد مقدس</p>
-        <p>تلفن:09399538811</p>
-        <p>ایمیل:tolidibehrouzi@gmail.com</p>
+      <div class="footer-section">
+        <h3>آمار بازدید</h3>
+        <p id="visitor-count">بازدید امروز: 1</p>
       </div>
-
-      <div class="footer-col">
-        <h4>دنبال کنید</h4>
-        <div class="social-links">
-          <a href="#">اینستاگرام</a>
-          <a href="#">تلگرام</a>
-          <a href="#">واتساپ</a>
-          <a href="#">ایتا</a>
-          <a href="#">روبیکا</a>
-        </div>
-      </div>
-
     </div>
-
-    <div class="visit-counter" id="visit-count">تعداد بازدید: 0</div>
-    <p class="copyright">© تمامی حقوق محفوظ است - تولیدی بهروزی ۲۰۲۵</p>
-
+    <div class="footer-bottom">
+      کلیه حقوق این سایت متعلق به تولیدی بهروزی است.
+    </div>
   </footer>
 
+  <!-- اسکریپت -->
   <script src="script.js"></script>
 </body>
 </html>
