@@ -22,11 +22,18 @@ const sidebar = document.querySelector('.sidebar');
 
 menuToggle.addEventListener('click', () => {
   sidebar.classList.toggle('active');
+const menuToggle = document.querySelector('.menu-toggle');
+const sidebar = document.querySelector('.sidebar');
 
-  // تغییر آیکون به ضربدر یا سه‌خطی
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+
+  // تغییر آیکون
   if (sidebar.classList.contains('active')) {
     menuToggle.innerHTML = '&times;'; // ضربدر ×
   } else {
     menuToggle.innerHTML = '&#9776;'; // سه‌خطی ☰
   }
 });
+  
+  
