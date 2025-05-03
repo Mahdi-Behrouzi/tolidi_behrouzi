@@ -17,3 +17,16 @@ if (count) {
 }
 localStorage.setItem('visitCount', count);
 visitCountElem.textContent = `تعداد بازدید: ${count}`;
+const menuToggle = document.querySelector('.menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+
+  // تغییر آیکون به ضربدر یا سه‌خطی
+  if (sidebar.classList.contains('active')) {
+    menuToggle.innerHTML = '&times;'; // ضربدر ×
+  } else {
+    menuToggle.innerHTML = '&#9776;'; // سه‌خطی ☰
+  }
+});
