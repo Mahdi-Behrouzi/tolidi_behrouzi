@@ -1,39 +1,21 @@
-// باز و بسته کردن منو
-const toggleButton = document.querySelector('.menu-toggle');
-const sidebar = document.querySelector('.sidebar');
-
-toggleButton.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-});
-
-// شمارنده بازدید
-const visitCountElem = document.getElementById('visit-count');
-let count = localStorage.getItem('visitCount');
-
-if (count) {
-  count = Number(count) + 1;
-} else {
-  count = 1;
-}
-localStorage.setItem('visitCount', count);
-visitCountElem.textContent = `تعداد بازدید: ${count}`;
-const menuToggle = document.querySelector('.menu-toggle');
-const sidebar = document.querySelector('.sidebar');
-
-menuToggle.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
+// منو باز و بسته
 const menuToggle = document.querySelector('.menu-toggle');
 const sidebar = document.querySelector('.sidebar');
 
 menuToggle.addEventListener('click', () => {
   sidebar.classList.toggle('active');
 
-  // تغییر آیکون
+  // تغییر آیکون دکمه
   if (sidebar.classList.contains('active')) {
-    menuToggle.innerHTML = '&times;'; // ضربدر ×
+    menuToggle.innerHTML = '&times;'; // ضربدر
   } else {
-    menuToggle.innerHTML = '&#9776;'; // سه‌خطی ☰
+    menuToggle.innerHTML = '&#9776;'; // سه خطی
   }
 });
-  
-  
+
+// شمارنده بازدید ساده
+const countElement = document.getElementById('visitor-count');
+let count = localStorage.getItem('visitCount') || 0;
+count++;
+localStorage.setItem('visitCount', count);
+countElement.textContent = `بازدید امروز: ${count}`;
