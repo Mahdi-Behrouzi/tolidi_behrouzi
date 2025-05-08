@@ -8,17 +8,15 @@
 </head>
 <body>
 
-  <!-- هدر با لوگو -->
-  <header>
-    <button class="menu-toggle">&#9776;</button>
-    <div class="logo-title">
-      <img src="images/logo.png" alt="لوگو" class="logo">
-      <h1>تولیدی بهروزی</h1>
-    </div>
+  <!-- هدر -->
+  <header class="header">
+    <img src="logo.png" alt="لوگو" class="logo">
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
   </header>
 
-  <!-- منوی کناری -->
-  <nav class="sidebar">
+  <!-- منو کشویی -->
+  <nav class="sidebar" id="sidebar">
+    <div class="close-btn" id="close-btn">&times;</div>
     <ul>
       <li><a href="#">صفحه اصلی</a></li>
       <li><a href="#">محصولات</a></li>
@@ -27,40 +25,22 @@
     </ul>
   </nav>
 
-  <!-- محتوای اصلی -->
-  <main>
-    <h2>خوش آمدید!</h2>
-    <p>این سایت تولیدی بهروزی است.</p>
+  <!-- محتوا -->
+  <main class="content">
+    <h1>به تولیدی بهروزی خوش آمدید</h1>
+    <p>کیف‌های باکیفیت و دست‌دوز</p>
   </main>
 
   <!-- فوتر -->
-  <footer>
+  <footer class="footer">
     <div class="footer-content">
-      <div class="footer-section">
-        <h3>تماس با ما</h3>
-        <p>آدرس: تهران، بازار بزرگ</p>
-        <p>تلفن: 0912-0000000</p>
-        <p>ایمیل: info@behrouzi.com</p>
-      </div>
-      <div class="footer-section">
-        <h3>لینک‌ها</h3>
-        <ul>
-          <li><a href="#">درباره ما</a></li>
-          <li><a href="#">محصولات</a></li>
-          <li><a href="#">تماس با ما</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>آمار بازدید</h3>
-        <p id="visitor-count">بازدید امروز: 1</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      کلیه حقوق این سایت متعلق به تولیدی بهروزی است.
+      <p>آدرس: تهران، بازار بزرگ، خیابان ۱۵ خرداد</p>
+      <p>تلفن: ۰۹۱۲۱۲۳۴۵۶۷</p>
+      <p>&copy; ۲۰۲۵ تمامی حقوق محفوظ است.</p>
+      <p>بازدید امروز: ۱۲۳ | کل بازدید: ۴۵۶۷</p>
     </div>
   </footer>
 
-  <!-- اسکریپت -->
   <script src="script.js"></script>
 </body>
 </html>
