@@ -11,7 +11,9 @@ body {
   align-items: center;
   background-color: #222;
   padding: 10px 20px;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -29,13 +31,19 @@ body {
 .menu-toggle {
   font-size: 30px;
   color: white;
+  background: none;
+  border: none;
   cursor: pointer;
-  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.active {
+  transform: rotate(90deg);
 }
 
 .nav {
   position: fixed;
-  right: -200px;
+  right: -250px;
   top: 0;
   width: 200px;
   height: 100%;
