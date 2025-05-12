@@ -148,3 +148,28 @@ main {
     width: 160px;
   }
 }
+/* فونت منوها رو ظریف و شیک کن */
+.nav a {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* وقتی روش کلیک یا هاور میکنی */
+.nav a:hover {
+  background: #444;
+  color: #ffcc00;
+}
+
+/* روی موبایل فونت کوچیک‌تر بشه */
+@media (max-width: 600px) {
+  .nav a {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
