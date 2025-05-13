@@ -23,3 +23,28 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";  
   setTimeout(showSlides, 2000); // تغییر هر ۲ ثانیه
 }
+
+
+
+
+<script>
+  const images = [
+    'https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg',
+    'https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg',
+    'https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg',
+    'https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg',
+    'https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg'
+  ];
+
+  let currentIndex = 0;
+  const sliderImage = document.getElementById('sliderImage');
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    sliderImage.style.opacity = 0;
+    setTimeout(() => {
+      sliderImage.src = images[currentIndex];
+      sliderImage.style.opacity = 1;
+    }, 500);
+  }, 2000);
+</script>
