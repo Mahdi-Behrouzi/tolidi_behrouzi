@@ -185,30 +185,23 @@ main {
     padding: 6px 12px !important;
   }
 }
-.slider-container {
-  position: relative;
-  max-width: 100%;
-  margin: 0 auto;
+.image-slider {
+  width: 100%;
+  height: 300px;
   overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 
-.slide {
-  display: none;
+.image-slider img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
 }
 
-.slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 2s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+@media (max-width: 768px) {
+  .image-slider {
+    height: 200px;
+  }
 }
