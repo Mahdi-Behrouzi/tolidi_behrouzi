@@ -213,3 +213,9 @@ main {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+  
