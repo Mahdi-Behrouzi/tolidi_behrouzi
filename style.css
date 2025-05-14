@@ -197,4 +197,25 @@ main {
     height: 200px;
   }
 }
+/* استایل اسلایدر ساده */
+.slider {
+  width: 100%;
+  height: 300px; /* یا هر ارتفاعی که خواستی */
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* باعث میشه عکس اندازه درست بگیره و کراپ شه */
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
   
