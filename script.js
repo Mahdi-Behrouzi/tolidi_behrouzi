@@ -9,79 +9,62 @@ menuToggle.addEventListener('click', () => {
   } else {
     menuToggle.innerHTML = '&#9776;';  // ☰ سه خط
 <script>
-  const slides = document.querySelectorAll(".slide");
-  const dots = document.querySelectorAll(".dot");
-  const prev = document.querySelector(".prev");
-  const next = document.querySelector(".next");
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.dots');
+  const slidesContainer = document.querySelector('.slides');
   let currentIndex = 0;
-  let startX = 0;
-  let isSwiping = false;
-  let autoSlide;
+
+  // Create dots
+  slides.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dots span');
 
   function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-      dots[i].classList.toggle("active", i === index);
-    });
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove('active-dot'));
+    dots[index].classList.add('active-dot');
+
+    currentIndex = index;
+  }
+
+  function goToSlide(index) {
+    showSlide(index);
   }
 
   function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
+    showSlide(currentIndex + 1);
   }
 
   function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
+    showSlide(currentIndex - 1);
   }
 
-  function resetAutoSlide() {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(nextSlide, 2000);
-  }
+  document.querySelector('.next').addEventListener('click', nextSlide);
+  document.querySelector('.prev').addEventListener('click', prevSlide);
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      currentIndex = i;
-      showSlide(currentIndex);
-      resetAutoSlide();
-    });
-  });
+  // Auto-slide
+  setInterval(nextSlide, 2000);
 
-  prev.addEventListener("click", () => {
-    prevSlide();
-    resetAutoSlide();
-  });
-
-  next.addEventListener("click", () => {
-    nextSlide();
-    resetAutoSlide();
-  });
+  // Initial
+  showSlide(0);
 
   // Swipe support
-  const slider = document.querySelector(".slider");
-
-  slider.addEventListener("touchstart", (e) => {
+  let startX = 0;
+  slidesContainer.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
-    isSwiping = true;
   });
 
-  slider.addEventListener("touchmove", (e) => {
-    if (!isSwiping) return;
-    let diffX = e.touches[0].clientX - startX;
-    if (Math.abs(diffX) > 50) {
-      if (diffX > 0) prevSlide();
-      else nextSlide();
-      isSwiping = false;
-      resetAutoSlide();
-    }
+  slidesContainer.addEventListener('touchend', (e) => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextSlide();
+    if (endX - startX > 50) prevSlide();
   });
-
-  slider.addEventListener("touchend", () => {
-    isSwiping = false;
-  });
-
-  // Auto slide
-  autoSlide = setInterval(nextSlide, 2000);
 </script>
     
