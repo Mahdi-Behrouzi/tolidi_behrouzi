@@ -172,3 +172,16 @@ main {
     font-size: 14px !important;
     padding: 8px 16px !important;
   }
+/* ارتفاع منوها رو جمع و جور کن */
+.nav a {
+  line-height: 1.2 !important;
+  padding: 8px 16px !important;
+}
+
+/* روی موبایل حتی جمع و جورتر */
+@media (max-width: 600px) {
+  .nav a {
+    padding: 6px 12px !important;
+  }
+}
+
