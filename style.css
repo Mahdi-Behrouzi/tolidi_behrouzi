@@ -174,11 +174,10 @@ main {
   }
 .slider {
   position: relative;
-  width: 100%;
   max-width: 100%;
   height: 300px;
-  overflow: hidden;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .slides {
@@ -188,26 +187,20 @@ main {
 
 .slide {
   min-width: 100%;
-  height: 300px;
   object-fit: cover;
-  display: none;
-}
-
-.slide.active {
-  display: block;
 }
 
 .prev, .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.4);
   color: white;
-  font-size: 20px;
   border: none;
   cursor: pointer;
   padding: 10px;
-  z-index: 10;
+  z-index: 2;
 }
 
 .prev { left: 10px; }
@@ -220,17 +213,17 @@ main {
   width: 100%;
 }
 
-.dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: #bbb;
-  border-radius: 50%;
+.dots span {
   display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  margin: 0 5px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
-.dot.active {
-  background-color: white;
+.dots .active-dot {
+  background: #717171;
 }
   
