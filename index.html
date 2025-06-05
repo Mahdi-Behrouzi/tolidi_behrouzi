@@ -1,47 +1,418 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تولیدی بهروزی</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تولیدی بهروزی - صفحه اصلی</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <img src="Screenshot_۲۰۲۱۰۴۳۰-۱۵۳۵۴۵_2.gif" alt="لوگو" class="logo">
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
-    <nav class="nav" id="nav">
-      <ul>
-        <li><a href="#">صفحه اصلی</a></li>
-        <li><a href="#">محصولات</a></li>
-        <li><a href="#">درباره ما</a></li>
-        <li><a href="#">تماس با ما</a></li>
-      </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>تولیدی بهروزی</h2>
+                <span>@tolidi_behrouzi</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">خانه</a></li>
+                <li><a href="#about" class="nav-link">درباره ما</a></li>
+                <li><a href="#services" class="nav-link">خدمات</a></li>
+                <li><a href="#products" class="nav-link">محصولات</a></li>
+                <li><a href="#gallery" class="nav-link">گالری</a></li>
+                <li><a href="#contact" class="nav-link">تماس</a></li>
+            </ul>
+            <div class="hamburger">
+		    <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
-  </header>
 
-	
-	
-	
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">تولیدی <span class="gradient-text">بهروزی</span></h1>
+                <p class="hero-subtitle">تولید و ارائه محصولات با کیفیت برتر</p>
+                <p class="hero-description">با بیش از دهه‌ها تجربه در زمینه تولید، ما بهترین محصولات را با استانداردهای روز دنیا به شما ارائه می‌دهیم</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">مشاهده محصولات</button>
+                    <button class="btn btn-outline">تماس با ما</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>تولید حرفه‌ای</h3>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+		<div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-	
-  <!-- محتوای سایت -->
-  <main>
-    <h1>به تولیدی بهروزی خوش آمدید</h1>
-    <p>بهترین کیف‌ها را از ما بخواهید!</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>درباره تولیدی بهروزی</h2>
+                <p>داستان موفقیت ما</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>چرا ما را انتخاب کنید؟</h3>
+                    <p>تولیدی بهروزی با سال‌ها تجربه در زمینه تولید محصولات صنعتی، همواره کیفیت و رضایت مشتریان را در اولویت قرار داده است.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-award"></i>
+                            <h4>کیفیت برتر</h4>
+                            <p>استفاده از بهترین مواد اولیه و تکنولوژی روز</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <h4>تحویل سریع</h4>
+                            <p>تحویل به موقع و دقیق محصولات</p>
+			</div>
+   <div class="feature-item">
+                            <i class="fas fa-headset"></i>
+                            <h4>پشتیبانی 24/7</h4>
+                            <p>خدمات پس از فروش و پشتیبانی مستمر</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-certificate"></i>
+                            <h4>گواهینامه‌های معتبر</h4>
+                            <p>دارای تمامی مجوزها و استانداردهای لازم</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">سال تجربه</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">مشتری راضی</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">نوع محصول</div>
+                    </div>
+                    <div class="stat-item">
+			    <div class="stat-number">99%</div>
+                        <div class="stat-label">رضایت مشتری</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  </main>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>خدمات ما</h2>
+                <p>طیف وسیعی از خدمات تولیدی</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>تولید سفارشی</h3>
+                    <p>تولید محصولات بر اساس نیاز و سفارش مشتری با بالاترین کیفیت ممکن</p>
+                    <ul>
+                        <li>طراحی اختصاصی</li>
+                        <li>کنترل کیفیت دقیق</li>
+                        <li>تحویل سریع</li>
+			</ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>تعمیر و نگهداری</h3>
+                    <p>خدمات تعمیر و نگهداری تخصصی برای تداوم عملکرد بهینه محصولات</p>
+                    <ul>
+                        <li>تعمیرات تخصصی</li>
+                        <li>قطعات یدکی اصل</li>
+                        <li>گارانتی خدمات</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>حمل و نقل</h3>
+                    <p>خدمات حمل و نقل ایمن و سريع در سراسر کشور با بسته‌بندی مناسب</p>
+                    <ul>
+                        <li>بسته‌بندی ایمن</li>
+                        <li>تحویل درب منزل</li>
+                        <li>پیگیری مرسوله</li>
+		    </ul>
+      </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>مشاوره رایگان</h3>
+                    <p>مشاوره تخصصی رایگان برای انتخاب بهترین محصول متناسب با نیاز شما</p>
+                    <ul>
+                        <li>تحلیل نیازسنجی</li>
+                        <li>پیشنهاد بهترین راه‌حل</li>
+                        <li>پشتیبانی مستمر</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>آدرس: تهران، خیابان مثال، پلاک ۱۲۳</p>
-    <p>تلفن: ۰۹۱۲۳۴۵۶۷۸۹</p>
-    <p>© تمامی حقوق برای تولیدی بهروزی محفوظ است.</p>
-    <p>بازدید امروز: 123 | بازدید کل: 4567</p>
-  </footer>
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>محصولات ما</h2>
+                <p>تنوع محصولات با کیفیت برتر</p>
+	    </div>
+     <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">همه محصولات</button>
+                <button class="filter-btn" data-filter="category1">دسته اول</button>
+                <button class="filter-btn" data-filter="category2">دسته دوم</button>
+                <button class="filter-btn" data-filter="category3">دسته سوم</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-category="category1">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200?text=محصول+1" alt="محصول 1">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>محصول شماره یک</h3>
+                        <p>توضیحات کوتاه درباره این محصول و ویژگی‌های آن</p>
+                        <div class="product-price">قیمت: تماس بگیرید</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="category2">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200?text=محصول+2" alt="محصول 2">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary">مشاهده جزئیات</button>
+                        </div>
+		    </div>
+      <div class="product-info">
+                        <h3>محصول شماره دو</h3>
+                        <p>توضیحات کوتاه درباره این محصول و ویژگی‌های آن</p>
+                        <div class="product-price">قیمت: تماس بگیرید</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="category1">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200?text=محصول+3" alt="محصول 3">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>محصول شماره سه</h3>
+                        <p>توضیحات کوتاه درباره این محصول و ویژگی‌های آن</p>
+                        <div class="product-price">قیمت: تماس بگیرید</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="category3">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200?text=محصول+4" alt="محصول 4">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary">مشاهده جزئیات</button>
+                        </div>
+		    </div>
+      <div class="product-info">
+                        <h3>محصول شماره چهار</h3>
+                        <p>توضیحات کوتاه درباره این محصول و ویژگی‌های آن</p>
+                        <div class="product-price">قیمت: تماس بگیرید</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>گالری تصاویر</h2>
+                <p>نمونه‌ای از کارهای انجام شده</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300?text=تصویر+1" alt="تصویر 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300?text=تصویر+2" alt="تصویر 2">
+                    <div class="gallery-overlay">
+			    <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300?text=تصویر+3" alt="تصویر 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300?text=تصویر+4" alt="تصویر 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300?text=تصویر+5" alt="تصویر 5">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300?text=تصویر+6" alt="تصویر 6">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+		</div>
+  </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>تماس با ما</h2>
+                <p>در تماس باشید</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>اطلاعات تماس</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>تلفن تماس</h4>
+                            <p>09399538811</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-at"></i>
+                        <div>
+                            <h4>شناسه تلگرام</h4>
+                            <p>@tolidi_behrouzi</p>
+                        </div>
+		    </div>
+      <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>آدرس</h4>
+                            <p>آدرس کامل تولیدی را در اینجا قرار دهید</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>ساعات کار</h4>
+                            <p>شنبه تا پنج‌شنبه: 8:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>فرم تماس</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="نام و نام خانوادگی" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="شماره تلفن" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="ایمیل">
+                        </div>
+                        <div class="form-group">
+				<select required>
+                                <option value="">موضوع پیام</option>
+                                <option value="product">سوال درباره محصولات</option>
+                                <option value="service">درخواست خدمات</option>
+                                <option value="complaint">شکایت</option>
+                                <option value="suggestion">پیشنهاد</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="متن پیام" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">ارسال پیام</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+			<h3>تولیدی بهروزی</h3>
+                    <p>تولید محصولات با کیفیت برتر و خدمات حرفه‌ای</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>لینک‌های مفید</h4>
+                    <ul>
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#about">درباره ما</a></li>
+                        <li><a href="#services">خدمات</a></li>
+                        <li><a href="#products">محصولات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>خدمات</h4>
+                    <ul>
+                        <li><a href="#">تولید سفارشی</a></li>
+                        <li><a href="#">تعمیر و نگهداری</a></li>
+                        <li><a href="#">حمل و نقل</a></li>
+                        <li><a href="#">مشاوره رایگان</a></li>
+			</ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تماس</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 09399538811</li>
+                        <li><i class="fas fa-at"></i> @tolidi_behrouzi</li>
+                        <li><i class="fas fa-map-marker-alt"></i> آدرس تولیدی</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 تولیدی بهروزی. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
