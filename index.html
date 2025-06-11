@@ -1,77 +1,29 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تولیدی بهروزی | کیف‌های خاص و باکیفیت</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تولیدی بهروزی</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- 🔹 هدر -->
   <header class="header">
     <div class="container header-content">
       <h1 class="logo">تولیدی بهروزی</h1>
-      <nav class="navbar">
+      <nav class="navbar" id="navbar">
         <a href="#home">خانه</a>
         <a href="#about">درباره ما</a>
         <a href="#gallery">محصولات</a>
         <a href="#contact">تماس با ما</a>
       </nav>
-      <div class="phone">📞 ۰۹۱۲۱۲۳۴۵۶۷</div>
+      <div class="menu-toggle" id="menu-toggle">
+        <span id="menu-icon">☰</span>
+        <span id="close-icon" style="display: none;">✕</span>
+      </div>
+      <div class="phone">📞 ۰۹۳۹۹۵۳۸۸۱۱</div>
     </div>
   </header>
-
-  <!-- 🔹 اسلایدر -->
-  <section id="home" class="slider">
-    <div class="slides">
-      <img src="https://via.placeholder.com/1200x400?text=کیف+اول" alt="slide1">
-      <img src="https://via.placeholder.com/1200x400?text=کیف+دوم" alt="slide2">
-      <img src="https://via.placeholder.com/1200x400?text=کیف+سوم" alt="slide3">
-    </div>
-  </section>
-
-  <!-- 🔹 درباره ما -->
-  <section id="about" class="about container">
-    <h2>درباره ما</h2>
-    <p>تولیدی بهروزی با بیش از ۱۰ سال سابقه در تولید کیف‌های باکیفیت، با افتخار محصولات خاص و دست‌دوز خود را به سراسر ایران عرضه می‌کند.</p>
-  </section>
-
-  <!-- 🔹 گالری محصولات -->
-  <section id="gallery" class="gallery container">
-    <h2>محصولات ما</h2>
-    <div class="gallery-grid">
-      <img src="https://via.placeholder.com/300x300?text=کیف+۱" alt="product1">
-      <img src="https://via.placeholder.com/300x300?text=کیف+۲" alt="product2">
-      <img src="https://via.placeholder.com/300x300?text=کیف+۳" alt="product3">
-      <img src="https://via.placeholder.com/300x300?text=کیف+۴" alt="product4">
-    </div>
-  </section>
-
-  <!-- 🔹 تماس با ما -->
-  <section id="contact" class="contact container">
-    <h2>تماس با ما</h2>
-    <form>
-      <input type="text" placeholder="نام شما" required>
-      <input type="email" placeholder="ایمیل شما" required>
-      <textarea placeholder="پیام شما..." required></textarea>
-      <button type="submit">ارسال پیام</button>
-    </form>
-    <p class="socials">
-      ما را در اینستاگرام دنبال کنید: <a href="https://instagram.com/tolidi_behrouzi" target="_blank">@tolidi_behrouzi</a>
-    </p>
-  </section>
-
-  <!-- 🔹 دکمه بازگشت به بالا -->
-  <button class="to-top" onclick="scrollToTop()">⬆️</button>
-
-  <!-- 🔹 فوتر -->
-  <footer class="footer">
-    <div class="container">
-      <p>© ۲۰۲۵ تولیدی بهروزی | تمامی حقوق محفوظ است.</p>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
