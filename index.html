@@ -3,82 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تولیدی بهروزی | گروه صنعتی Behrouzi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <title>استودیو خلاقیت دیجیتال</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <svg class="loader" viewBox="0 0 100 100">
-            <path d="M10 50A40 40 0 0 1 90 50A40 42 0 0 1 10 50" fill="none" stroke="#4a6bff" stroke-width="4">
-                <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" values="0 50 51;360 50 51"/>
-            </path>
-        </svg>
-    </div>
+    <!-- Floating Particles Background -->
+    <div class="particles" id="particles"></div>
 
     <!-- Navigation -->
-    <nav class="glass-nav">
-        <div class="nav-brand">
-            <span class="logo">Behrouzi</span>
-            <span class="sublogo">تولیدی صنعتی</span>
-        </div>
-        <div class="nav-contact">
-            <a href="tel:09399538811" class="cta-button">
-                <i class="fas fa-phone"></i>
-                <span>09399538811</span>
-            </a>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Digital Studio</div>
+            <ul class="nav-links">
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#services">خدمات</a></li>
+                <li><a href="#portfolio">نمونه کارها</a></li>
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="#contact">تماس</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <!-- 3D Slider -->
-    <div class="slider-3d">
-        <div class="slider-container">
-            <div class="slide active" data-bg="img/slide1.jpg">
-                <div class="slide-content">
-                    <h2 class="animate__animated animate__fadeInDown">تولیدی بهروزی</h2>
-                    <p class="animate__animated animate__fadeInUp animate__delay-1s">پیشرو در تولید قطعات صنعتی</p>
-                    <button class="btn-hover3d animate__animated animate__fadeInUp animate__delay-2s">
-                        <span>مشاهده محصولات</span>
-                    </button>
-                </div>
-            </div>
-            <!-- Slides 2-3 -->
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>خلاقیت بی‌حد و حصر</h1>
+            <p>ما تجربه‌های دیجیتال فوق‌العاده می‌سازیم که برندتان را متمایز می‌کند</p>
+            <a href="#services" class="cta-button">شروع پروژه</a>
         </div>
-        <div class="slider-progress"></div>
-    </div>
-
-    <!-- Advanced Sidebar -->
-    <div class="advanced-sidebar">
-        <div class="sidebar-overlay"></div>
-        <div class="sidebar-content">
-            <div class="sidebar-header">
-                <div class="logo-wrapper">
-                    <svg class="logo-shape" viewBox="0 0 100 100">
-                        <polygon points="50 0, 100 50, 50 100, 0 50" fill="#4a6bff"/>
-                    </svg>
-                    <span class="logo-text">Behrouzi</span>
-                </div>
-                <button class="close-sidebar">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                    </svg>
-                </button>
+        <div class="scroll-indicator">
+            <div class="arrow-down"></div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <h2>خدمات ما</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>طراحی UI/UX</h3>
+                <p>رابط‌های کاربری زیبا و کاربردی که تجربه استفاده را بهبود می‌بخشند</p>
             </div>
-            <ul class="sidebar-menu">
-                <li><a href="#" data-wave="true">خانه</a></li>
-                <!-- Other menu items -->
-            </ul>
-            <div class="sidebar-footer">
-                <a href="tel:09399538811" class="contact-number">
-                    <i class="fas fa-phone-alt"></i>
-                    09399538811
-                </a>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>توسعه وب</h3>
+                <p>وب‌سایت‌های مدرن و ریسپانسیو با آخرین تکنولوژی‌ها</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>اپلیکیشن موبایل</h3>
+                <p>اپ‌های موبایل با کارایی بالا برای iOS و Android</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>بهینه‌سازی</h3>
+                <p>افزایش سرعت و عملکرد وب‌سایت‌ها و اپلیکیشن‌ها</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio">
+        <h2>نمونه کارها</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image"></div>
+                <div class="portfolio-overlay">
+                    <h3>پروژه فروشگاهی</h3>
+                    <p>طراحی و توسعه فروشگاه آنلاین</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image"></div>
+                <div class="portfolio-overlay">
+                    <h3>اپلیکیشن مدیریت</h3>
+                    <p>سیستم مدیریت کسب و کار</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image"></div>
+                <div class="portfolio-overlay">
+                    <h3>وب‌سایت شرکتی</h3>
+                    <p>طراحی هویت بصری و وب‌سایت</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image"></div>
+                <div class="portfolio-overlay">
+                    <h3>پلتفرم آموزشی</h3>
+                    <p>سامانه یادگیری آنلاین</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>درباره ما</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>ما کی هستیم؟</h3>
+                <p>تیمی از متخصصان خلاق که با ترکیب هنر و تکنولوژی، تجربه‌های دیجیتال بی‌نظیری خلق می‌کنیم. هدف ما کمک به کسب‌وکارها برای رسیدن به اهدافشان از طریق راه‌حل‌های نوآورانه است.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <h4>100+</h4>
+                        <p>پروژه موفق</p>
+                    </div>
+                    <div class="stat">
+                        <h4>50+</h4>
+                        <p>مشتری راضی</p>
+                    </div>
+                    <div class="stat">
+                        <h4>5+</h4>
+                        <p>سال تجربه</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2>تماس با ما</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>اطلاعات تماس</h3>
+                <div class="contact-item">
+                    <span class="icon">📧</span>
+                    <span>info@digitalstudio.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">📱</span>
+                    <span>09123456789</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <span>تهران، خیابان آزادی</span>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="نام شما" required>
+                <input type="email" placeholder="ایمیل شما" required>
+                <textarea placeholder="پیام شما" rows="5" required></textarea>
+                <button type="submit">ارسال پیام</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Digital Studio</h3>
+                <p>خلق تجربه‌های دیجیتال بی‌نظیر</p>
+            </div>
+            <div class="footer-section">
+                <h3>لینک‌های مفید</h3>
+                <ul>
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#services">خدمات</a></li>
+                    <li><a href="#portfolio">نمونه کارها</a></li>
+                    <li><a href="#contact">تماس</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>شبکه‌های اجتماعی</h3>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Digital Studio. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
+    
