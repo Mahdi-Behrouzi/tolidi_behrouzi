@@ -1,193 +1,78 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استودیو خلاقیت دیجیتال</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تولیدی بهروزی | کیف‌های خاص و باکیفیت</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Floating Particles Background -->
-    <div class="particles" id="particles"></div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Digital Studio</div>
-            <ul class="nav-links">
-                <li><a href="#home">خانه</a></li>
-                <li><a href="#services">خدمات</a></li>
-                <li><a href="#portfolio">نمونه کارها</a></li>
-                <li><a href="#about">درباره ما</a></li>
-                <li><a href="#contact">تماس</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+  <!-- 🔹 هدر -->
+  <header class="header">
+    <div class="container header-content">
+      <h1 class="logo">تولیدی بهروزی</h1>
+      <nav class="navbar">
+        <a href="#home">خانه</a>
+        <a href="#about">درباره ما</a>
+        <a href="#gallery">محصولات</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+      <div class="phone">📞 ۰۹۱۲۱۲۳۴۵۶۷</div>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>خلاقیت بی‌حد و حصر</h1>
-            <p>ما تجربه‌های دیجیتال فوق‌العاده می‌سازیم که برندتان را متمایز می‌کند</p>
-            <a href="#services" class="cta-button">شروع پروژه</a>
-        </div>
-        <div class="scroll-indicator">
-            <div class="arrow-down"></div>
-        </div>
-    </section>
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <h2>خدمات ما</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>طراحی UI/UX</h3>
-                <p>رابط‌های کاربری زیبا و کاربردی که تجربه استفاده را بهبود می‌بخشند</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💻</div>
-                <h3>توسعه وب</h3>
-                <p>وب‌سایت‌های مدرن و ریسپانسیو با آخرین تکنولوژی‌ها</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📱</div>
-                <h3>اپلیکیشن موبایل</h3>
-                <p>اپ‌های موبایل با کارایی بالا برای iOS و Android</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚀</div>
-                <h3>بهینه‌سازی</h3>
-                <p>افزایش سرعت و عملکرد وب‌سایت‌ها و اپلیکیشن‌ها</p>
-            </div>
-        </div>
-    </section>
+  <!-- 🔹 اسلایدر -->
+  <section id="home" class="slider">
+    <div class="slides">
+      <img src="https://via.placeholder.com/1200x400?text=کیف+اول" alt="slide1">
+      <img src="https://via.placeholder.com/1200x400?text=کیف+دوم" alt="slide2">
+      <img src="https://via.placeholder.com/1200x400?text=کیف+سوم" alt="slide3">
+    </div>
+  </section>
 
-    <!-- Portfolio Section -->
-    <section class="section" id="portfolio">
-        <h2>نمونه کارها</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-image"></div>
-                <div class="portfolio-overlay">
-                    <h3>پروژه فروشگاهی</h3>
-                    <p>طراحی و توسعه فروشگاه آنلاین</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-image"></div>
-                <div class="portfolio-overlay">
-                    <h3>اپلیکیشن مدیریت</h3>
-                    <p>سیستم مدیریت کسب و کار</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-image"></div>
-                <div class="portfolio-overlay">
-                    <h3>وب‌سایت شرکتی</h3>
-                    <p>طراحی هویت بصری و وب‌سایت</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-image"></div>
-                <div class="portfolio-overlay">
-                    <h3>پلتفرم آموزشی</h3>
-                    <p>سامانه یادگیری آنلاین</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Section -->
-    <section class="section" id="about">
-        <h2>درباره ما</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>ما کی هستیم؟</h3>
-                <p>تیمی از متخصصان خلاق که با ترکیب هنر و تکنولوژی، تجربه‌های دیجیتال بی‌نظیری خلق می‌کنیم. هدف ما کمک به کسب‌وکارها برای رسیدن به اهدافشان از طریق راه‌حل‌های نوآورانه است.</p>
-                <div class="stats">
-                    <div class="stat">
-                        <h4>100+</h4>
-                        <p>پروژه موفق</p>
-                    </div>
-                    <div class="stat">
-                        <h4>50+</h4>
-                        <p>مشتری راضی</p>
-                    </div>
-                    <div class="stat">
-                        <h4>5+</h4>
-                        <p>سال تجربه</p>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image">
-                <div class="image-placeholder"></div>
-            </div>
-        </div>
-    </section>
+  <!-- 🔹 درباره ما -->
+  <section id="about" class="about container">
+    <h2>درباره ما</h2>
+    <p>تولیدی بهروزی با بیش از ۱۰ سال سابقه در تولید کیف‌های باکیفیت، با افتخار محصولات خاص و دست‌دوز خود را به سراسر ایران عرضه می‌کند.</p>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <h2>تماس با ما</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>اطلاعات تماس</h3>
-                <div class="contact-item">
-                    <span class="icon">📧</span>
-                    <span>info@digitalstudio.com</span>
-                </div>
-                <div class="contact-item">
-                    <span class="icon">📱</span>
-                    <span>09123456789</span>
-                </div>
-                <div class="contact-item">
-                    <span class="icon">📍</span>
-                    <span>تهران، خیابان آزادی</span>
-                </div>
-            </div>
-            <form class="contact-form">
-                <input type="text" placeholder="نام شما" required>
-                <input type="email" placeholder="ایمیل شما" required>
-                <textarea placeholder="پیام شما" rows="5" required></textarea>
-                <button type="submit">ارسال پیام</button>
-            </form>
-        </div>
-    </section>
+  <!-- 🔹 گالری محصولات -->
+  <section id="gallery" class="gallery container">
+    <h2>محصولات ما</h2>
+    <div class="gallery-grid">
+      <img src="https://via.placeholder.com/300x300?text=کیف+۱" alt="product1">
+      <img src="https://via.placeholder.com/300x300?text=کیف+۲" alt="product2">
+      <img src="https://via.placeholder.com/300x300?text=کیف+۳" alt="product3">
+      <img src="https://via.placeholder.com/300x300?text=کیف+۴" alt="product4">
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Digital Studio</h3>
-                <p>خلق تجربه‌های دیجیتال بی‌نظیر</p>
-            </div>
-            <div class="footer-section">
-                <h3>لینک‌های مفید</h3>
-                <ul>
-                    <li><a href="#home">خانه</a></li>
-                    <li><a href="#services">خدمات</a></li>
-                    <li><a href="#portfolio">نمونه کارها</a></li>
-                    <li><a href="#contact">تماس</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>شبکه‌های اجتماعی</h3>
-                <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Digital Studio. تمامی حقوق محفوظ است.</p>
-        </div>
-    </footer>
+  <!-- 🔹 تماس با ما -->
+  <section id="contact" class="contact container">
+    <h2>تماس با ما</h2>
+    <form>
+      <input type="text" placeholder="نام شما" required>
+      <input type="email" placeholder="ایمیل شما" required>
+      <textarea placeholder="پیام شما..." required></textarea>
+      <button type="submit">ارسال پیام</button>
+    </form>
+    <p class="socials">
+      ما را در اینستاگرام دنبال کنید: <a href="https://instagram.com/tolidi_behrouzi" target="_blank">@tolidi_behrouzi</a>
+    </p>
+  </section>
 
-    <script src="js/script.js"></script>
+  <!-- 🔹 دکمه بازگشت به بالا -->
+  <button class="to-top" onclick="scrollToTop()">⬆️</button>
+
+  <!-- 🔹 فوتر -->
+  <footer class="footer">
+    <div class="container">
+      <p>© ۲۰۲۵ تولیدی بهروزی | تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-    
