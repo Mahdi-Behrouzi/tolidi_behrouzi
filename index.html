@@ -3,86 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تولیدی بهروزی | tolidi_behrouzi</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>تولیدی بهروزی | گروه صنعتی Behrouzi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <!-- هدر با اطلاعات تماس -->
-    <header class="top-header">
-        <div class="contact-info">
-            <span><i class="fas fa-phone"></i> 09399538811</span>
-            <span><i class="fas fa-envelope"></i> info@tolidi_behrouzi.ir</span>
-        </div>
-    </header>
-
-    <!-- اسلایدر -->
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide active">
-                <img src="assets/images/slider1.jpg" alt="محصولات تولیدی بهروزی">
-                <div class="slide-text">
-                    <h2>تولیدی بهروزی</h2>
-                    <p>با کیفیت ترین محصولات را از ما بخواهید</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="assets/images/slider2.jpg" alt="تولیدات صنعتی">
-                <div class="slide-text">
-                    <h2>تخصص ما تولید است</h2>
-                    <p>طراحی و تولید انواع قطعات صنعتی</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="assets/images/slider3.jpg" alt="پشتیبانی 24 ساعته">
-                <div class="slide-text">
-                    <h2>پشتیبانی 24/7</h2>
-                    <p>تماس: 09399538811</p>
-                </div>
-            </div>
-        </div>
-        <div class="slider-controls">
-            <button class="prev"><i class="fas fa-chevron-right"></i></button>
-            <button class="next"><i class="fas fa-chevron-left"></i></button>
-        </div>
-        <div class="slider-dots"></div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <svg class="loader" viewBox="0 0 100 100">
+            <path d="M10 50A40 40 0 0 1 90 50A40 42 0 0 1 10 50" fill="none" stroke="#4a6bff" stroke-width="4">
+                <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" values="0 50 51;360 50 51"/>
+            </path>
+        </svg>
     </div>
 
-    <!-- منوی همبرگر -->
-    <button id="menuToggle" class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- منوی کشویی -->
-    <nav id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h3>تولیدی بهروزی</h3>
-            <button id="closeMenu" class="close-btn">
-                <i class="fas fa-times"></i>
-            </button>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-brand">
+            <span class="logo">Behrouzi</span>
+            <span class="sublogo">تولیدی صنعتی</span>
         </div>
-        
-        <ul class="menu">
-            <li><a href="#"><i class="fas fa-home"></i> خانه</a></li>
-            <li><a href="#"><i class="fas fa-box-open"></i> محصولات</a></li>
-            <li><a href="#"><i class="fas fa-industry"></i> خدمات</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> درباره ما</a></li>
-            <li><a href="#"><i class="fas fa-phone"></i> تماس با ما</a></li>
-        </ul>
-        
-        <div class="sidebar-footer">
-            <p>تماس: 09399538811</p>
+        <div class="nav-contact">
+            <a href="tel:09399538811" class="cta-button">
+                <i class="fas fa-phone"></i>
+                <span>09399538811</span>
+            </a>
         </div>
     </nav>
 
-    <!-- محتوای اصلی -->
-    <main class="content">
-        <section class="about">
-            <h1>خوش آمدید به تولیدی بهروزی</h1>
-            <p>ما با بیش از 20 سال تجربه در زمینه تولید انواع قطعات صنعتی آماده خدمت رسانی به شما هستیم.</p>
-        </section>
-    </main>
+    <!-- 3D Slider -->
+    <div class="slider-3d">
+        <div class="slider-container">
+            <div class="slide active" data-bg="img/slide1.jpg">
+                <div class="slide-content">
+                    <h2 class="animate__animated animate__fadeInDown">تولیدی بهروزی</h2>
+                    <p class="animate__animated animate__fadeInUp animate__delay-1s">پیشرو در تولید قطعات صنعتی</p>
+                    <button class="btn-hover3d animate__animated animate__fadeInUp animate__delay-2s">
+                        <span>مشاهده محصولات</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Slides 2-3 -->
+        </div>
+        <div class="slider-progress"></div>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Advanced Sidebar -->
+    <div class="advanced-sidebar">
+        <div class="sidebar-overlay"></div>
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <svg class="logo-shape" viewBox="0 0 100 100">
+                        <polygon points="50 0, 100 50, 50 100, 0 50" fill="#4a6bff"/>
+                    </svg>
+                    <span class="logo-text">Behrouzi</span>
+                </div>
+                <button class="close-sidebar">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" data-wave="true">خانه</a></li>
+                <!-- Other menu items -->
+            </ul>
+            <div class="sidebar-footer">
+                <a href="tel:09399538811" class="contact-number">
+                    <i class="fas fa-phone-alt"></i>
+                    09399538811
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
