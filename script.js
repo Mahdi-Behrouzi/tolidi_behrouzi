@@ -1,49 +1,60 @@
-// اسلایدر
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.querySelector('.slider-dots');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
+// 3D Slider Animation
+const slider = {
+    init() {
+        this.slides = document.querySelectorAll('.slide');
+        this.progress = document.querySelector('.slider-progress');
+        this.current = 0;
+        this.autoPlay();
+        this.createProgress();
+    },
+    autoPlay() {
+        setInterval(() => {
+            this.nextSlide();
+        }, 5000);
+    },
+    nextSlide() {
+        this.current = (this.current + 1) % this.slides.length;
+        this.animateSlides();
+    },
+    animateSlides() {
+        gsap.to('.slider-container', {
+            rotationY: this.current * 120,
+            duration: 1.5,
+            ease: 'power3.inOut'
+        });
 
-// ایجاد نقاط اسلایدر
-slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
+        // Update progress
+        gsap.to(this.progress, {
+            width: `${(this.current + 1) * (100 / this.slides.length)}%`,
+            duration: 0.5
+        });
+    },
+    createProgress() {
+        this.slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('progress-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => this.goToSlide(i));
+            this.progress.appendChild(dot);
+        });
+    },
+    goToSlide(index) {
+        this.current = index;
+        this.animateSlides();
+    }
+};
 
-const dots = document.querySelectorAll('.dot');
-
-function updateSlider() {
-    document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 100}%)`;
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    slider.init();
     
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
+    // Advanced Sidebar
+    const sidebar = new AdvancedSidebar({
+        menuButton: '.menu-toggle',
+        closeButton: '.close-sidebar',
+        overlay: '.sidebar-overlay'
     });
-}
 
-function goToSlide(index) {
-    currentSlide = index;
-    updateSlider();
-}
-
-prevBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateSlider();
+    // 3D Hover Effects
+    Hover3DEffect.init('.product-card');
 });
-
-nextBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateSlider();
-});
-
-// اسلایدر خودکار
-setInterval(() => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateSlider();
-}, 5000);
-
-// منوی کشویی (مانند کد قبلی)
-// ...
