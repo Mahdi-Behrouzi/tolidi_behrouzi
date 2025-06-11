@@ -1,12 +1,12 @@
 const menuToggle = document.getElementById("menu-toggle");
-const navbar = document.getElementById("navbar");
+const sidebar = document.getElementById("sidebar");
 const menuIcon = document.getElementById("menu-icon");
 const closeIcon = document.getElementById("close-icon");
 
 menuToggle.addEventListener("click", () => {
-  navbar.classList.toggle("active");
+  sidebar.classList.toggle("active");
 
-  const isOpen = navbar.classList.contains("active");
+  const isOpen = sidebar.classList.contains("active");
   menuIcon.style.display = isOpen ? "none" : "inline";
   closeIcon.style.display = isOpen ? "inline" : "none";
 });
