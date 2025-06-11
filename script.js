@@ -1,20 +1,12 @@
-// اسلایدر خودکار
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slides img");
+const menuToggle = document.getElementById("menu-toggle");
+const navbar = document.getElementById("navbar");
+const menuIcon = document.getElementById("menu-icon");
+const closeIcon = document.getElementById("close-icon");
 
-function showNextSlide() {
-  slides[currentSlide].style.display = "none";
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].style.display = "block";
-}
-setInterval(showNextSlide, 3000);
+menuToggle.addEventListener("click", () => {
+  navbar.classList.toggle("active");
 
-// دکمه بازگشت به بالا
-window.onscroll = function() {
-  document.querySelector('.to-top').style.display = 
-    window.scrollY > 300 ? 'block' : 'none';
-};
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  const isOpen = navbar.classList.contains("active");
+  menuIcon.style.display = isOpen ? "none" : "inline";
+  closeIcon.style.display = isOpen ? "inline" : "none";
+});
