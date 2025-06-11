@@ -1,120 +1,69 @@
-/* تنظیمات پایه */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Variables */
+:root {
+    --primary: #4a6bff;
+    --primary-dark: #3a5bef;
+    --secondary: #ff6b4a;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --glass: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
 }
 
-body {
-    background: #f5f5f5;
-    color: #333;
-    transition: all 0.3s ease;
-}
-
-/* هدر بالایی */
-.top-header {
-    background: #4a6bff;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.contact-info span {
-    margin: 0 15px;
-}
-
-/* اسلایدر */
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 500px;
+/* 3D Slider Styles */
+.slider-3d {
+    perspective: 1000px;
+    height: 100vh;
     overflow: hidden;
-    margin-top: 5px;
 }
 
-.slider {
-    display: flex;
-    width: 300%;
-    height: 100%;
-    transition: transform 0.5s ease;
+.slider-container {
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .slide {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: relative;
+    backface-visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(0deg);
+    transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Glass Navigation */
+.glass-nav {
+    backdrop-filter: blur(10px);
+    background: var(--glass);
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.slide-text {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
+/* 3D Button Effect */
+.btn-hover3d {
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
 }
 
-.slide-text h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+.btn-hover3d:hover {
+    transform: translateY(-5px) rotateX(10deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.slider-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    padding: 0 20px;
+/* Advanced Sidebar */
+.advanced-sidebar {
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.slider-controls button {
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #333;
-    transition: all 0.3s;
+.sidebar-content {
+    background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
 }
 
-.slider-controls button:hover {
-    background: rgba(255, 255, 255, 0.9);
+/* Responsive Design */
+@media (max-width: 992px) {
+    .slider-3d {
+        height: 80vh;
+    }
 }
-
-.slider-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.dot.active {
-    background: white;
-}
-
-/* بقیه استایل‌ها (منوی کشویی و...) مانند کد قبلی */
-/* ... */
