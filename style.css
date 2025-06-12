@@ -95,67 +95,96 @@ body {
   text-decoration: none;
   margin: 0 5px;
 }
-/* Fullscreen Slider */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+.slideshow {
+    cursor: pointer;
 }
 
 .slides {
-  display: flex;
-  width: 400%;
-  height: 100%;
-  animation: slide 20s infinite;
+    position: relative;
 }
 
-.slides img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
+/* باکس قرار گیری اسلایدر */
+.slide {
+    display: none;
+    position: relative;
+    animation: fade 0.5s;
 }
 
-/* انیمیشن خودکار اسلاید */
-@keyframes slide {
-  0%   { transform: translateX(0); }
-  20%  { transform: translateX(0); }
-
-  25%  { transform: translateX(-100%); }
-  45%  { transform: translateX(-100%); }
-
-  50%  { transform: translateX(-200%); }
-  70%  { transform: translateX(-200%); }
-
-  75%  { transform: translateX(-300%); }
-  95%  { transform: translateX(-300%); }
-
-  100% { transform: translateX(0); }
-}
-/* تنظیم اندازه تصویر به طور کامل فضای اسلایدر را پر کند */
-.slider-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* انیمیشن اسلایدشو */
+@keyframes fade {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
 }
 
-/* تنظیم اندازه تصویر به طوری که فضای بیشتری را در اسلایدر اشغال کند */
-.slider-image {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+.slide.active {
+    display: block;
 }
 
-/* تنظیم اندازه تصویر به طور کامل فضای اسلایدر را بدون برش پوشش می دهد */
-.slider-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.slide img {
+    width: 100%;
 }
 
-/* تنظیم اندازه تصویر به عنوان تصویر پس‌زمینه و پر کردن فضای اسلایدر */
-.slider-wrapper {
-  background-image: url('path/to/image.jpg');
-  background-size: cover; /* تصویر را با نسبت ابعاد اصلی‌اش پر می‌کند */
-  background-position: center; /* تصویر را در مرکز قرار می‌دهد */
+.slide div {
+    background-color: #ff000087;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 44px;
+    transition: min-height 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.slide div:hover {
+    min-height: 100%;
+}
+
+.slide div p {
+    margin-bottom: 0;
+    color: #fff;
+    padding: 10px;
+    transition: font-size 0.5s
+}
+
+.slide div:hover p {
+    font-size: 3.5rem;
+}
+
+/* دکمه های قبل و بعد اسلایدر */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    background-color: #0009;
+    color: #fff;
+    padding: 16px;
+    margin-top: -32px;
+}
+
+.prev:active, .next:active {
+    background-color: #000;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.points { margin-top: 10px; }
+
+.points span {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-color: #aaa;
+    border-radius: 50%;
+}
+
+.points span.active {
+    background-color: #555;
+}
+
