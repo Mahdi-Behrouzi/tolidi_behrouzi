@@ -8,3 +8,7 @@ function showNextSlide() {
 }
 
 setInterval(showNextSlide, 2000);
+
+
+
+
