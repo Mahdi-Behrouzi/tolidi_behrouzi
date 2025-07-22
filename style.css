@@ -93,19 +93,21 @@ header {
 /* اسلایدر */
 .slider {
   position: relative;
-  height: 300px;
+  width: 90%;
   max-width: 800px;
+  aspect-ratio: 16 / 9;
   margin: 2rem auto;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  background-color: #000;
 }
 
 .slide {
   position: absolute;
   width: 100%;
-  height: 300px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   display: none;
   transition: opacity 1s ease-in-out;
 }
@@ -113,6 +115,7 @@ header {
 .slide.active {
   display: block;
 }
+
 
 /* بخش‌ها */
 section {
