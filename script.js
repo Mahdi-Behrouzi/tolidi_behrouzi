@@ -18,3 +18,11 @@ function closeMenu() {
   menuBtn.innerHTML = '&#9776;';
   menuBtn.setAttribute('aria-label', 'بازکردن منو');
 }
+<script>
+  const rangeInput = document.getElementById('rangeInput');
+  const rangeValue = document.getElementById('rangeValue');
+
+  rangeInput.addEventListener('input', () => {
+    rangeValue.textContent = rangeInput.value;
+  });
+</script>
