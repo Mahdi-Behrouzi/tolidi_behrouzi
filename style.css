@@ -158,3 +158,58 @@ footer {
   text-align: center;
   margin-top: 3rem;
 }
+/* کدهای استایل اسلایدر */
+.range-slider {
+  width: 90%;
+  max-width: 400px;
+  margin: 2rem auto;
+  font-family: IRANSans, sans-serif;
+}
+
+.range-slider label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.range-slider input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: #ddd;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #007BFF;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #0056b3;
+  transition: background 0.3s ease;
+  margin-top: -8px;
+}
+
+.range-slider input[type="range"]:hover::-webkit-slider-thumb {
+  background: #0056b3;
+}
+
+/* برای مرورگر فایرفاکس */
+.range-slider input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: #007BFF;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #0056b3;
+  transition: background 0.3s ease;
+}
+
+.range-slider input[type="range"]:hover::-moz-range-thumb {
+  background: #0056b3;
+}
