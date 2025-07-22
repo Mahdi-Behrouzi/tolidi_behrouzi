@@ -5,57 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تولیدی بهروزی</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
-  </head
+</head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-content">
-      <h1 class="logo">تولیدی بهروزی</h1>
-      <div class="menu-toggle" id="menu-toggle">
-        <span id="menu-icon">☰</span>
-        <span id="close-icon" style="display: none;">✕</span>
-      </div>
-    </div>
+  <!-- هدر -->
+  <header>
+    <h1>تولیدی بهروزی</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#products">محصولات</a></li>
+        <li><a href="#contact">تماس با ما</a></li>
+      </ul>
+    </nav>
   </header>
-<section class="slider-wrapper">
-  <div class="glider">
-    <img src="img/عکس نوشته ساز_1663151402523.png" alt="اسلاید 1" />
-    <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۲۱۴.jpg" alt="اسلاید 2" />
-    <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۴۵۳.jpg" alt="اسلاید 3" />
-    <img src="img/IMG_20240302_195417.jpg" alt="اسلاید 4" />
-  </div>
-  <div role="tablist" class="dots"></div>
-</section>
 
+  <!-- اسلایدر -->
+  <section id="home" class="slider">
+    <img src="images/نوشته ساز_1663151402523.png" class="slide active" alt="اسلاید ۱" />
+    <img src="images/IMG_۲۰۲۴۰۲۲۸_۲۲۲۴۵۳.jpg" class="slide" alt="اسلاید ۲" />
+    <img src="images/IMG_۲۰۲۴۰۲۲۸_۲۲۲۲۱۴.jpg" class="slide" alt="اسلاید ۳" />
+    <img src="images/IMG_20240302_195417.jpg" class="slide" alt="اسلاید ۴" />
+  </section>
 
-  <!-- Sidebar Menu -->
-  <nav class="sidebar" id="sidebar">
-    <a href="#home">خانه</a>
-    <a href="#about">درباره ما</a>
-    <a href="#gallery">محصولات</a>
-    <a href="#contact">تماس با ما</a>
-  </nav>
+  <!-- درباره ما -->
+  <section id="about">
+    <h2>درباره ما</h2>
+    <p>تولیدی بهروزی با بیش از ۱۰ سال تجربه در تولید انواع کیف، افتخار دارد بهترین کیفیت را به شما ارائه دهد.</p>
+  </section>
 
-  <!-- Main Content -->
-  <main class="main">
-    <section id="home">
-      <h2>به تولیدی بهروزی خوش آمدید</h2>
-      <p>تولیدکننده انواع کیف‌های با کیفیت</p>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>تمامی حقوق محفوظ است &copy; تولیدی بهروزی</p>
-      <div class="socials">
-        <a href="#">اینستاگرام</a> |
-        <a href="#">تلگرام</a> |
-        <a href="#">واتساپ</a>
-      </div>
+  <!-- محصولات -->
+  <section id="products">
+    <h2>محصولات ما</h2>
+    <div class="gallery">
+      <img src="images/product1.jpg" alt="محصول ۱" />
+      <img src="images/product2.jpg" alt="محصول ۲" />
+      <img src="images/product3.jpg" alt="محصول ۳" />
     </div>
+  </section>
+
+  <!-- تماس با ما -->
+  <section id="contact">
+    <h2>تماس با ما</h2>
+    <form>
+      <input type="text" placeholder="نام شما" required />
+      <input type="email" placeholder="ایمیل شما" required />
+      <textarea placeholder="پیام شما..." required></textarea>
+      <button type="submit">ارسال</button>
+    </form>
+  </section>
+
+  <!-- فوتر -->
+  <footer>
+    <p>تمام حقوق متعلق به تولیدی بهروزی ©</p>
   </footer>
 
   <script src="script.js"></script>
