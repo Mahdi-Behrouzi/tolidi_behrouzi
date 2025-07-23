@@ -16,6 +16,3 @@ menuBtn.addEventListener('click', () => {
 function closeMenu() {
   sideMenu.classList.remove('open');
   menuBtn.innerHTML = '&#9776;';
-  menuBtn.setAttribute('aria-label', 'بازکردن منو');
-}
-<script>
