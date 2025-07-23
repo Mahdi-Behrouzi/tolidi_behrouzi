@@ -1,76 +1,81 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تولیدی بهروزی</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- هدر و منو -->
+
+  <!-- هدر -->
   <header>
     <div class="logo">تولیدی بهروزی</div>
-    <button id="menu-btn">&#9776;</button>
+    <button id="menu-btn">☰</button>
     <nav id="main-nav">
       <ul>
-        <li><a href="#">خانه</a></li>
-        <li><a href="#products">محصولات</a></li>
+        <li><a href="#slider">خانه</a></li>
         <li><a href="#about">درباره ما</a></li>
+        <li><a href="#products">محصولات</a></li>
         <li><a href="#contact">تماس با ما</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- اسلایدر -->
-  <section class="slider">
-    <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۴۵۳.jpg" class="active" alt="عکس اول">
-    <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۲۱۴.jpg" alt="عکس دوم">
-    <img src="img/IMG_20240302_195417.jpg" alt="عکس سوم">
-    <img src="img/نوشته ساز_1663151402523.png" alt="عکس چهارم">
-  </section>
+  <div class="slider" id="slider">
+    <img src="img/IMG_۲۰۲۴۰۲۸_۲۲۲۴۵۳.jpg" class="active">
+    <img src="img/IMG_۲۰۲۴۰۲۸_۲۲۲۲۱۴.jpg">
+    <img src="img/IMG_20240302_195417.jpg">
+    <img src="img/نوشته_ساز_1663151402523.png">
+  </div>
 
   <!-- درباره ما -->
   <section id="about">
     <h2>درباره ما</h2>
-    <p>تولیدی بهروزی با بیش از ۱۰ سال سابقه در زمینه تولید کیف‌های با کیفیت ایرانی، با افتخار در خدمت شماست.</p>
+    <p>ما در تولیدی بهروزی با کیفیت‌ترین کیف‌ها را با بهترین قیمت تولید می‌کنیم. هدف ما رضایت کامل مشتریان و ارائه طرح‌های به‌روز است.</p>
   </section>
 
   <!-- محصولات -->
   <section id="products">
-    <h2>محصولات ما</h2>
+    <h2>محصولات</h2>
     <div class="product-list">
       <div class="product-card">
-        <img src="img/sample1.jpg" alt="محصول ۱">
-        <h3>کیف مجلسی</h3>
-        <p>طراحی شیک و کلاسیک مناسب مهمانی‌ها.</p>
+        <img src="img/product1.jpg" alt="محصول ۱">
+        <p>کیف دوشی زنانه</p>
       </div>
       <div class="product-card">
-        <img src="img/sample2.jpg" alt="محصول ۲">
-        <h3>کیف روزمره</h3>
-        <p>راحت و مقاوم برای استفاده روزانه.</p>
+        <img src="img/product2.jpg" alt="محصول ۲">
+        <p>کیف اداری مردانه</p>
       </div>
-      <!-- می‌تونی محصولات بیشتری اضافه کنی -->
+      <div class="product-card">
+        <img src="img/product3.jpg" alt="محصول ۳">
+        <p>کوله‌پشتی اسپرت</p>
+      </div>
     </div>
   </section>
 
-  <!-- فرم تماس -->
+  <!-- تماس با ما -->
   <section id="contact">
     <h2>تماس با ما</h2>
     <form>
-      <input type="text" placeholder="نام شما" required>
-      <input type="email" placeholder="ایمیل شما" required>
-      <textarea placeholder="پیام شما" required></textarea>
-      <button type="submit">ارسال پیام</button>
+      <input type="text" placeholder="نام شما">
+      <input type="email" placeholder="ایمیل">
+      <textarea placeholder="پیام شما"></textarea>
+      <button type="submit">ارسال</button>
     </form>
   </section>
 
   <!-- فوتر -->
   <footer>
-    <p>تمامی حقوق متعلق به تولیدی بهروزی است © 2025</p>
+    <p>تمامی حقوق برای تولیدی بهروزی محفوظ است &copy; 2025</p>
     <div class="socials">
-      <a href="#">اینستاگرام</a> | <a href="#">واتساپ</a> | <a href="#">تلگرام</a>
+      <a href="#">اینستاگرام</a>
+      <a href="#">تلگرام</a>
+      <a href="#">واتساپ</a>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
