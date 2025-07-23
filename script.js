@@ -1,43 +1,26 @@
-// منو همبرگری
-const menuBtn = document.getElementById('menu-btn');
-const sideMenu = document.getElementById('side-menu');
-
-menuBtn.addEventListener('click', () => {
-  if (sideMenu.classList.contains('open')) {
-    sideMenu.classList.remove('open');
-    menuBtn.innerHTML = '&#9776;';
-  } else {
-    sideMenu.classList.add('open');
-    menuBtn.innerHTML = '&times;';
-  }
-});
-
-function closeMenu() {
-  sideMenu.classList.remove('open');
-  menuBtn.innerHTML = '&#9776;';
-}
-
-// اسلایدر
+// اسلایدر خودکار
 const slides = document.querySelectorAll('.slider img');
-let current = 0;
+let currentSlide = 0;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+    slide.classList.remove('active');
+    if (i === index) slide.classList.add('active');
   });
 }
 
-setInterval(() => {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}, 2000);
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
 
-// دکمه‌های رنگی
-const colorBtns = document.querySelectorAll('.color-btn');
+setInterval(nextSlide, 3000); // هر ۳ ثانیه یکبار تغییر عکس
 
-colorBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    colorBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
+// منو همبرگری (سه خطی)
+const menuBtn = document.getElementById('menu-btn');
+const mainNav = document.getElementById('main-nav');
+
+menuBtn.addEventListener('click', () => {
+  mainNav.classList.toggle('open');
+  menuBtn.textContent = mainNav.classList.contains('open') ? '✖' : '\u2630';
 });
