@@ -2,65 +2,48 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تولیدی بهروزی</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- منو همبرگری -->
+  <header>
+    <button id="menu-btn">&#9776;</button>
+    <nav id="side-menu">
+      <button onclick="closeMenu()" class="close-btn">&times;</button>
+      <ul>
+        <li><a href="#">خانه</a></li>
+        <li><a href="#">محصولات</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="#">تماس با ما</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <h1>تولیدی بهروزی</h1>
-  <button id="menu-btn" aria-label="بازکردن منو">&#9776;</button>
-<main>
- 
-
-</header>
-
-<nav id="side-menu" class="side-menu">
-  <ul>
-    <li><a href="#home" onclick="closeMenu()">خانه</a></li>
-    <li><a href="#about" onclick="closeMenu()">درباره ما</a></li>
-    <li><a href="#products" onclick="closeMenu()">محصولات</a></li>
-    <li><a href="#contact" onclick="closeMenu()">تماس با ما</a></li>
-  </ul>
-</nav>
-
-
-<section id="home" class="slider">
-  <img src="img/نوشته ساز_1663151402523.png" class="slide active" alt="اسلاید ۱" />
-  <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۴۵۳.jpg" class="slide" alt="اسلاید ۲" />
-  <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۲۱۴.jpg" class="slide" alt="اسلاید ۳" />
-  <img src="img/IMG_20240302_195417.jpg" class="slide" alt="اسلاید ۴" />
-</section>
-
+  <!-- اسلایدر -->
+  <div class="slider">
+    <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۴۵۳.jpg" class="active" alt="slider image">
+    <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۲۱۴.jpg" alt="slider image">
+    <img src="img/IMG_20240302_195417.jpg" alt="slider image">
+    <img src="img/نوشته ساز_1663151402523.png" alt="slider image">
+  </div>
 <section id="about">
   <h2>درباره ما</h2>
   <p>تولیدی بهروزی با بیش از ۱۰ سال تجربه در تولید انواع کیف، افتخار دارد بهترین کیفیت را به شما ارائه دهد.</p>
 </section>
 
-<section id="products">
-  <h2>محصولات ما</h2>
-  <div class="gallery">
-    <img src="img/product1.jpg" alt="محصول ۱" />
-    <img src="img/product2.jpg" alt="محصول ۲" />
-    <img src="img/product3.jpg" alt="محصول ۳" />
+  <!-- دکمه‌های رنگی -->
+  <div class="color-buttons">
+    <button class="color-btn">قرمز</button>
+    <button class="color-btn">آبی</button>
+    <button class="color-btn">سبز</button>
   </div>
-</section>
-
-<section id="contact">
-  <h2>تماس با ما</h2>
-  <form>
-    <input type="text" placeholder="نام شما" required />
-    <input type="email" placeholder="ایمیل شما" required />
-    <textarea placeholder="پیام شما..." required></textarea>
-    <button type="submit">ارسال</button>
-  </form>
-</section>
 
 <footer>
   <p>تمام حقوق متعلق به تولیدی بهروزی ©</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
