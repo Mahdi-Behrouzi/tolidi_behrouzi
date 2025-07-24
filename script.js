@@ -1,6 +1,15 @@
-// اسلایدر خودکار
+// Menu Toggle
+const menuBtn = document.getElementById('menu-btn');
+const mainNav = document.getElementById('main-nav');
+
+menuBtn.addEventListener('click', () => {
+  mainNav.classList.toggle('open');
+  menuBtn.classList.toggle('open');
+});
+
+// Slider
 const slides = document.querySelectorAll('.slider img');
-let currentSlide = 0;
+let current = 0;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -10,17 +19,8 @@ function showSlide(index) {
 }
 
 function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+  current = (current + 1) % slides.length;
+  showSlide(current);
 }
 
-setInterval(nextSlide, 3000); // هر ۳ ثانیه یکبار تغییر عکس
-
-// منو همبرگری (سه خطی)
-const menuBtn = document.getElementById('menu-btn');
-const mainNav = document.getElementById('main-nav');
-
-menuBtn.addEventListener('click', () => {
-  mainNav.classList.toggle('open');
-  menuBtn.textContent = mainNav.classList.contains('open') ? '✖' : '\u2630';
-});
+setInterval(nextSlide, 3000);
