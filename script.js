@@ -24,3 +24,4 @@ function nextSlide() {
 }
 
 setInterval(nextSlide, 3000);
+
