@@ -8,8 +8,8 @@ menuBtn.addEventListener('click', () => {
 
 
 
-const slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
+const slides = document.querySelectorAll(".fullscreen-slider .slide");
+let current = 0;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -19,8 +19,8 @@ function showSlide(index) {
 }
 
 function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+  current = (current + 1) % slides.length;
+  showSlide(current);
 }
 
-setInterval(nextSlide, 3000); // هر ۳ ثانیه عکس بعدی
+setInterval(nextSlide, 4000); // هر ۴ ثانیه
