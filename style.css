@@ -29,65 +29,54 @@ header .logo {
   font-weight: bold;
 }
 
-#menu-btn {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 22px;
+.menu-btn {
   background: none;
   border: none;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
   position: relative;
   z-index: 1100;
 }
 
-#menu-btn span {
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
   display: block;
-  height: 3px;
   background: white;
-  transition: 0.4s;
+  height: 3px;
+  width: 100%;
   border-radius: 2px;
+  position: absolute;
+  transition: all 0.3s ease;
 }
 
-/* حالت باز شدن منو */
-#menu-btn.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+.menu-icon {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-#menu-btn.open span:nth-child(2) {
-  opacity: 0;
+.menu-icon::before {
+  top: -10px;
 }
 
-#menu-btn.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.menu-icon::after {
+  top: 10px;
 }
 
-/* ریسپانسیو – فقط در موبایل دکمه منو نمایش داده بشه */
-@media (max-width: 768px) {
-  #menu-btn {
-    display: flex;
-  }
+.menu-btn.open .menu-icon {
+  background: transparent;
+}
 
-  #main-nav {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #222;
-    width: 200px;
-    display: none;
-    flex-direction: column;
-    padding: 1rem;
-  }
+.menu-btn.open .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
 
-  #main-nav.open {
-    display: flex;
-  }
-
-  #main-nav ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
+.menu-btn.open .menu-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 
