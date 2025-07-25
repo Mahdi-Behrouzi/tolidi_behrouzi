@@ -105,19 +105,20 @@ header .logo {
 }
 
 .fullscreen-slider .slide {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100vw;
   height: 60vh;
   object-fit: cover;
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
   z-index: 0;
 }
 
 .fullscreen-slider .slide.active {
-  display: block;
-  animation: fade 1s ease-in-out;
+  opacity: 1;
+  z-index: 1;
 }
 
 @keyframes fade {
