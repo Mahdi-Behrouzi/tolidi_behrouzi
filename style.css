@@ -113,7 +113,7 @@ header .logo {
   left: 0;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  z-index: 0;
+  z-index: 1;
 }
 
 .fullscreen-slider .slide.active {
