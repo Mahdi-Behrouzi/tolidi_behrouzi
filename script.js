@@ -7,6 +7,7 @@ menuBtn.addEventListener('click', () => {
 });
 
 
+
 // Slider
 const slides = document.querySelectorAll('.slider img');
 let current = 0;
