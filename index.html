@@ -56,17 +56,19 @@
   </p>
 </section>
 
-
 <section id="comments">
   <h2>نظرات کاربران</h2>
   <form id="commentForm">
     <input type="text" id="name" placeholder="نام شما" required>
-    <input type="email" id="email" placeholder="ایمیل یا شماره تماس" required>
-    <textarea id="message" placeholder="نظر شما" rows="5" required></textarea>
+    <input type="text" id="email" placeholder="ایمیل یا شماره تماس" required>
+    <textarea id="message" placeholder="نظر شما" rows="4" required></textarea>
     <button type="submit">ارسال نظر</button>
   </form>
-  <div id="commentSuccess" style="display:none; color:green; margin-top:1rem;">نظر شما با موفقیت ثبت شد.</div>
+  <div id="commentSuccess" style="display:none; color:green; margin-top:1rem;">✅ نظر شما با موفقیت ثبت شد.</div>
+  
+  <div id="commentsList" style="margin-top:2rem;"></div>
 </section>
+
 
 
   <footer>
