@@ -263,3 +263,30 @@ footer .socials a {
 #commentForm button:hover {
   background: #e68900;
 }
+
+.comment-item {
+  background: #f1f1f1;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.comment-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
