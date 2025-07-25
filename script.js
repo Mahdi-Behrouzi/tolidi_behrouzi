@@ -26,29 +26,67 @@ function nextSlide() {
 setInterval(nextSlide, 3000); // هر ۳ ثانیه
 
 <script>
-  document.getElementById("commentForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    const emailOrPhone = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const name = document.getElementById("name").value.trim();
+  const form = document.getElementById("commentForm");
+  const commentSuccess = document.getElementById("commentSuccess");
+  const commentsList = document.getElementById("commentsList");
 
+  function validateInput(name, emailOrPhone, message) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^(\+98|0)?9\d{9}$/;
+    return name && message && (emailRegex.test(emailOrPhone) || phoneRegex.test(emailOrPhone));
+  }
 
-    if (!emailRegex.test(emailOrPhone) && !phoneRegex.test(emailOrPhone)) {
-      alert("لطفاً یک ایمیل معتبر یا شماره موبایل صحیح وارد کنید.");
+  function saveComment(comment) {
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.push(comment);
+    localStorage.setItem("comments", JSON.stringify(comments));
+  }
+
+  function loadComments() {
+    commentsList.innerHTML = "";
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+    comments.forEach((comment, index) => {
+      const div = document.createElement("div");
+      div.className = "comment-item";
+      div.innerHTML = `
+        <strong>${comment.name} (${comment.email})</strong>
+        <p>${comment.message}</p>
+        <button class="delete-btn" onclick="deleteComment(${index})">حذف</button>
+      `;
+      commentsList.appendChild(div);
+    });
+  }
+
+  function deleteComment(index) {
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.splice(index, 1);
+    localStorage.setItem("comments", JSON.stringify(comments));
+    loadComments();
+  }
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!validateInput(name, email, message)) {
+      alert("لطفاً نام، نظر، و ایمیل یا شماره تماس معتبر وارد کنید.");
       return;
     }
 
-    if (message === "" || name === "") {
-      alert("لطفاً تمام فیلدها را پر کنید.");
-      return;
-    }
-
-    // اگر اعتبارسنجی درست بود
-    document.getElementById("commentSuccess").style.display = "block";
-    this.reset();
+    const comment = { name, email, message };
+    saveComment(comment);
+    loadComments();
+    commentSuccess.style.display = "block";
+    form.reset();
+    setTimeout(() => commentSuccess.style.display = "none", 3000);
   });
+
+  // نمایش اولیه
+  loadComments();
 </script>
+
 
