@@ -25,21 +25,30 @@ function nextSlide() {
 
 setInterval(nextSlide, 3000); // هر ۳ ثانیه
 
-// فرم نظرات
-const commentForm = document.getElementById("comment-form");
-const commentList = document.getElementById("comment-list");
+<script>
+  document.getElementById("commentForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const emailOrPhone = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const name = document.getElementById("name").value.trim();
 
-commentForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const name = document.getElementById("comment-name").value;
-  const text = document.getElementById("comment-text").value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^(\+98|0)?9\d{9}$/;
 
-  const commentDiv = document.createElement("div");
-  commentDiv.classList.add("comment");
-  commentDiv.innerHTML = `<strong>${name}</strong><p>${text}</p>`;
+    if (!emailRegex.test(emailOrPhone) && !phoneRegex.test(emailOrPhone)) {
+      alert("لطفاً یک ایمیل معتبر یا شماره موبایل صحیح وارد کنید.");
+      return;
+    }
 
-  commentList.prepend(commentDiv);
+    if (message === "" || name === "") {
+      alert("لطفاً تمام فیلدها را پر کنید.");
+      return;
+    }
 
-  // پاک کردن فرم
-  commentForm.reset();
-});
+    // اگر اعتبارسنجی درست بود
+    document.getElementById("commentSuccess").style.display = "block";
+    this.reset();
+  });
+</script>
+
