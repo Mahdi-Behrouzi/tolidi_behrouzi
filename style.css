@@ -98,25 +98,27 @@ header .logo {
 }
 
 .slider {
-  max-width: 100%;
-  height: 400px;
-  overflow: hidden;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.slider img {
+.slider .slide {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
 }
 
-.slider img.active {
-  display: block;
-  animation: fade 1s ease-in-out;
+.slider .slide.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 @keyframes fade {
