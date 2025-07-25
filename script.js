@@ -8,8 +8,8 @@ menuBtn.addEventListener('click', () => {
 
 
 
-let slides = document.querySelectorAll(".slide");
-let current = 0;
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -19,9 +19,8 @@ function showSlide(index) {
 }
 
 function nextSlide() {
-  current = (current + 1) % slides.length;
-  showSlide(current);
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
 }
 
-setInterval(nextSlide, 3000); // تغییر هر ۳ ثانیه
-
+setInterval(nextSlide, 3000); // هر ۳ ثانیه عکس بعدی
