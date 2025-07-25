@@ -30,17 +30,66 @@ header .logo {
 }
 
 #menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
   background: none;
-  color: white;
-  font-size: 1.5rem;
   border: none;
   cursor: pointer;
-  display: none;
+  position: relative;
+  z-index: 1100;
 }
 
-#menu-btn.open::before {
-  content: "✕";
+#menu-btn span {
+  display: block;
+  height: 3px;
+  background: white;
+  transition: 0.4s;
+  border-radius: 2px;
 }
+
+/* حالت باز شدن منو */
+#menu-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ریسپانسیو – فقط در موبایل دکمه منو نمایش داده بشه */
+@media (max-width: 768px) {
+  #menu-btn {
+    display: flex;
+  }
+
+  #main-nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #222;
+    width: 200px;
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  #main-nav.open {
+    display: flex;
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
 
 #main-nav ul {
   list-style: none;
