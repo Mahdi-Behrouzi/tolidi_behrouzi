@@ -8,14 +8,13 @@ menuBtn.addEventListener('click', () => {
 
 
 
-// Slider
-const slides = document.querySelectorAll('.slider img');
+let slides = document.querySelectorAll(".slide");
 let current = 0;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) slide.classList.add('active');
+    slide.classList.remove("active");
+    if (i === index) slide.classList.add("active");
   });
 }
 
@@ -24,5 +23,5 @@ function nextSlide() {
   showSlide(current);
 }
 
-setInterval(nextSlide, 3000);
+setInterval(nextSlide, 3000); // تغییر هر ۳ ثانیه
 
