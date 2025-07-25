@@ -23,4 +23,23 @@ function nextSlide() {
   showSlide(current);
 }
 
-setInterval(nextSlide, 4000); // هر ۴ ثانیه
+setInterval(nextSlide, 3000); // هر ۳ ثانیه
+
+// فرم نظرات
+const commentForm = document.getElementById("comment-form");
+const commentList = document.getElementById("comment-list");
+
+commentForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const name = document.getElementById("comment-name").value;
+  const text = document.getElementById("comment-text").value;
+
+  const commentDiv = document.createElement("div");
+  commentDiv.classList.add("comment");
+  commentDiv.innerHTML = `<strong>${name}</strong><p>${text}</p>`;
+
+  commentList.prepend(commentDiv);
+
+  // پاک کردن فرم
+  commentForm.reset();
+});
