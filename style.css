@@ -108,7 +108,7 @@ header .logo {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 80vw;
   height: 100vh;
   object-fit: cover;
   display: none;
