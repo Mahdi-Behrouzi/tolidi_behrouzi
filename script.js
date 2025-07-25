@@ -1,4 +1,3 @@
-// Menu Toggle
 const menuBtn = document.getElementById('menu-btn');
 const mainNav = document.getElementById('main-nav');
 
@@ -6,6 +5,7 @@ menuBtn.addEventListener('click', () => {
   mainNav.classList.toggle('open');
   menuBtn.classList.toggle('open');
 });
+
 
 // Slider
 const slides = document.querySelectorAll('.slider img');
