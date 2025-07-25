@@ -48,15 +48,36 @@
     </div>
   </section>
 
-  <section id="contact">
-    <h2>تماس با ما</h2>
-    <form>
-      <input type="text" placeholder="نام شما">
-      <input type="email" placeholder="ایمیل">
-      <textarea placeholder="پیام شما"></textarea>
-      <button type="submit">ارسال</button>
-    </form>
-  </section>
+<!-- درباره ما -->
+<section id="about">
+  <h2>درباره ما</h2>
+  <p>
+    تولیدی بهروزی با بیش از ۱۰ سال سابقه در زمینه طراحی و تولید انواع کیف‌های باکیفیت و اقتصادی، همواره تلاش کرده است تا رضایت مشتریان خود را جلب کند. هدف ما ارائه محصولاتی بادوام، زیبا و مقرون‌به‌صرفه برای تمام سلیقه‌هاست.
+  </p>
+</section>
+
+<!-- تماس با ما -->
+<section id="contact">
+  <h2>تماس با ما</h2>
+  <form id="contact-form">
+    <input type="text" placeholder="نام شما" required>
+    <input type="email" placeholder="ایمیل شما" required>
+    <textarea placeholder="پیام شما" rows="5" required></textarea>
+    <button type="submit">ارسال پیام</button>
+  </form>
+</section>
+
+<!-- نظرات کاربران -->
+<section id="comments">
+  <h2>نظرات کاربران</h2>
+  <div id="comment-list"></div>
+  <form id="comment-form">
+    <input type="text" id="comment-name" placeholder="نام شما" required>
+    <textarea id="comment-text" placeholder="نظر شما" rows="4" required></textarea>
+    <button type="submit">ثبت نظر</button>
+  </form>
+</section>
+
 
   <footer>
     <p>© 2025 تولیدی بهروزی | همه حقوق محفوظ است</p>
