@@ -224,44 +224,42 @@ footer .socials a {
     gap: 1rem;
   }
 }
-#about, #contact, #comments {
+#comments {
   background: #fff;
   padding: 2rem;
-  margin-top: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 3rem;
 }
 
-#contact-form input, #contact-form textarea,
-#comment-form input, #comment-form textarea {
-  width: 100%;
+#comments h2 {
   margin-bottom: 1rem;
-  padding: 0.75rem;
+  color: #222;
+}
+
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#commentForm input,
+#commentForm textarea {
+  padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-#contact-form button, #comment-form button {
-  background-color: #ff9800;
-  color: #fff;
+#commentForm button {
+  background: #ff9800;
+  color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
+  padding: 0.8rem;
   border-radius: 5px;
-  transition: background 0.3s ease;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-#contact-form button:hover, #comment-form button:hover {
-  background-color: #e68a00;
-}
-
-#comment-list {
-  margin-bottom: 2rem;
-}
-
-.comment {
-  background: #f0f0f0;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
+#commentForm button:hover {
+  background: #e68900;
 }
