@@ -1,13 +1,10 @@
-<script>
-  const menuBtn = document.getElementById("menu-btn");
-  const nav = document.getElementById("main-nav");
+const menuBtn = document.getElementById("menu-btn");
+const nav = document.getElementById("main-nav");
 
-  menuBtn.addEventListener("click", () => {
-    menuBtn.classList.toggle("open");
-    nav.classList.toggle("open");
-  });
-</script>
-
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("open");
+  nav.classList.toggle("open");
+});
 
 
 const slides = document.querySelectorAll(".fullscreen-slider .slide");
