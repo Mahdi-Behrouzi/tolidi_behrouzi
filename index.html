@@ -9,65 +9,56 @@
 <body>
 
   <header>
-  <div class="logo">تولیدی بهروزی</div>
-  <button id="menu-btn"></button>
-  <nav id="main-nav">
-    <ul>
-      <li><a href="#home">خانه</a></li>
-      <li><a href="#products">محصولات</a></li>
-      <li><a href="#about">درباره ما</a></li>
-      <li><a href="#comments">نظرات</a></li>
-    </ul>
-  </nav>
-</header>
+    <div class="logo">تولیدی بهروزی</div>
+    <button id="menu-btn"></button>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#products">محصولات</a></li>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#comments">نظرات</a></li>
+      </ul>
+    </nav>
+  </header>
 
-
- <div class="fullscreen-slider">
-  <img src="img/عکس نوشته ساز_1663151402523.png" class="slide active" alt="slide1">
-  <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۴۵۳.jpg" class="slide" alt="slide2">
-  <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۲۱۴.jpg" class="slide" alt="slide3">
-  <img src="img/IMG_20240302_195417.jpg" class="slide" alt="slide4">
-</div>
-
+  <div class="fullscreen-slider" id="home">
+    <img src="img/slide1.jpg" class="slide active" alt="slide1">
+    <img src="img/slide2.jpg" class="slide" alt="slide2">
+    <img src="img/slide3.jpg" class="slide" alt="slide3">
+  </div>
 
   <section id="products">
     <h2>محصولات</h2>
     <div class="product-list">
       <div class="product-card">
-        <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۲۱۴.jpg" alt="">
+        <img src="img/sample1.jpg" alt="">
         <h3>مدل A</h3>
         <p>توضیح کوتاه درباره این مدل.</p>
       </div>
       <div class="product-card">
-        <img src="img/IMG_۲۰۲۴۰۲۲۸_۲۲۲۴۵۳.jpg" alt="">
+        <img src="img/sample2.jpg" alt="">
         <h3>مدل B</h3>
         <p>توضیح کوتاه درباره مدل دیگر.</p>
       </div>
     </div>
   </section>
 
-<!-- درباره ما -->
-<section id="about">
-  <h2>درباره ما</h2>
-  <p>
-    تولیدی بهروزی با بیش از ۱۰ سال سابقه در زمینه طراحی و تولید انواع کیف‌های باکیفیت و اقتصادی، همواره تلاش کرده است تا رضایت مشتریان خود را جلب کند. هدف ما ارائه محصولاتی بادوام، زیبا و مقرون‌به‌صرفه برای تمام سلیقه‌هاست.
-  </p>
-</section>
+  <section id="about">
+    <h2>درباره ما</h2>
+    <p>تولیدی بهروزی با بیش از ۱۰ سال سابقه در زمینه طراحی و تولید انواع کیف‌های باکیفیت و اقتصادی، همواره تلاش کرده است تا رضایت مشتریان خود را جلب کند.</p>
+  </section>
 
-<section id="comments">
-  <h2>نظرات کاربران</h2>
-  <form id="commentForm">
-    <input type="text" id="name" placeholder="نام شما" required>
-    <input type="text" id="email" placeholder="ایمیل یا شماره تماس" required>
-    <textarea id="message" placeholder="نظر شما" rows="4" required></textarea>
-    <button type="submit">ارسال نظر</button>
-  </form>
-  <div id="commentSuccess" style="display:none; color:green; margin-top:1rem;">✅ نظر شما با موفقیت ثبت شد.</div>
-  
-  <div id="commentsList" style="margin-top:2rem;"></div>
-</section>
-
-
+  <section id="comments">
+    <h2>نظرات کاربران</h2>
+    <form id="commentForm">
+      <input type="text" id="name" placeholder="نام شما" required>
+      <input type="text" id="email" placeholder="ایمیل یا شماره تماس" required>
+      <textarea id="message" placeholder="نظر شما" rows="4" required></textarea>
+      <button type="submit">ارسال نظر</button>
+    </form>
+    <div id="commentSuccess" style="display:none; color:green; margin-top:1rem;">✅ نظر شما با موفقیت ثبت شد.</div>
+    <div id="commentsList" style="margin-top:2rem;"></div>
+  </section>
 
   <footer>
     <p>© 2025 تولیدی بهروزی | همه حقوق محفوظ است</p>
