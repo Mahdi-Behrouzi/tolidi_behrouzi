@@ -41,11 +41,11 @@ header .logo {
 }
 
 #menu-btn::before {
-  content: "\2630"; /* آیکن سه‌خط */
+  content: "\2630"; /* ☰ */
 }
 
 #menu-btn.open::before {
-  content: "\2715"; /* آیکن ضربدر */
+  content: "\2715"; /* ✕ */
 }
 
 @media (max-width: 768px) {
@@ -63,6 +63,7 @@ header .logo {
     right: 10px;
     z-index: 999;
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
 
   #main-nav.open {
@@ -72,16 +73,22 @@ header .logo {
   #main-nav ul {
     flex-direction: column;
     gap: 1rem;
-    padding: 0;
     margin: 0;
+    padding: 0;
     list-style: none;
   }
 
   #main-nav a {
     color: white;
     text-decoration: none;
+    font-size: 1rem;
+  }
+
+  #main-nav a:hover {
+    color: #ff9800;
   }
 }
+
 
 
 .fullscreen-slider {
