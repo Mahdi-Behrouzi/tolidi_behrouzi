@@ -29,73 +29,60 @@ header .logo {
   font-weight: bold;
 }
 
-.menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  z-index: 1100;
+#menu-btn {
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  z-index: 1000;
 }
 
-.menu-icon,
-.menu-icon::before,
-.menu-icon::after {
-  content: '';
-  display: block;
-  background: white;
-  height: 3px;
-  width: 100%;
-  border-radius: 2px;
-  position: absolute;
-  transition: all 0.3s ease;
+#menu-btn::before {
+  content: "\2630"; /* آیکن سه‌خط */
 }
 
-.menu-icon {
-  top: 50%;
-  transform: translateY(-50%);
+#menu-btn.open::before {
+  content: "\2715"; /* آیکن ضربدر */
 }
 
-.menu-icon::before {
-  top: -10px;
+@media (max-width: 768px) {
+  #menu-btn {
+    display: block;
+  }
+
+  #main-nav {
+    display: none;
+    flex-direction: column;
+    background: #333;
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    z-index: 999;
+    border-radius: 8px;
+  }
+
+  #main-nav.open {
+    display: flex;
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  #main-nav a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-.menu-icon::after {
-  top: 10px;
-}
-
-.menu-btn.open .menu-icon {
-  background: transparent;
-}
-
-.menu-btn.open .menu-icon::before {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-.menu-btn.open .menu-icon::after {
-  transform: rotate(-45deg);
-  top: 0;
-}
-
-
-#main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-#main-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-#main-nav a:hover {
-  color: #ff9800;
-}
 
 .fullscreen-slider {
   position: relative;
