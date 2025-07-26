@@ -7,6 +7,7 @@ menuBtn.addEventListener("click", () => {
 });
 
 
+
 const slides = document.querySelectorAll(".fullscreen-slider .slide");
 let current = 0;
 
