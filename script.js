@@ -1,4 +1,3 @@
-// Menu Toggle
 const menuBtn = document.getElementById('menu-btn');
 const mainNav = document.getElementById('main-nav');
 
