@@ -48,8 +48,18 @@
     </div>
   </section>
 
-  <section id="contact">
-    <h2>تماس با ما</h2>
+ <!-- 🔐 پنل ورود مدیر -->
+<section id="admin-panel" style="padding:2rem;">
+  <h2>ورود مدیر</h2>
+  <input type="password" id="adminPass" placeholder="رمز عبور" />
+  <button onclick="loginAdmin()">ورود</button>
+
+  <div id="adminComments" style="margin-top:2rem; display:none;">
+    <h3>لیست نظرات</h3>
+    <div id="adminCommentsList"></div>
+  </div>
+</section>
+
   
 
   <footer>
