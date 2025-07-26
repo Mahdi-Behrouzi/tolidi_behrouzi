@@ -183,3 +183,25 @@ footer .socials a {
     gap: 1rem;
   }
 }
+
+#admin-panel input {
+  padding: 0.7rem;
+  width: 200px;
+  margin-left: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#admin-panel button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#admin-panel button:hover {
+  background: #222;
+}
