@@ -29,38 +29,54 @@ header .logo {
   font-weight: bold;
 }
 
-.menu-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  cursor: pointer;
+.menu-btn {
   background: none;
   border: none;
-  padding: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
   z-index: 1100;
 }
 
-.menu-icon span {
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
   display: block;
-  height: 3px;
   background: white;
+  height: 3px;
+  width: 100%;
   border-radius: 2px;
-  transition: 0.3s;
+  position: absolute;
+  transition: all 0.3s ease;
 }
 
-/* تبدیل به ضربدر هنگام کلیک */
-.menu-icon.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+.menu-icon {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.menu-icon.open span:nth-child(2) {
-  opacity: 0;
+.menu-icon::before {
+  top: -10px;
 }
 
-.menu-icon.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.menu-icon::after {
+  top: 10px;
+}
+
+.menu-btn.open .menu-icon {
+  background: transparent;
+}
+
+.menu-btn.open .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menu-btn.open .menu-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 
