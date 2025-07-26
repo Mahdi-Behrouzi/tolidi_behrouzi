@@ -1,10 +1,12 @@
-const menuBtn = document.getElementById('menu-btn');
-const mainNav = document.getElementById('main-nav');
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const nav = document.getElementById("main-nav");
 
-menuBtn.addEventListener('click', () => {
-  mainNav.classList.toggle('open');
-  menuBtn.classList.toggle('open');
-});
+  menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("open");
+    nav.classList.toggle("open");
+  });
+</script>
 
 
 
