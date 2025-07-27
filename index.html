@@ -50,20 +50,22 @@
     </div>
   </section>
 
-<!-- 💬 بخش ثبت نظر کاربران -->
-<section id="comments" style="padding:2rem;">
-  <h2>ثبت نظر</h2>
-  <form id="commentForm">
-    <input type="text" id="name" placeholder="نام شما" required>
-    <input type="text" id="email" placeholder="ایمیل یا شماره تماس" required>
-    <textarea id="message" placeholder="نظر شما" rows="4" required></textarea>
-    <button type="submit">ارسال نظر</button>
-  </form>
-  <div id="commentSuccess" style="display:none; color:green; margin-top:1rem;">
-    ✅ نظر شما با موفقیت ثبت شد.
+<!-- 💬 فرم نظرات مدرن -->
+<section class="comment-section">
+  <div class="comment-box">
+    <h2 class="comment-title">🗨️ ارسال نظر</h2>
+    <form id="commentForm" class="comment-form">
+      <input type="text" id="name" placeholder="نام شما" class="comment-input" required />
+      <input type="text" id="contact" placeholder="ایمیل یا شماره موبایل" class="comment-input" required />
+      <textarea id="message" placeholder="متن نظر شما..." class="comment-textarea" rows="4" required></textarea>
+      <button type="submit" class="comment-submit">📤 ارسال</button>
+      <p id="successMsg" class="success-msg">✅ نظر شما ثبت شد!</p>
+    </form>
+
+    <div id="commentsList" class="comments-list"></div>
   </div>
-  <div id="commentsList" style="margin-top:2rem;"></div>
 </section>
+
 
 
   
