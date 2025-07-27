@@ -184,24 +184,70 @@ footer .socials a {
   }
 }
 
+/* 💬 استایل فرم نظرات و پنل مدیریت */
+#comments {
+  background: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#commentForm input,
+#commentForm textarea,
 #admin-panel input {
-  padding: 0.7rem;
-  width: 200px;
-  margin-left: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
 }
 
+#commentForm button,
 #admin-panel button {
-  background: #444;
-  color: white;
-  border: none;
-  padding: 0.7rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+  padding: 8px 16px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
+#commentForm button:hover,
 #admin-panel button:hover {
-  background: #222;
+  background-color: #00796b;
 }
+
+.success-msg {
+  display: none;
+  color: green;
+  margin-top: 1rem;
+}
+
+.comments-container {
+  margin-top: 1.5rem;
+}
+
+.comment-box {
+  background: #f1f1f1;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.comment-box button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.comment-box button:hover {
+  background: darkred;
+}
+
