@@ -184,70 +184,88 @@ footer .socials a {
   }
 }
 
-/* 💬 استایل فرم نظرات و پنل مدیریت */
+/* 🌟 بخش فرم نظرات */
 #comments {
-  background: #fdfdfd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background-color: #fdfdfd;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 3rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-#commentForm input,
-#commentForm textarea,
-#admin-panel input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: inherit;
+#comments h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
 }
 
-#commentForm button,
-#admin-panel button {
-  padding: 8px 16px;
-  background-color: #009688;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* 🎯 استایل فیلدهای فرم */
+#comments form input,
+#comments form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-#commentForm button:hover,
-#admin-panel button:hover {
-  background-color: #00796b;
+#comments form input:focus,
+#comments form textarea:focus {
+  border-color: #ff9800;
+  outline: none;
 }
 
-.success-msg {
-  display: none;
-  color: green;
-  margin-top: 1rem;
+/* 🚀 دکمه ارسال نظر */
+#comments form button {
+  background-color: #ff9800;
+  color: #fff;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.comments-container {
-  margin-top: 1.5rem;
+#comments form button:hover {
+  background-color: #e68900;
+}
+
+/* ✅ پیام موفقیت */
+#commentSuccess {
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* 📝 لیست نظرات */
+#commentsList {
+  margin-top: 2rem;
 }
 
 .comment-box {
-  background: #f1f1f1;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  position: relative;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
-.comment-box button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  padding: 4px 8px;
-  cursor: pointer;
+.comment-box h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #444;
 }
 
-.comment-box button:hover {
-  background: darkred;
+.comment-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
 }
+
 
