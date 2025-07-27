@@ -185,122 +185,86 @@ footer .socials a {
 }
 
 /* 🌟 بخش فرم نظرات */
-#comments {
-  background-color: #fdfdfd;
+.comment-section {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background: #f5f7fa;
+}
+
+.comment-box {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   padding: 2rem;
-  max-width: 700px;
-  margin: 3rem auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-#comments h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #333;
-  text-align: center;
-}
-
-/* 🎯 استایل فیلدهای فرم */
-#comments form input,
-#comments form textarea {
   width: 100%;
-  padding: 0.9rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
+  max-width: 600px;
 }
 
-#comments form input:focus,
-#comments form textarea:focus {
-  border-color: #ff9800;
+.comment-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-input,
+.comment-textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.comment-input:focus,
+.comment-textarea:focus {
+  border-color: #00796b;
   outline: none;
 }
 
-/* 🚀 دکمه ارسال نظر */
-#comments form button {
-  background-color: #ff9800;
-  color: #fff;
-  padding: 0.9rem;
+.comment-submit {
+  padding: 0.8rem;
+  background-color: #00796b;
+  color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.7rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-#comments form button:hover {
-  background-color: #e68900;
+.comment-submit:hover {
+  background-color: #005f56;
 }
 
-/* ✅ پیام موفقیت */
-#commentSuccess {
-  color: #28a745;
-  font-weight: bold;
-  margin-top: 1rem;
+.success-msg {
+  color: green;
   text-align: center;
+  display: none;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
 }
 
-/* 📝 لیست نظرات */
-#commentsList {
+.comments-list {
   margin-top: 2rem;
 }
 
-.comment-box {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
+.comments-list div {
+  background-color: #f1f1f1;
   padding: 1rem;
+  border-radius: 0.7rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
-.comment-box h4 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-  color: #444;
-}
-
-.comment-box p {
-  margin: 0;
   font-size: 0.95rem;
-  color: #555;
-}
-#admin-panel {
-  padding: 3rem 2rem;
-  max-width: 600px;
-  margin: auto;
-  text-align: center;
+  border-left: 4px solid #00796b;
 }
 
-#admin-panel input {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  width: 60%;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-#admin-panel button {
-  padding: 0.7rem 1.5rem;
-  border: none;
-  background: #ff9800;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#admin-panel button:hover {
-  background: #e68900;
-}
-
-.comment-card {
-  background: #f8f8f8;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  text-align: right;
-}
 
 
