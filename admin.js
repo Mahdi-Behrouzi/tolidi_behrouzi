@@ -1,39 +1,43 @@
+const correctPassword = "123456"; // رمز عبور مدیر را در صورت نیاز تغییر دهید
+
 function loginAdmin() {
-  const password = document.getElementById('adminPass').value;
-  if (password === 'behrouzi123') {
-    document.getElementById('adminComments').style.display = 'block';
-    loadComments();
+  const pass = document.getElementById("adminPass").value;
+  const error = document.getElementById("admin-error");
+  if (pass === correctPassword) {
+    document.querySelector(".admin-login").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+    error.textContent = "";
+    showComments();
   } else {
-    alert('رمز نادرست است!');
+    error.textContent = "رمز عبور نادرست است!";
   }
 }
 
-function loadComments() {
-  const comments = JSON.parse(localStorage.getItem('comments')) || [];
-  const list = document.getElementById('adminCommentsList');
-  list.innerHTML = '';
+function showComments() {
+  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  const container = document.getElementById("adminCommentsList");
+  container.innerHTML = "";
 
   if (comments.length === 0) {
-    list.innerHTML = '<p>نظری ثبت نشده است.</p>';
+    container.innerHTML = "<p>هیچ نظری ثبت نشده است.</p>";
     return;
   }
 
-  comments.forEach((comment, index) => {
-    const div = document.createElement('div');
-    div.className = 'comment-card';
+  comments.forEach((c, index) => {
+    const div = document.createElement("div");
+    div.className = "comment-box";
     div.innerHTML = `
-      <p><strong>📧 ${comment.email || 'بدون ایمیل'}:</strong></p>
-      <p>${comment.text}</p>
-      <button onclick="deleteComment(${index})">❌ حذف</button>
-      <hr>
+      <strong>${c.name}</strong> (${c.email})<br/>
+      <p>${c.message}</p>
+      <button onclick="deleteComment(${index})">حذف</button>
     `;
-    list.appendChild(div);
+    container.appendChild(div);
   });
 }
 
 function deleteComment(index) {
-  const comments = JSON.parse(localStorage.getItem('comments')) || [];
+  let comments = JSON.parse(localStorage.getItem("comments") || "[]");
   comments.splice(index, 1);
-  localStorage.setItem('comments', JSON.stringify(comments));
-  loadComments();
+  localStorage.setItem("comments", JSON.stringify(comments));
+  showComments();
 }
