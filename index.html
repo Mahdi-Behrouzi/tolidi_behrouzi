@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<meta name="theme-color" content="#0000ff">
 <head>
+<meta name="theme-color" content="#0000ff">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>تولیدی بهروزی</title>
@@ -49,16 +49,18 @@
     </div>
   </section>
 
- <!-- 🔐 پنل ورود مدیر -->
-<section id="admin-panel" style="padding:2rem;">
-  <h2>ورود مدیر</h2>
-  <input type="password" id="adminPass" placeholder="رمز عبور" />
-  <button onclick="loginAdmin()">ورود</button>
-
-  <div id="adminComments" style="margin-top:2rem; display:none;">
-    <h3>لیست نظرات</h3>
-    <div id="adminCommentsList"></div>
-  </div>
+ <section id="login">
+  <h2>ورود به حساب</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="نام کاربری" required>
+    <input type="password" id="password" placeholder="رمز عبور" required>
+    <select id="role">
+      <option value="user">کاربر</option>
+      <option value="admin">مدیر</option>
+    </select>
+    <button type="submit">ورود</button>
+  </form>
+  <div id="loginMsg" style="margin-top: 1rem;"></div>
 </section>
 
   
