@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>پنل مدیریت - تولیدی بهروزی</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ورود مدیر | تولیدی بهروزی</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin-style.css" />
 </head>
 <body>
 
-  <!-- 🟠 هدر و منو (مثل index.html) -->
   <header>
-    <nav>
+    <div class="logo">تولیدی بهروزی</div>
+    <nav id="main-nav">
       <ul>
         <li><a href="index.html">خانه</a></li>
-        <li><a href="#about">درباره ما</a></li>
-        <li><a href="#products">محصولات</a></li>
-        <li><a href="admin.html">ورود مدیر</a></li>
+        <li><a href="index.html#products">محصولات</a></li>
+        <li><a href="index.html#comments">نظرات</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- 🟢 محتوای صفحه مدیریت -->
-  <section id="admin-panel" class="section">
-    <h2>🔐 ورود مدیر</h2>
-    <input type="password" id="adminPass" placeholder="رمز عبور مدیر" />
-    <button onclick="loginAdmin()">ورود</button>
+  <main class="admin-container">
+    <section class="admin-login">
+      <h2>ورود مدیر</h2>
+      <input type="password" id="adminPass" placeholder="رمز عبور مدیر" />
+      <button onclick="loginAdmin()">ورود</button>
+      <p id="admin-error" class="error-msg"></p>
+    </section>
 
-    <div id="adminComments" style="display: none; margin-top: 2rem;">
-      <h3>💬 لیست نظرات</h3>
-      <div id="adminCommentsList"></div>
-    </div>
-  </section>
+    <section id="adminPanel" style="display:none;">
+      <h3>لیست نظرات کاربران</h3>
+      <div id="adminCommentsList" class="comments-list"></div>
+    </section>
+  </main>
 
-
- <footer>
+  <footer>
     <p>© 2025 تولیدی بهروزی | همه حقوق محفوظ است</p>
     <div class="socials">
       <a href="#">اینستاگرام</a>
