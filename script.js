@@ -24,88 +24,28 @@ function nextSlide() {
 
 setInterval(nextSlide, 3000); // هر ۳ ثانیه
 
-document.addEventListener('DOMContentLoaded', () => {
-  const commentForm = document.getElementById('commentForm');
-  const commentsList = document.getElementById('commentsList');
-  const commentSuccess = document.getElementById('commentSuccess');
-  const adminPassInput = document.getElementById('adminPass');
-  const adminComments = document.getElementById('adminComments');
-  const adminCommentsList = document.getElementById('adminCommentsList');
+document.getElementById("commentForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  let isAdmin = false;
+  const name = document.getElementById("name").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const successMsg = document.getElementById("successMsg");
 
-  // ثبت نظر جدید
-  commentForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+  const isPhone = /^09\d{9}$/.test(contact);
+  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
 
-    if (!name || !email || !message) return;
+  if (!isPhone && !isEmail) {
+    alert("لطفاً یک ایمیل معتبر یا شماره موبایل ۱۱ رقمی وارد کنید.");
+    return;
+  }
 
-    const comment = {
-      id: Date.now(),
-      name,
-      email,
-      message
-    };
+  const commentDiv = document.createElement("div");
+  commentDiv.innerHTML = `<strong>${name}</strong><br>${message}`;
+  document.getElementById("commentsList").appendChild(commentDiv);
 
-    const comments = JSON.parse(localStorage.getItem('comments')) || [];
-    comments.push(comment);
-    localStorage.setItem('comments', JSON.stringify(comments));
-
-    commentForm.reset();
-    commentSuccess.style.display = 'block';
-    setTimeout(() => commentSuccess.style.display = 'none', 2000);
-
-    renderComments();
-    if (isAdmin) renderAdminComments();
-  });
-
-  // ورود مدیر
-  window.loginAdmin = function() {
-    const pass = adminPassInput.value.trim();
-    if (pass === "1234") {
-      isAdmin = true;
-      adminComments.style.display = "block";
-      renderAdminComments();
-    } else {
-      alert("❌ رمز عبور نادرست است");
-    }
-  }
-
-  // نمایش نظرات کاربران
-  function renderComments() {
-    const comments = JSON.parse(localStorage.getItem('comments')) || [];
-    commentsList.innerHTML = '';
-    comments.forEach(c => {
-      const div = document.createElement('div');
-      div.className = "comment-box";
-      div.innerHTML = `<strong>${c.name}</strong> (${c.email})<p>${c.message}</p>`;
-      commentsList.appendChild(div);
-    });
-  }
-
-  // نمایش نظرات برای مدیر با قابلیت حذف
-  function renderAdminComments() {
-    const comments = JSON.parse(localStorage.getItem('comments')) || [];
-    adminCommentsList.innerHTML = '';
-    comments.forEach(c => {
-      const div = document.createElement('div');
-      div.className = "comment-box";
-      div.innerHTML = `<strong>${c.name}</strong> (${c.email})<p>${c.message}</p>`;
-      const btn = document.createElement('button');
-      btn.textContent = 'حذف';
-      btn.onclick = () => {
-        const newComments = comments.filter(x => x.id !== c.id);
-        localStorage.setItem('comments', JSON.stringify(newComments));
-        renderComments();
-        renderAdminComments();
-      };
-      div.appendChild(btn);
-      adminCommentsList.appendChild(div);
-    });
-  }
-
-  renderComments(); // بارگذاری اولیه
+  document.getElementById("commentForm").reset();
+  successMsg.style.display = "block";
+  setTimeout(() => (successMsg.style.display = "none"), 3000);
 });
+
