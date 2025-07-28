@@ -20,19 +20,18 @@
     </nav>
   </header>
 
-  <main class="admin-container">
-    <section class="admin-login">
-      <h2>ورود مدیر</h2>
-      <input type="password" id="adminPass" placeholder="رمز عبور مدیر" />
-      <button onclick="loginAdmin()">ورود</button>
-      <p id="admin-error" class="error-msg"></p>
-    </section>
+<!-- 🔐 پنل مدیریت -->
+<section id="admin-panel" class="admin-panel">
+  <h2>ورود مدیر</h2>
+  <input type="password" id="adminPass" placeholder="رمز عبور مدیر">
+  <button onclick="loginAdmin()">ورود</button>
 
-    <section id="adminPanel" style="display:none;">
-      <h3>لیست نظرات کاربران</h3>
-      <div id="adminCommentsList" class="comments-list"></div>
-    </section>
-  </main>
+  <div id="adminComments" style="display: none;">
+    <h3>لیست نظرات</h3>
+    <div id="adminCommentsList"></div>
+  </div>
+</section>
+
 
   <footer>
     <p>© 2025 تولیدی بهروزی | همه حقوق محفوظ است</p>
