@@ -1,41 +1,34 @@
-const correctPassword = "123456"; // رمز عبور مدیر را در صورت نیاز تغییر دهید
+const BIN_URL = "https://api.jsonbin.io/v3/b/68867c9cf7e7a370d1eed4fc";
+const API_KEY = "$2a$10$BAz3UXrj2Hs4CTSu9Sx.SORA0uPP1H62lvU/gZsySq7/iEzRRnAVe";
 
 function loginAdmin() {
-  const pass = document.getElementById("adminPass").value;
-  const error = document.getElementById("admin-error");
-  if (pass === correctPassword) {
-    document.querySelector(".admin-login").style.display = "none";
-    document.getElementById("adminPanel").style.display = "block";
-    error.textContent = "";
-    showComments();
-  } else {
-    error.textContent = "رمز عبور نادرست است!";
-  }
+  const password = document.getElementById("adminPass").value;
+  if (password !== "admin123") return alert("رمز اشتباه است!");
+
+  document.getElementById("adminComments").style.display = "block";
+  loadAdminComments();
 }
 
-function showComments() {
-  const comments = JSON.parse(localStorage.getItem("comments") || "[]");
-  const container = document.getElementById("adminCommentsList");
-  container.innerHTML = "";
+function loadAdminComments() {
+  fetch(BIN_URL + "/latest", {
+    headers: { "X-Master-Key": API_KEY },
+  })
+    .then(res => res.json())
+    .then(data => {
+      const comments = data.record || [];
+      const list = document.getElementById("adminCommentsList");
+      list.innerHTML = "";
 
-  if (comments.length === 0) {
-    container.innerHTML = "<p>هیچ نظری ثبت نشده است.</p>";
-    return;
-  }
-
-  comments.forEach((c, index) => {
-    const div = document.createElement("div");
-    div.className = "comment-box";
-    div.innerHTML = `
-      <strong>👤 نام: </strong>${c.name}<br/>
-      <strong>📧 ایمیل: </strong>${c.email}<br/>
-      <strong>📞 تلفن: </strong>${c.phone}<br/>
-      <strong>🌐 آی‌پی: </strong>${c.ip || "نامشخص"}<br/>
-      <strong>💬 نظر:</strong>
-      <p>${c.message}</p>
-      <button onclick="deleteComment(${index})">🗑 حذف</button>
-    `;
-    container.appendChild(div);
-  });
+      comments.reverse().forEach(comment => {
+        const card = document.createElement("div");
+        card.className = "comment-card";
+        card.innerHTML = `
+          <p><strong>🧑‍💼 نام:</strong> ${comment.name}</p>
+          <p><strong>📞 تماس:</strong> ${comment.contact}</p>
+          <p><strong>💬 نظر:</strong> ${comment.message}</p>
+          <p><strong>⏰ زمان:</strong> ${comment.time}</p>
+        `;
+        list.appendChild(card);
+      });
+    });
 }
-
