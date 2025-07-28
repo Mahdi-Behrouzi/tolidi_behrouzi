@@ -185,56 +185,71 @@ footer .socials a {
 }
 
 /* 🌟 بخش فرم نظرات */
-.#comments {
-  background: #f9f9f9;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: auto;
+.comments-section {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: #f7f7f7;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
 }
 
-#comments h2 {
+.comments-section h2 {
   text-align: center;
   color: #333;
+  margin-bottom: 1.5rem;
 }
 
 #commentForm {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
 }
 
 #commentForm input,
 #commentForm textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
+  padding: 1rem;
   border-radius: 10px;
+  border: 1px solid #ccc;
   font-size: 16px;
 }
 
 #commentForm button {
-  background: #28a745;
+  padding: 0.8rem;
+  background-color: #28a745;
   color: white;
   border: none;
-  padding: 0.8rem;
+  font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 #commentForm button:hover {
-  background: #218838;
+  background-color: #218838;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.comment-list {
+  margin-top: 2rem;
 }
 
 .comment-item {
   background: white;
-  padding: 1rem;
   border-radius: 12px;
+  padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
-
-
-
+.comment-item small {
+  color: #888;
+  font-size: 12px;
+}
