@@ -50,21 +50,20 @@
     </div>
   </section>
 
-<!-- 💬 فرم نظرات کاربران -->
-<section id="comments" style="padding: 2rem;">
-  <h2>نظرات کاربران</h2>
+<!-- 💬 فرم نظرات حرفه‌ای -->
+<section id="comments" class="comments-section">
+  <h2>🗣️ ثبت نظر شما</h2>
   <form id="commentForm">
-    <input type="text" id="name" placeholder="نام شما" required>
-    <input type="text" id="contact" placeholder="ایمیل یا شماره تلفن" required>
-    <textarea id="message" placeholder="نظر شما..." rows="4" required></textarea>
+    <input type="text" id="name" placeholder="نام شما" required />
+    <input type="text" id="contact" placeholder="شماره تلفن یا ایمیل" required />
+    <textarea id="message" placeholder="نظر خود را بنویسید..." required></textarea>
     <button type="submit">ارسال نظر</button>
-    <div id="commentSuccess" style="display:none; color:green; margin-top:1rem;">
-      ✅ نظر شما با موفقیت ثبت شد.
-    </div>
+    <p id="successMessage" class="success" style="display:none;">✅ نظر شما با موفقیت ثبت شد.</p>
   </form>
 
-  <div id="commentsList" style="margin-top:2rem;"></div>
+  <div id="commentsList" class="comment-list"></div>
 </section>
+
 
 
 
