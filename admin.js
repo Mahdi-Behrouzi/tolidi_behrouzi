@@ -1,3 +1,12 @@
+const menuBtn = document.getElementById('menu-btn');
+const mainNav = document.getElementById('main-nav');
+
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('open');
+  mainNav.classList.toggle('open');
+});
+
+
 const API_KEY = "$2a$10$BAz3UXrj2Hs4CTSu9Sx.SORA0uPP1H62lvU/gZsySq7/iEzRRnAVe";
 const BIN_ID = "6888a52aae596e708fbd8f34";
 
