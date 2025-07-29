@@ -24,42 +24,38 @@ function nextSlide() {
 
 setInterval(nextSlide, 3000); // هر ۳ ثانیه
 
-const form = document.getElementById("commentForm");
-const successMessage = document.getElementById("commentSuccess");
+const BIN_ID = '6888a52aae596e708fbd8f34';
+const API_KEY = '$2a$10$BAz3UXrj2Hs4CTSu9Sx.SORA0uPP1H62lvU/gZsySq7/iEzRRnAVe';
+const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
-const BIN_URL = "https://api.jsonbin.io/v3/b/68867c9cf7e7a370d1eed4fc";
-const API_KEY = "$2a$10$BAz3UXrj2Hs4CTSu9Sx.SORA0uPP1H62lvU/gZsySq7/iEzRRnAVe";
-
-// اعتبارسنجی ایمیل یا شماره تلفن
-function validateContact(input) {
-  const phoneRegex = /^09\d{9}$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return phoneRegex.test(input) || emailRegex.test(input);
-}
-
-form.addEventListener("submit", function (e) {
+// ارسال نظر جدید
+document.getElementById("commentForm").addEventListener("submit", function (e) {
   e.preventDefault();
+
   const name = document.getElementById("name").value.trim();
-  const contact = document.getElementById("contact").value.trim();
+  const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
 
-  if (!validateContact(contact)) {
-    alert("ایمیل یا شماره تلفن معتبر وارد کنید.");
-    return;
-  }
+  if (!name || !email || !message) return;
+
+  const newComment = {
+    name,
+    email,
+    message,
+    approved: false,
+    createdAt: new Date().toISOString(),
+    ip: "" // در سمت کلاینت نمی‌شه IP گرفت، فقط سرور می‌تونه.
+  };
 
   fetch(BIN_URL + "/latest", {
-    headers: { "X-Master-Key": API_KEY },
+    method: "GET",
+    headers: {
+      "X-Master-Key": API_KEY
+    }
   })
     .then(res => res.json())
     .then(data => {
-      const comments = data.record || [];
-      const newComment = {
-        name,
-        contact,
-        message,
-        time: new Date().toLocaleString()
-      };
+      const comments = data.record.comments || [];
       comments.push(newComment);
 
       return fetch(BIN_URL, {
@@ -68,15 +64,42 @@ form.addEventListener("submit", function (e) {
           "Content-Type": "application/json",
           "X-Master-Key": API_KEY
         },
-        body: JSON.stringify(comments)
+        body: JSON.stringify({ comments })
       });
     })
     .then(() => {
-      form.reset();
-      successMessage.style.display = "block";
-      setTimeout(() => successMessage.style.display = "none", 3000);
+      document.getElementById("commentForm").reset();
+      document.getElementById("commentSuccess").style.display = "block";
     })
-    .catch(err => alert("❌ خطا در ذخیره نظر"));
+    .catch(err => {
+      alert("❌ خطا در ثبت نظر.");
+      console.error(err);
+    });
 });
 
+// نمایش فقط نظرات تأییدشده
+function displayApprovedComments() {
+  fetch(BIN_URL + "/latest", {
+    method: "GET",
+    headers: {
+      "X-Master-Key": API_KEY
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      const comments = data.record.comments || [];
+      const approved = comments.filter(c => c.approved);
 
+      const container = document.getElementById("approvedComments");
+      container.innerHTML = "";
+
+      approved.reverse().forEach(c => {
+        const card = document.createElement("div");
+        card.className = "comment-card";
+        card.innerHTML = `<strong>${c.name}</strong><p>${c.message}</p>`;
+        container.appendChild(card);
+      });
+    });
+}
+
+displayApprovedComments();
