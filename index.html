@@ -50,22 +50,21 @@
     </div>
   </section>
 
-<!-- 💬 فرم ثبت نظر کاربران -->
-<section id="comments" class="comment-section">
-  <h2>نظرات کاربران</h2>
+<!-- 💬 فرم ارسال نظر کاربران -->
+<section id="comments" class="comments-section">
+  <h2>ارسال نظر شما</h2>
   <form id="commentForm">
     <input type="text" id="name" placeholder="نام شما" required>
-    <input type="text" id="contact" placeholder="ایمیل یا شماره تلفن" required>
-    <textarea id="message" placeholder="نظر شما..." required></textarea>
+    <input type="text" id="email" placeholder="ایمیل یا شماره تماس" required>
+    <textarea id="message" placeholder="متن نظر..." rows="4" required></textarea>
     <button type="submit">ارسال نظر</button>
+    <div id="commentSuccess" class="success-msg" style="display:none;">✅ نظر شما ثبت شد و پس از تأیید نمایش داده می‌شود.</div>
   </form>
-  <div id="commentSuccess" style="display:none;">✅ نظر شما با موفقیت ثبت شد.</div>
+
+  <div id="approvedComments" class="comments-display">
+    <!-- نظرات تأییدشده اینجا نمایش داده می‌شن -->
+  </div>
 </section>
-
-<script src="comment.js"></script>
-
-
-
 
   
 
