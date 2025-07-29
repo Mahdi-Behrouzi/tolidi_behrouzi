@@ -1,3 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+  background: #f8f8f8;
+  color: #333;
+}
+
+header {
+  background: #222;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 1100;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  display: block;
+  background: white;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.menu-icon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-icon::before {
+  top: -10px;
+}
+
+.menu-icon::after {
+  top: 10px;
+}
+
+.menu-btn.open .menu-icon {
+  background: transparent;
+}
+
+.menu-btn.open .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menu-btn.open .menu-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
 body {
   font-family: 'Tahoma', sans-serif;
   background: #f5f7fa;
