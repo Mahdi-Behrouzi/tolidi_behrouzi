@@ -26,6 +26,18 @@
     </nav>
   </header>
 
+  <section class="admin-login">
+    <h2>ورود مدیر</h2>
+    <input type="password" id="adminPassword" placeholder="رمز عبور مدیر" />
+    <button onclick="loginAdmin()">ورود</button>
+    <p id="loginError" class="error"></p>
+  </section>
+
+  <section id="adminPanel" class="admin-panel hidden">
+    <h2>مدیریت نظرات</h2>
+    <div id="commentList"></div>
+  </section>
+
   <footer>
     <p>© 2025 تولیدی بهروزی | همه حقوق محفوظ است</p>
     <div class="socials">
