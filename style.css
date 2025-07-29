@@ -185,50 +185,62 @@ footer .socials a {
 }
 
 /* 🌟 بخش فرم نظرات */
-..comment-section,
-.admin-panel {
-  background: #f9f9f9;
+.comments-section {
   padding: 2rem;
-  border-radius: 16px;
-  max-width: 600px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  margin: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
-.comment-section h2,
-.admin-panel h2,
-.admin-panel h3 {
-  text-align: center;
-  color: #333;
+.comments-section h2 {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-input, textarea {
-  width: 100%;
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#commentForm input, #commentForm textarea {
   padding: 0.8rem;
-  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
 }
 
-button {
-  background: #007bff;
+#commentForm button {
+  background-color: #007bff;
   color: white;
-  padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 10px;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background: #0056b3;
+#commentForm button:hover {
+  background-color: #0056b3;
+}
+
+.success-msg {
+  color: green;
+  font-weight: bold;
+}
+
+.comments-display {
+  margin-top: 2rem;
 }
 
 .comment-card {
-  background: #fff;
-  border-left: 5px solid #007bff;
+  background-color: white;
   padding: 1rem;
-  border-radius: 12px;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border-radius: 0.5rem;
+  border: 1px solid #eee;
+  box-shadow: 0 0 5px rgba(0,0,0,0.03);
 }
+
