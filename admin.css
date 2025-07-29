@@ -132,61 +132,53 @@ button:hover {
 .error {
   color: red;
 }
-.site-footer {
+.behrouzi-footer {
   background: #111;
   color: #eee;
-  padding: 3rem 2rem 1rem;
-  font-family: "Vazirmatn", sans-serif;
+  padding: 2rem 1rem 1rem;
+  font-family: 'Vazirmatn', sans-serif;
 }
 
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   max-width: 1200px;
   margin: auto;
+  gap: 2rem;
 }
 
-.site-footer h3 {
-  margin-bottom: 1rem;
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.behrouzi-footer h2 {
   color: #ff9800;
-  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.site-footer a {
+.behrouzi-footer h3 {
+  color: #ff9800;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.behrouzi-footer a {
   color: #ccc;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.site-footer a:hover {
+.behrouzi-footer a:hover {
   color: #fff;
 }
 
-.footer-logo h2 {
-  color: #ff9800;
-  margin-bottom: 0.5rem;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-contact p,
-.footer-social .social-icons a {
-  margin: 0.3rem 0;
-}
-
 .footer-bottom {
-  text-align: center;
-  padding-top: 2rem;
   border-top: 1px solid #333;
-  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
   color: #aaa;
 }
