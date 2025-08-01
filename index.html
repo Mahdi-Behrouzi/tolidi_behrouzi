@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+divg="fa" dir="rtl">
 <head>
 <link rel="icon" type="image/png" href="logo.png">
 
@@ -10,23 +9,33 @@
 </head>
 <body>
 
-  <header>
-    <div class="logo">تولیدی بهروزی</div>
-    <button id="menu-btn" class="menu-btn">
-  <div class="menu-icon"></div>
-</button>
+<!-- 🔹 منوی حرفه‌ای کشویی با جستجو -->
+<header class="main-header">
+  <div class="logo">تولیدی بهروزی</div>
 
+  <div class="search-box">
+    <input type="text" placeholder="جستجو کنید...">
+    <button>🔍</button>
+  </div>
 
-    <nav id="main-nav">
-      <ul>
-        <li><a href="#home">خانه</a></li>
-        <li><a href="#products">محصولات</a></li>
-        <li><a href="#contact">تماس با ما</a></li>
-<li><a href="admin.html">ورود مدیر</a></li>
+  <button class="menu-toggle" id="menuToggle">☰</button>
 
-      </ul>
-    </nav>
-  </header>
+  <nav class="nav" id="navMenu">
+    <ul>
+      <li><a href="#">خانه</a></li>
+      <li class="dropdown">
+        <a href="#">محصولات ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">کیف زنانه</a></li>
+          <li><a href="#">کیف مردانه</a></li>
+          <li><a href="#">کیف بچه‌گانه</a></li>
+        </ul>
+      </li>
+      <li><a href="#">درباره ما</a></li>
+      <li><a href="#">تماس با ما</a></li>
+    </ul>
+  </nav>
+</header>
 
  <div class="fullscreen-slider">
   <img src="img/عکس نوشته ساز_1663151402523.png" class="slide active" alt="slide1">
