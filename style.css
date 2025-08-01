@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+cursorbtnbtnrt url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -28,55 +28,140 @@ header .logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
+/* 🎨 استایل کلی */
+.main-header {
+  background-color: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: relative;
+  flex-wrap: wrap;
+}
 
-.menu-btn {
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* 🔍 باکس جستجو */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-box input {
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* ☰ دکمه منو موبایل */
+.menu-toggle {
   background: none;
   border: none;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
+  color: white;
+  font-size: 2rem;
+  display: none;
+}
+
+/* 🧭 ناوبری دسکتاپ */
+.nav {
+  display: flex;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
   position: relative;
-  z-index: 1100;
 }
 
-.menu-icon,
-.menu-icon::before,
-.menu-icon::after {
-  content: '';
-  display: block;
-  background: white;
-  height: 3px;
-  width: 100%;
-  border-radius: 2px;
+/* 🔻 زیرمنو */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
   position: absolute;
-  transition: all 0.3s ease;
+  background: white;
+  top: 100%;
+  right: 0;
+  min-width: 150px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+  z-index: 10;
 }
 
-.menu-icon {
-  top: 50%;
-  transform: translateY(-50%);
+.dropdown-menu li {
+  padding: 0.5rem;
 }
 
-.menu-icon::before {
-  top: -10px;
+.dropdown-menu a {
+  color: #222;
+  display: block;
 }
 
-.menu-icon::after {
-  top: 10px;
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
-.menu-btn.open .menu-icon {
-  background: transparent;
-}
+/* 📱 حالت موبایل */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
 
-.menu-btn.open .menu-icon::before {
-  transform: rotate(45deg);
-  top: 0;
-}
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: #333;
+    padding: 1rem;
+    z-index: 1000;
+  }
 
-.menu-btn.open .menu-icon::after {
-  transform: rotate(-45deg);
-  top: 0;
+  .nav.open {
+    display: flex;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: #444;
+    border-radius: 0;
+  }
+
+  .dropdown-menu a {
+    color: white;
+  }
 }
 
 
