@@ -29,88 +29,82 @@ header .logo {
   font-weight: bold;
 }
 
-.menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  z-index: 1100;
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+.list-link,
+.sublist-link{
+text-decoration: none;
+color: #00d084;
+font-family: 'yekan';
+}
+.sublist{
+display: none;
+}
+.list,
+.sublist{
+list-style-type: none;   نمیخوام گزینه های لیست هیچ علامت یا عددی پشت سرشون باشه
+margin: 1.5rem auto; میدونید که وقتی بخوایم فاصله مارجین از 4 جهت به یک اندازه باشه فقط یک بار عددو مینویسیم
+width: 70%;    یعنی میخوام عرضش 70 درصد عرض کل باشه
+display: flex;     با انتخاب این مقدار، تگ به صورت تمام عرض نمایش داده میشه
+flex-direction: row-reverse;گزینه ها را به صورت افقی بچین
+align-items: center;آیتم ها را در وسط ظرفشان قرار بده
+justify-content: center; کل باکس منو هم در وسط ظرفش قرار بگیرد
+}
+.list-item,
+.sublist-item{
+padding: 0.5rem 1rem; مقدار فاصله درونی آیتم با مرز باکسش رو تعیین میکنیم برای 4 طرف و بصورت مساوی
+}
+.list,
+.sublist{
+list-style-type: none;
+margin: 1.5rem auto;
+width: 70%;
+display: flex;
+flex-direction: row-reverse;
+align-items: center;
+justify-content: center;
+border-radius: 5px;
+background-color: #000080;
 }
 
-.menu-icon,
-.menu-icon::before,
-.menu-icon::after {
-  content: '';
-  display: block;
-  background: white;
-  height: 3px;
-  width: 100%;
-  border-radius: 2px;
-  position: absolute;
-  transition: all 0.3s ease;
+.list-item:not(:last-child){
+border-left: 1px solid #f9f9f9;
+}
+.list li:hover{
+transition: all 0.
+background-color: #dfdfdf;
+color: #000080;
+}
+.list a:hover{
+transition: all 0.5s;
+font-weight: bold;
+color: currentColor;
+}
+.list-item__submenu {
+position: relative;
 }
 
-.menu-icon {
-  top: 50%;
-  transform: translateY(-50%);
+.sublist{
+display: none;
+flex-direction: column;
+border: none;
+position: absolute;
+top: 1.2rem;
+right: 0;
+width: 200px;
+height: auto;
 }
 
-.menu-icon::before {
-  top: -10px;
+.sublist-item{
+width: 100%;
+text-align: center;
 }
 
-.menu-icon::after {
-  top: 10px;
-}
-
-.menu-btn.open .menu-icon {
-  background: transparent;
-}
-
-.menu-btn.open .menu-icon::before {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-.menu-btn.open .menu-icon::after {
-  transform: rotate(-45deg);
-  top: 0;
-}
-
-  font-family: 'Tahoma', sans-serif;
-  background: #f5f7fa;
-  color: #333;
-  padding: 2rem;
-}
-
-h2 {
-  color: #444;
-  margin-bottom: 1rem;
-}
-
-input, button {
-  padding: 0.6rem 1rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-button {
-  background-color: #00a97f;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #007a5e;
-}
-
-.hidden {
-  display: none;
+.list-item__submenu:hover ul.sublist {
+display: flex;
 }
 
 .comment-card {
