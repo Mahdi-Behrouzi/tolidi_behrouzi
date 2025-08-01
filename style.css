@@ -1,4 +1,4 @@
-cursorbtnbtnrt url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+justify-contentbtnbtnrt url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -12,22 +12,6 @@ body {
   color: #333;
 }
 
-header {
-  background: #222;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
 /* 🎨 استایل کلی */
 .main-header {
   background-color: #222;
