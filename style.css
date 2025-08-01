@@ -1,17 +1,5 @@
 justify-contentbtnbtnrt url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Vazirmatn', sans-serif;
-}
-
-body {
-  background: #f8f8f8;
-  color: #333;
-}
-
 /* 🎨 استایل کلی */
 .main-header {
   background-color: #222;
