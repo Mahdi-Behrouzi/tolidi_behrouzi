@@ -1,7 +1,6 @@
-divg="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-<link rel="icon" type="image/png" href="logo.png">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>تولیدی بهروزی</title>
@@ -9,33 +8,48 @@ divg="fa" dir="rtl">
 </head>
 <body>
 
-<!-- 🔹 منوی حرفه‌ای کشویی با جستجو -->
-<header class="main-header">
-  <div class="logo">تولیدی بهروزی</div>
-
-  <div class="search-box">
-    <input type="text" placeholder="جستجو کنید...">
-    <button>🔍</button>
+<!-- هدر و منو -->
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <h1>تولیدی بهروزی</h1>
+    </div>
+    
+    <!-- دکمه منو -->
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
-
-  <button class="menu-toggle" id="menuToggle">☰</button>
-
-  <nav class="nav" id="navMenu">
-    <ul>
-      <li><a href="#">خانه</a></li>
-      <li class="dropdown">
-        <a href="#">محصولات ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">کیف زنانه</a></li>
-          <li><a href="#">کیف مردانه</a></li>
-          <li><a href="#">کیف بچه‌گانه</a></li>
-        </ul>
-      </li>
-      <li><a href="#">درباره ما</a></li>
-      <li><a href="#">تماس با ما</a></li>
-    </ul>
-  </nav>
 </header>
+
+<!-- منوی کشویی -->
+<nav class="sidebar-menu" id="sidebarMenu">
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <div class="menu-content">
+    <ul class="menu-list">
+      <li class="menu-item">
+        <a href="#" class="menu-link">🏠 صفحه اصلی</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">👥 درباره ما</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">⚙️ خدمات</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">💼 نمونه کارها</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">📝 بلاگ</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">📞 تماس با ما</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
  <div class="fullscreen-slider">
   <img src="img/عکس نوشته ساز_1663151402523.png" class="slide active" alt="slide1">
