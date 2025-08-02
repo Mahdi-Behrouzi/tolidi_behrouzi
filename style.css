@@ -1,294 +1,235 @@
-justify-contentbtnbtnrt url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+/* فونت‌ها */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
-
-/* هدر سایت */
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1005;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+/* استایل هدر */
+.header {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 70px;
 }
 
-.site-header h1 {
-    color: #ecf0f1;
-    font-size: 32px;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 1px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
-.site-header h1 span {
-    background: linear-gradient(45deg, #3498db, #2ecc71);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.logo h1 {
+  font-family: 'Rubik', 'Vazirmatn', Arial, sans-serif;
+  color: #1a252f;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #2c3e50, #34495e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
 }
 
-/* دکمه همبرگر */
+/* دکمه همبرگر منو */
 .menu-toggle {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  padding: 5px;
 }
 
 .menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
 }
 
-/* خطوط همبرگر */
-.hamburger-line {
-    width: 25px;
-    height: 3px;
-    background: #ecf0f1;
-    margin: 3px 0;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border-radius: 2px;
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #1a252f;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
-/* تبدیل به ضربدر */
-.menu-toggle.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+/* انیمیشن تبدیل به ضربدر */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+  background: #c0392b;
 }
 
-.menu-toggle.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-    transform: translateX(20px);
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
 }
 
-.menu-toggle.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+  background: #c0392b;
 }
 
-/* اورلی */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* منوی کشویی - شروع از زیر هدر */
+/* منوی کشویی */
 .sidebar-menu {
-    position: fixed;
-    top: 80px;
-    left: -350px;
-    width: 350px;
-    height: calc(100vh - 80px);
-    background: linear-gradient(180deg, rgba(23, 32, 42, 0.97) 0%, rgba(44, 62, 80, 0.95) 100%);
-    backdrop-filter: blur(25px);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 70px;
+  right: calc(-100vw / 3);
+  width: calc(100vw / 3);
+  height: calc(100vh - 70px);
+  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 999;
+  overflow-y: auto;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.3);
 }
 
 .sidebar-menu.active {
-    left: 0;
+  right: 0;
 }
 
-/* هدر منو */
-.menu-header {
-    padding: 30px 25px;
-    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 50%, #34495e 100%);
-    color: #ecf0f1;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* پوشش تیره پس‌زمینه */
+.menu-overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: -1;
+  backdrop-filter: blur(5px);
 }
 
-.menu-header h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-    font-weight: 600;
+.sidebar-menu.active .menu-overlay {
+  opacity: 1;
+  visibility: visible;
 }
 
-.menu-header p {
-    font-size: 14px;
-    opacity: 0.8;
+/* محتوای منو */
+.menu-content {
+  padding: 20px 0;
 }
 
-/* آیتم‌های منو */
-.menu-items {
-    padding: 20px 0;
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu-item {
-    display: block;
-    padding: 18px 25px;
-    color: #bdc3c7;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border-left: 4px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.menu-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 80%);
-    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: -1;
-}
-
-.menu-item:hover::before {
-    width: 100%;
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+  transform: translateX(50px);
+  opacity: 0;
 }
 
 .menu-item:hover {
-    color: #ecf0f1;
-    border-left-color: #3498db;
-    transform: translateX(8px);
-    background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, #2980b9, #1f618d);
+  transform: translateX(-5px);
+  box-shadow: inset 5px 0 0 #fff;
 }
 
-.menu-item i {
-    margin-right: 12px;
-    font-size: 18px;
-    width: 20px;
-    text-align: center;
+.menu-link {
+  display: block;
+  padding: 20px 30px;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-family: 'Vazirmatn', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* محتوای اصلی */
-.main-content {
-    padding: 180px 60px 120px;
-    text-align: center;
-    color: #ecf0f1;
+.menu-link:hover {
+  color: #fff;
+  padding-right: 40px;
+  font-weight: 600;
 }
 
-.main-content h1 {
-    font-size: 52px;
-    margin-bottom: 25px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-    font-weight: 700;
+.menu-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: right 0.6s ease;
 }
 
-.main-content p {
-    font-size: 20px;
-    opacity: 0.9;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.7;
+.menu-link:hover::before {
+  right: 100%;
+}
+
+/* نقطه‌های تزئینی */
+.menu-link::after {
+  content: '◀';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #2980b9;
+  font-size: 12px;
+}
+
+.menu-link:hover::after {
+  opacity: 1;
+  left: 30px;
+}
+
+/* انیمیشن ورود */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* افکت‌های اضافی */
+.menu-item.animate {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /* ریسپانسیو */
-@media (max-width: 1200px) {
-    .sidebar-menu {
-        width: 320px;
-        left: -320px;
-    }
-}
-
 @media (max-width: 768px) {
-    .sidebar-menu {
-        width: 280px;
-        left: -280px;
-    }
-    
-    .main-content {
-        padding: 150px 30px 100px;
-    }
-    
-    .main-content h1 {
-        font-size: 40px;
-    }
-    
-    .main-content p {
-        font-size: 18px;
-    }
-    
-    .site-header h1 {
-        font-size: 28px;
-    }
+  .sidebar-menu {
+    width: 60vw;
+    right: -60vw;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+  }
+  
+  .menu-link {
+    font-size: 15px;
+    padding: 18px 25px;
+  }
 }
 
 @media (max-width: 480px) {
-    .menu-header {
-        padding: 30px 20px;
-    }
-    
-    .menu-item {
-        padding: 18px 20px;
-        font-size: 16px;
-    }
-    
-    .main-content {
-        padding: 130px 20px 80px;
-    }
-    
-    .main-content h1 {
-        font-size: 32px;
-    }
-}
-
-/* انیمیشن ورود آیتم‌ها */
-.menu-item {
-    opacity: 0;
-    transform: translateX(-30px);
-    animation: slideInLeft 0.6s ease forwards;
-}
-
-.menu-item:nth-child(1) { animation-delay: 0.1s; }
-.menu-item:nth-child(2) { animation-delay: 0.2s; }
-.menu-item:nth-child(3) { animation-delay: 0.3s; }
-.menu-item:nth-child(4) { animation-delay: 0.4s; }
-.menu-item:nth-child(5) { animation-delay: 0.5s; }
-.menu-item:nth-child(6) { animation-delay: 0.6s; }
-
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.sidebar-menu:not(.active) .menu-item {
-    animation: none;
-    opacity: 0;
-    transform: translateX(-30px);
-}
-
-.sidebar-menu.active .menu-item {
-    animation: slideInLeft 0.6s ease forwards;
+  .sidebar-menu {
+    width: 60vw;
+    right: -60vw;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
 }
 
 
