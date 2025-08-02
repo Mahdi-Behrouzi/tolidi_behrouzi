@@ -1,112 +1,238 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Vazirmatn', sans-serif;
+/* فونت‌ها */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+/* استایل هدر */
+.header {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 70px;
 }
 
-body {
-  background: #f8f8f8;
-  color: #333;
-}
-
-header {
-  background: #222;
-  color: white;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  position: sticky;
+  height: 100%;
+}
+
+.logo h1 {
+  font-family: 'Rubik', 'Vazirmatn', Arial, sans-serif;
+  color: #1a252f;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #2c3e50, #34495e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+/* دکمه همبرگر منو */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  padding: 5px;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #1a252f;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* انیمیشن تبدیل به ضربدر */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+  background: #c0392b;
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+  background: #c0392b;
+}
+
+/* منوی کشویی */
+.sidebar-menu {
+  position: fixed;
+  top: 70px;
+  right: calc(-100vw / 3);
+  width: calc(100vw / 3);
+  height: calc(100vh - 70px);
+  background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%);
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 999;
+  overflow-y: auto;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+}
+
+.sidebar-menu.active {
+  right: 0;
+}
+
+/* پوشش تیره پس‌زمینه */
+.menu-overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: -1;
+  backdrop-filter: blur(5px);
+}
+
+.sidebar-menu.active .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* محتوای منو */
+.menu-content {
+  padding: 20px 0;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+.menu-item:hover {
+  background: linear-gradient(90deg, #2980b9, #1f618d);
+  transform: translateX(-5px);
+  box-shadow: inset 5px 0 0 #fff;
+}
+
+.menu-link {
+  display: block;
+  padding: 20px 30px;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-family: 'Vazirmatn', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-link:hover {
+  color: #fff;
+  padding-right: 40px;
+  font-weight: 600;
+}
+
+.menu-link::before {
+  content: '';
+  position: absolute;
   top: 0;
-  z-index: 1000;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: right 0.6s ease;
 }
 
-header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+.menu-link:hover::before {
+  right: 100%;
 }
 
-*{
-padding: 0;
-margin: 0;
-box-sizing: border-box;
-}
-.list-link,
-.sublist-link{
-text-decoration: none;
-color: #00d084;
-font-family: 'yekan';
-}
-.sublist{
-display: none;
-}
-.list,
-.sublist{
-list-style-type: none;   نمیخوام گزینه های لیست هیچ علامت یا عددی پشت سرشون باشه
-margin: 1.5rem auto; میدونید که وقتی بخوایم فاصله مارجین از 4 جهت به یک اندازه باشه فقط یک بار عددو مینویسیم
-width: 70%;    یعنی میخوام عرضش 70 درصد عرض کل باشه
-display: flex;     با انتخاب این مقدار، تگ به صورت تمام عرض نمایش داده میشه
-flex-direction: row-reverse;گزینه ها را به صورت افقی بچین
-align-items: center;آیتم ها را در وسط ظرفشان قرار بده
-justify-content: center; کل باکس منو هم در وسط ظرفش قرار بگیرد
-}
-.list-item,
-.sublist-item{
-padding: 0.5rem 1rem; مقدار فاصله درونی آیتم با مرز باکسش رو تعیین میکنیم برای 4 طرف و بصورت مساوی
-}
-.list,
-.sublist{
-list-style-type: none;
-margin: 1.5rem auto;
-width: 70%;
-display: flex;
-flex-direction: row-reverse;
-align-items: center;
-justify-content: center;
-border-radius: 5px;
-background-color: #000080;
+/* نقطه‌های تزئینی */
+.menu-link::after {
+  content: '◀';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #2980b9;
+  font-size: 12px;
 }
 
-.list-item:not(:last-child){
-border-left: 1px solid #f9f9f9;
-}
-.list li:hover{
-transition: all 0.
-background-color: #dfdfdf;
-color: #000080;
-}
-.list a:hover{
-transition: all 0.5s;
-font-weight: bold;
-color: currentColor;
-}
-.list-item__submenu {
-position: relative;
+.menu-link:hover::after {
+  opacity: 1;
+  left: 30px;
 }
 
-.sublist{
-display: none;
-flex-direction: column;
-border: none;
-position: absolute;
-top: 1.2rem;
-right: 0;
-width: 200px;
-height: auto;
+/* انیمیشن ورود */
+body.menu-open {
+  overflow: hidden;
 }
 
-.sublist-item{
-width: 100%;
-text-align: center;
+/* افکت‌های اضافی */
+.menu-item.animate {
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.list-item__submenu:hover ul.sublist {
-display: flex;
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .sidebar-menu {
+    width: 60vw;
+    right: -60vw;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+  }
+  
+  .menu-link {
+    font-size: 15px;
+    padding: 18px 25px;
+  }
 }
 
+@media (max-width: 480px) {
+  .sidebar-menu {
+    width: 60vw;
+    right: -60vw;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
 .comment-card {
   background: #fff;
   border: 1px solid #ddd;
