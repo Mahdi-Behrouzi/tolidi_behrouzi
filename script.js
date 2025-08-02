@@ -1,11 +1,72 @@
-const menuBtn = document.getElementById('menu-btn');
-const mainNav = document.getElementById('main-nav');
+// منوی کشویی
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const body = document.body;
+    const menuItems = document.querySelectorAll('.menu-item');
 
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  mainNav.classList.toggle('open');
+    // باز و بسته کردن منو
+    function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        sidebarMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
+
+        // انیمیشن آیتم‌های منو
+        if (sidebarMenu.classList.contains('active')) {
+            setTimeout(() => {
+                menuItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('animate');
+                    }, index * 100);
+                });
+            }, 200);
+        } else {
+            menuItems.forEach(item => {
+                item.classList.remove('animate');
+            });
+        }
+    }
+
+    // کلیک روی دکمه همبرگر
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // کلیک روی پوشش تیره برای بستن منو
+    menuOverlay.addEventListener('click', function() {
+        if (sidebarMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+
+    // بستن منو با کلید Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebarMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+
+    // کلیک روی آیتم‌های منو
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // افکت کلیک
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+
+            // اگه می‌خوای منو بعد از کلیک بسته بشه این خط رو فعال کن:
+            // toggleMenu();
+        });
+    });
+
+    // تشخیص تغییر اندازه صفحه
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && sidebarMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
 });
-
 
 const slides = document.querySelectorAll(".fullscreen-slider .slide");
 let current = 0;
