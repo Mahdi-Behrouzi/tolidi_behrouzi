@@ -1,130 +1,72 @@
-// انتخاب المنت‌ها
-const menuToggle = document.getElementById('menuToggle');
-const sidebarMenu = document.getElementById('sidebarMenu');
-const menuOverlay = document.getElementById('menuOverlay');
-const menuItems = document.querySelectorAll('.menu-item');
+// منوی کشویی
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const body = document.body;
+    const menuItems = document.querySelectorAll('.menu-item');
 
-// تابع باز و بسته کردن منو
-function toggleMenu() {
-    menuToggle.classList.toggle('active');
-    sidebarMenu.classList.toggle('active');
-    menuOverlay.classList.toggle('active');
-    
-    // جلوگیری از اسکرول زمانی که منو باز است
-    if (sidebarMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
-    }
-}
+    // باز و بسته کردن منو
+    function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        sidebarMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
 
-// تابع بستن منو
-function closeMenu() {
-    menuToggle.classList.remove('active');
-    sidebarMenu.classList.remove('active');
-    menuOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-// ایونت لیسنر برای دکمه همبرگر
-menuToggle.addEventListener('click', toggleMenu);
-
-// ایونت لیسنر برای اورلی
-menuOverlay.addEventListener('click', closeMenu);
-
-// بستن منو با کلید Escape
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && sidebarMenu.classList.contains('active')) {
-        closeMenu();
-    }
-});
-
-// ایونت لیسنر برای آیتم‌های منو
-menuItems.forEach(item => {
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // افکت کلیک
-        this.style.transform = 'translateX(12px) scale(0.98)';
-        
-        setTimeout(() => {
-            this.style.transform = 'translateX(8px) scale(1)';
-            closeMenu();
-            
-            // شبیه‌سازی رفتن به صفحه جدید
+        // انیمیشن آیتم‌های منو
+        if (sidebarMenu.classList.contains('active')) {
             setTimeout(() => {
-                alert('رفتن به: ' + this.textContent.trim());
-            }, 300);
-        }, 150);
-    });
-    
-    // افکت هاور اضافی
-    item.addEventListener('mouseenter', function() {
-        this.style.transition = 'all 0.2s ease';
-    });
-    
-    item.addEventListener('mouseleave', function() {
-        this.style.transition = 'all 0.3s ease';
-    });
-});
-
-// انیمیشن smooth برای اسکرول
-document.documentElement.style.scrollBehavior = 'smooth';
-
-// تشخیص سایز صفحه برای ریسپانسیو
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 768 && sidebarMenu.classList.contains('active')) {
-        // اگر صفحه بزرگ شد و منو باز بود
-        if (window.innerWidth > 1200) {
-            // در صفحات بزرگ
+                menuItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('animate');
+                    }, index * 100);
+                });
+            }, 200);
+        } else {
+            menuItems.forEach(item => {
+                item.classList.remove('animate');
+            });
         }
     }
+
+    // کلیک روی دکمه همبرگر
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // کلیک روی پوشش تیره برای بستن منو
+    menuOverlay.addEventListener('click', function() {
+        if (sidebarMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+
+    // بستن منو با کلید Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebarMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+
+    // کلیک روی آیتم‌های منو
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // افکت کلیک
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+
+            // اگه می‌خوای منو بعد از کلیک بسته بشه این خط رو فعال کن:
+            // toggleMenu();
+        });
+    });
+
+    // تشخیص تغییر اندازه صفحه
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && sidebarMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
 });
-
-// افکت پارالکس ساده برای بک‌گراند
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-    document.body.style.backgroundPosition = `center ${rate}px`;
-});
-
-// لود شدن صفحه
-document.addEventListener('DOMContentLoaded', function() {
-    // انیمیشن ورود برای محتوای اصلی
-    const mainContent = document.querySelector('.main-content');
-    mainContent.style.opacity = '0';
-    mainContent.style.transform = 'translateY(30px)';
-    
-    setTimeout(() => {
-        mainContent.style.transition = 'all 1s ease';
-        mainContent.style.opacity = '1';
-        mainContent.style.transform = 'translateY(0)';
-    }, 500);
-});
-
-// تابع برای تغییر تم (اختیاری)
-function toggleTheme() {
-    document.body.classList.toggle('light-theme');
-}
-
-// افکت کلیک روی دکمه همبرگر
-menuToggle.addEventListener('mousedown', function() {
-    this.style.transform = 'scale(0.95)';
-});
-
-menuToggle.addEventListener('mouseup', function() {
-    this.style.transform = 'scale(1.05)';
-    setTimeout(() => {
-        this.style.transform = 'scale(1)';
-    }, 100);
-});
-
-// جلوگیری از کلیک راست روی منو
-sidebarMenu.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
-
-console.log('منوی کشویی با موفقیت لود شد! 🎉');
 
 const API_KEY = "$2a$10$BAz3UXrj2Hs4CTSu9Sx.SORA0uPP1H62lvU/gZsySq7/iEzRRnAVe";
 const BIN_ID = "6888a52aae596e708fbd8f34";
