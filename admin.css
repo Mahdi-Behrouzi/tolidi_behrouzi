@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+/* فقط این کد رو در سایت اصلی بذار */
 
-/* ریست فقط برای صفحه پنل مدیریت */
-.admin-body * {
+html, body {
+  width: 100%;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+/* فقط برای کامپوننت‌های خاص */
+.header, .header * {
   box-sizing: border-box;
 }
 
-.admin-body {
-  font-family: 'Vazirmatn', Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  direction: rtl;
-  overflow-x: hidden;
+.footer, .footer * {
+  box-sizing: border-box;
 }
 
-.hidden {
-  display: none !important;
+.modern-slider, .modern-slider * {
+  box-sizing: border-box;
 }
-
 
 .header {
   width: 100%;
