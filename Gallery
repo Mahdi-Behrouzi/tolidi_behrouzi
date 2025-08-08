@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>گالری محصولات - تولیدی بهروزی</title>
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="Gallery.css">
 </head>
 <body>
     <!-- هدر -->
@@ -359,6 +359,6 @@
 
     <!-- فوتر (می‌تونی همون فوتر قبلی رو استفاده کنی) -->
 
-    <script src="js/products.js"></script>
+    <script src="Gallery.js"></script>
 </body>
 </html>
