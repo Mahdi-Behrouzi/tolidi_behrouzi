@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گالری محصولات - تولیدی بهروزی</title>
+    <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+    <!-- هدر -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>تولیدی بهروزی</h1>
+            </div>
+            
+            <nav class="nav">
+                <a href="index.html">صفحه اصلی</a>
+                <a href="products.html" class="active">محصولات</a>
+                <a href="#about">درباره ما</a>
+                <a href="#contact">تماس</a>
+            </nav>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- عنوان صفحه -->
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>گالری محصولات</h1>
+            <p>مجموعه کاملی از بهترین محصولات تولیدی بهروزی</p>
+            <nav class="breadcrumb">
+                <a href="index.html">خانه</a>
+                <span>محصولات</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- فیلتر و جستجو -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="جستجو در محصولات...">
+                    <button class="search-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">همه محصولات</button>
+                    <button class="filter-btn" data-filter="furniture">مبلمان</button>
+                    <button class="filter-btn" data-filter="decoration">تزئینات</button>
+                    <button class="filter-btn" data-filter="lighting">روشنایی</button>
+                    <button class="filter-btn" data-filter="accessories">لوازم جانبی</button>
+                </div>
+                
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10,4V8H14V4H10M16,4V8H20V4H16M16,10V14H20V10H16M16,16V20H20V16H16M14,20V16H10V20H14M8,20V16H4V20H8M8,14V10H4V14H8M8,8V4H4V8H8M10,14H14V10H10V14Z"/>
+                        </svg>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9,5V9H21V5M9,19H21V15H9M9,14H21V10H9M4,9H8V5H4M4,19H8V15H4M4,14H8V10H4V14Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="sort-select">
+                    <select id="sortSelect">
+                        <option value="name">نام محصول</option>
+                        <option value="price">قیمت</option>
+                        <option value="date">جدیدترین</option>
+                        <option value="popular">محبوب‌ترین</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- گالری محصولات -->
+    <section class="products-gallery">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                
+                <!-- محصول 1 -->
+                <div class="product-card" data-category="furniture" data-name="مبل راحتی" data-price="25000000">
+                    <div class="product-image">
+                        <img src="img/products/product1.jpg" alt="مبل راحتی" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="quick-view" data-product="1">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                </svg>
+                            </button>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19,7H15.5L14.5,6C14.1,5.4 13.4,5 12.7,5H11.3C10.6,5 9.9,5.4 9.5,6L8.5,7H5A2,2 0 0,0 3,9V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V9A2,2 0 0,0 19,7M12,17.5L6.5,12H10V10H14V12H17.5L12,17.5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="product-badge new">جدید</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>مبل راحتی مدرن</h3>
+                        <p class="product-description">مبل راحتی با طراحی مدرن و راحت</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <span class="rating-count">(24 نظر)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">25,000,000 تومان</span>
+                            <span class="old-price">30,000,000 تومان</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 2 -->
+                <div class="product-card" data-category="decoration" data-name="گلدان تزئینی" data-price="1500000">
+                    <div class="product-image">
+                        <img src="img/products/product2.jpg" alt="گلدان تزئینی" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="quick-view" data-product="2">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                </svg>
+                            </button>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19,7H15.5L14.5,6C14.1,5.4 13.4,5 12.7,5H11.3C10.6,5 9.9,5.4 9.5,6L8.5,7H5A2,2 0 0,0 3,9V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V9A2,2 0 0,0 19,7M12,17.5L6.5,12H10V10H14V12H17.5L12,17.5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="product-badge sale">تخفیف</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>گلدان تزئینی سرامیکی</h3>
+                        <p class="product-description">گلدان زیبا برای تزئین منزل</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <span class="rating-count">(18 نظر)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">1,500,000 تومان</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 3 -->
+                <div class="product-card" data-category="lighting" data-name="چراغ آویز" data-price="3500000">
+                    <div class="product-image">
+                        <img src="img/products/product3.jpg" alt="چراغ آویز" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="quick-view" data-product="3">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                </svg>
+                            </button>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19,7H15.5L14.5,6C14.1,5.4 13.4,5 12.7,5H11.3C10.6,5 9.9,5.4 9.5,6L8.5,7H5A2,2 0 0,0 3,9V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V9A2,2 0 0,0 19,7M12,17.5L6.5,12H10V10H14V12H17.5L12,17.5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="product-badge popular">محبوب</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>چراغ آویز مدرن</h3>
+                        <p class="product-description">چراغ آویز با طراحی منحصر به فرد</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <span class="rating-count">(31 نظر)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">3,500,000 تومان</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 4 -->
+                <div class="product-card" data-category="accessories" data-name="ساعت دیواری" data-price="850000">
+                    <div class="product-image">
+                        <img src="img/products/product4.jpg" alt="ساعت دیواری" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="quick-view" data-product="4">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                </svg>
+                            </button>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19,7H15.5L14.5,6C14.1,5.4 13.4,5 12.7,5H11.3C10.6,5 9.9,5.4 9.5,6L8.5,7H5A2,2 0 0,0 3,9V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V9A2,2 0 0,0 19,7M12,17.5L6.5,12H10V10H14V12H17.5L12,17.5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>ساعت دیواری چوبی</h3>
+                        <p class="product-description">ساعت دیواری با جنس چوب طبیعی</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <span class="rating-count">(12 نظر)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">850,000 تومان</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 5 -->
+                <div class="product-card" data-category="furniture" data-name="میز ناهارخوری" data-price="18000000">
+                    <div class="product-image">
+                        <img src="img/products/product5.jpg" alt="میز ناهارخوری" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="quick-view" data-product="5">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                </svg>
+                            </button>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19,7H15.5L14.5,6C14.1,5.4 13.4,5 12.7,5H11.3C10.6,5 9.9,5.4 9.5,6L8.5,7H5A2,2 0 0,0 3,9V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V9A2,2 0 0,0 19,7M12,17.5L6.5,12H10V10H14V12H17.5L12,17.5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="product-badge featured">ویژه</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>میز ناهارخوری کلاسیک</h3>
+                        <p class="product-description">میز غذاخوری 6 نفره با کیفیت بالا</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <span class="rating-count">(42 نظر)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">18,000,000 تومان</span>
+                            <span class="old-price">22,000,000 تومان</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 6 -->
+                <div class="product-card" data-category="decoration" data-name="تابلو نقاشی" data-price="2200000">
+                    <div class="product-image">
+                        <img src="img/products/product6.jpg" alt="تابلو نقاشی" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="quick-view" data-product="6">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                </svg>
+                            </button>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19,7H15.5L14.5,6C14.1,5.4 13.4,5 12.7,5H11.3C10.6,5 9.9,5.4 9.5,6L8.5,7H5A2,2 0 0,0 3,9V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V9A2,2 0 0,0 19,7M12,17.5L6.5,12H10V10H14V12H17.5L12,17.5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>تابلو نقاشی مدرن</h3>
+                        <p class="product-description">تابلو هنری برای تزئین دیوار</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <span class="rating-count">(15 نظر)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">2,200,000 تومان</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- لود بیشتر -->
+            <div class="load-more-section">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12,4C12.11,4 12.2,4.08 12.2,4.19V15.8C12.2,15.91 12.11,16 12,16C11.89,16 11.8,15.91 11.8,15.8V4.19C11.8,4.08 11.89,4 12,4M12,18A1.5,1.5 0 0,0 10.5,19.5A1.5,1.5 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5A1.5,1.5 0 0,0 12,18Z"/>
+                    </svg>
+                    بارگذاری محصولات بیشتر
+                </button>
+            </div>
+        </div>
+    </section>
+
+  <!-- Modal نمایش سریع -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-product">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDescription"></p>
+                    <div class="modal-rating">
+                        <div class="stars" id="modalStars"></div>
+                        <span id="modalRatingCount"></span>
+                    </div>
+                    <div class="modal-price">
+                        <span class="current-price" id="modalPrice"></span>
+                        <span class="old-price" id="modalOldPrice"></span>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="modal-cart-btn">اضافه به سبد خرید</button>
+                        <button class="modal-wishlist-btn">افزودن به علاقه‌مندی‌ها</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- فوتر (می‌تونی همون فوتر قبلی رو استفاده کنی) -->
+
+    <script src="js/products.js"></script>
+</body>
+</html>
