@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محصولات - تولیدی بهروزی</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-weight: bold;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: cardAppear 0.6s ease-out forwards;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .card-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #fff, rgba(255,255,255,0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .floating-action {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .floating-action:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            border-color: #667eea;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.7);
+            pointer-events: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .filter-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+            font-size: 1.2rem;
+            display: none;
+        }
+    </style>
+</head>
+        <body>
+    <div class="container">
+        <div class="header">
+            <h1>🏭 محصولات تولیدی بهروزی</h1>
+            <p>کیفیت برتر، قیمت مناسب، خدمات تخصصی</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="جستجو در محصولات..." id="searchInput">
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">همه محصولات</button>
+            <button class="filter-btn" data-filter="industrial">صنعتی</button>
+            <button class="filter-btn" data-filter="home">خانگی</button>
+            <button class="filter-btn" data-filter="commercial">تجاری</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- محصولات صنعتی -->
+            <div class="product-card" data-category="industrial">
+                <div class="card-image">
+                    <div class="product-icon">⚙️</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="product-title">ماشین‌آلات صنعتی</h3>
+                    <p class="product-description">تولید و ساخت انواع ماشین‌آلات صنعتی با کیفیت بالا و قیمت مناسب برای کارخانجات و صنایع مختلف</p>
+                    <ul class="product-features">
+                        <li><span class="feature-icon">✓</span> گارانتی 2 ساله</li>
+                        <li><span class="feature-icon">✓</span> نصب و راه‌اندازی رایگان</li>
+                        <li><span class="feature-icon">✓</span> پشتیبانی 24/7</li>
+                    </ul>
+                    <div class="product-price">از 10,000,000 تومان</div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="showDetails('industrial1')">جزئیات</button>
+                        <button class="btn btn-secondary" onclick="requestQuote()">درخواست قیمت</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="home">
+                <div class="card-image">
+                    <div class="product-icon">🏠</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="product-title">تجهیزات خانگی</h3>
+                    <p class="product-description">طراحی و تولید انواع تجهیزات خانگی مدرن با طراحی زیبا و کارایی بالا برای خانواده‌های ایرانی</p>
+                    <ul class="product-features">
+                        <li><span class="feature-icon">✓</span> طراحی مدرن</li>
+                        <li><span class="feature-icon">✓</span> مصرف انرژی کم</li>
+                        <li><span class="feature-icon">✓</span> گارانتی 18 ماهه</li>
+                    </ul>
+                    <div class="product-price">از 2,500,000 تومان</div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="showDetails('home1')">جزئیات</button>
+                        <button class="btn btn-secondary" onclick="requestQuote()">درخواست قیمت</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="commercial">
+                <div class="card-image">
+                    <div class="product-icon">🏢</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="product-title">تجهیزات تجاری</h3>
+                    <p class="product-description">ارائه راه‌کارهای تجاری برای مغازه‌ها، رستوران‌ها و مراکز خدماتی با کیفیت حرفه‌ای</p>
+                    <ul class="product-features">
+                        <li><span class="feature-icon">✓</span> مناسب کسب‌وکار</li>
+                        <li><span class="feature-icon">✓</span> دوام بالا</li>
+                        <li><span class="feature-icon">✓</span> سرویس تخصصی</li>
+                    </ul>
+                    <div class="product-price">از 5,000,000 تومان</div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="showDetails('commercial1')">جزئیات</button>
+                        <button class="btn btn-secondary" onclick="requestQuote()">درخواست قیمت</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="industrial">
+                <div class="card-image">
+                    <div class="product-icon">🔧</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="product-title">ابزارآلات تخصصی</h3>
+                    <p class="product-description">تولید ابزارآلات تخصصی با دقت بالا برای صنایع مختلف و کارگاه‌های فنی</p>
+                    <ul class="product-features">
+                        <li><span class="feature-icon">✓</span> دقت بالا</li>
+                        <li><span class="feature-icon">✓</span> مقاوم در برابر خوردگی</li>
+                        <li><span class="feature-icon">✓</span> کیفیت اروپایی</li>
+                    </ul>
+                    <div class="product-price">از 500,000 تومان</div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="showDetails('tools1')">جزئیات</button>
+                        <button class="btn btn-secondary" onclick="requestQuote()">درخواست قیمت</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="home">
+                <div class="card-image">
+                    <div class="product-icon">💡</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="product-title">سیستم‌های هوشمند</h3>
+                    <p class="product-description">طراحی و نصب سیستم‌های هوشمند خانگی برای کنترل نور، دما و امنیت منزل</p>
+                    <ul class="product-features">
+                        <li><span class="feature-icon">✓</span> کنترل از راه دور</li>
+                        <li><span class="feature-icon">✓</span> صرفه‌جویی انرژی</li>
+                        <li><span class="feature-icon">✓</span> آموزش رایگان</li>
+                    </ul>
+                    <div class="product-price">از 3,000,000 تومان</div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="showDetails('smart1')">جزئیات</button>
+                        <button class="btn btn-secondary" onclick="requestQuote()">درخواست قیمت</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="commercial">
+                <div class="card-image">
+                    <div class="product-icon">🏬</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="product-title">تجهیزات فروشگاهی</h3>
+                    <p class="product-description">طراحی و تولید قفسه‌ها، ویترین‌ها و سایر تجهیزات فروشگاهی با کیفیت بالا</p>
+                    <ul class="product-features">
+                        <li><span class="feature-icon">✓</span> طراحی اختصاصی</li>
+                        <li><span class="feature-icon">✓</span> نصب حرفه‌ای</li>
+                        <li><span class="feature-icon">✓</span> مواد مرغوب</li>
+                    </ul>
+                    <div class="product-price">از 1,200,000 تومان</div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="showDetails('shop1')">جزئیات</button>
+                        <button class="btn btn-secondary" onclick="requestQuote()">درخواست قیمت</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <h3>🔍 محصولی یافت نشد</h3>
+            <p>لطفاً کلمات دیگری جستجو کنید یا دسته‌بندی دیگری انتخاب کنید</p>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">پروژه موفق</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">مشتری راضی</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">سال تجربه</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">رضایت مشتریان</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-action" onclick="scrollToTop()" title="برگشت به بالا">
+        ⬆️
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <div id="modalContent">
+                <!-- محتوای modal اینجا قرار می‌گیرد -->
+            </div>
+        </div>
+    </div>
+        <script>
+        // انیمیشن ظاهر شدن کارت‌ها
+        function animateCards() {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        // فیلتر محصولات
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.style.animation = 'none';
+                    setTimeout(() => {
+                        card.style.animation = 'cardAppear 0.6s ease-out forwards';
+                    }, 50);
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // جستجو در محصولات
+        function searchProducts(query) {
+            const cards = document.querySelectorAll('.product-card');
+            const noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+                
+                if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase()) || query === '') {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 && query !== '' ? 'block' : 'none';
+        }
+
+        // نمایش جزئیات محصول
+        function showDetails(productId) {
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('modalContent');
+            
+            // محتوای نمونه برای هر محصول
+            const productDetails = {
+                'industrial1': {
+                    title: 'ماشین‌آلات صنعتی',
+                    image: '⚙️',
+                    description: 'این دستگاه‌های پیشرفته با تکنولوژی روز دنیا طراحی و تولید شده‌اند.',
+                    specs: [
+                        'قدرت موتور: 15 کیلووات',
+                        'ولتاژ کاری: 380 ولت',
+                        'ابعاد: 200×150×100 سانتی‌متر',
+                        'وزن: 500 کیلوگرم',
+                        'ظرفیت: 1000 قطعه در ساعت'
+                    ],
+                    warranty: '2 سال گارانتی کامل',
+                    price: 'تماس بگیرید'
+                },
+                'home1': {
+                    title: 'تجهیزات خانگی',
+                    image: '🏠',
+                    description: 'محصولاتی زیبا و کاربردی برای خانه‌های مدرن',
+                    specs: [
+                        'مصرف برق: کلاس A++',
+                        'رنگ‌بندی: متنوع',
+                        'ابعاد قابل تنظیم',
+                        'کنترل دیجیتال',
+                        'ساخت ایران'
+                    ],
+                    warranty: '18 ماه گارانتی',
+                    price: 'از 2,500,000 تومان'
+                },
+                'commercial1': {
+                    title: 'تجهیزات تجاری',
+                    image: '🏢',
+                    description: 'راه‌کارهای حرفه‌ای برای کسب و کار',
+                    specs: [
+                        'مناسب استفاده سنگین',
+                        'طول عمر بالا',
+                        'نگهداری آسان',
+                        'استاندارد اروپایی',
+                        'ضمانت کیفیت'
+                    ],
+                    warranty: '3 سال گارانتی',
+                    price: 'از 5,000,000 تومان'
+                }
+            };
+
+            const product = productDetails[productId] || productDetails['industrial1'];
+            
+            content.innerHTML = `
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">${product.image}</div>
+                    <h2 style="color: #333; margin-bottom: 1rem;">${product.title}</h2>
+                    <p style="color: #666; line-height: 1.6;">${product.description}</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">🔧 مشخصات فنی:</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        ${product.specs.map(spec => `
+                            <li style="padding: 8px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px;">
+                                <span style="color: #667eea;">▪</span> ${spec}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 1rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: bold;">${product.price}</div>
+                        <div style="opacity: 0.9; margin-top: 0.5rem;">${product.warranty}</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button style="padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: bold;" onclick="requestQuote()">
+                        درخواست قیمت
+                    </button>
+                    <button style="padding: 12px 24px; background: rgba(0,0,0,0.1); color: #333; border: none; border-radius: 25px; cursor: pointer; font-weight: bold;" onclick="closeModal()">
+                        بستن
+                    </button>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // بستن modal
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // درخواست قیمت
+        function requestQuote() {
+            alert('📞 برای درخواست قیمت با شماره 09123456789 تماس بگیرید یا از طریق تلگرام @TolidiBehrouzi پیام دهید.');
+        }
+
+        // اسکرول به بالا
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // انیمیشن شمارنده
+        function animateValue(element, start, end, duration, suffix = '') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentValue = Math.floor(progress * (end - start) + start);
+                element.textContent = currentValue + suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // اضافه کردن ذرات متحرک در پس‌زمینه
+        function createFloatingParticles() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 4px;
+                    height: 4px;
+                    background: rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1;
+                    animation: float ${5 + Math.random() * 10}s infinite linear;
+                    left: ${Math.random() * 100}%;
+                    animation-delay: ${Math.random() * 5}s;
+                `;
+                container.appendChild(particle);
+            }
+        }
+</script>
+// Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // انیمیشن اولیه
+            animateCards();
+
+            // فیلترها
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // حذف کلاس active از همه دکمه‌ها
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // اضافه کردن کلاس active به دکمه کلیک شده
+                    this.classList.add('active');
+                    // فیلتر محصولات
+                    filterProducts(this.dataset.filter);
+                });
+            });
+
+            // جستجو
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                searchProducts(this.value);
+            });
+
+            // بستن modal با کلیک خارج از آن
+            const modal = document.getElementById('detailModal');
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // بستن modal با ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+
+            // نمایش/مخفی کردن دکمه اسکرول
+            const floatingAction = document.querySelector('.floating-action');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    floatingAction.style.opacity = '1';
+                    floatingAction.style.visibility = 'visible';
+                } else {
+                    floatingAction.style.opacity = '0';
+                    floatingAction.style.visibility = 'hidden';
+                }
+            });
+
+            // افکت Parallax برای header
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const header = document.querySelector('.header');
+                const rate = scrolled * -0.5;
+                header.style.transform = `translate3d(0, ${rate}px, 0)`;
+            });
+
+            // Counter Animation برای آمارها
+            const observerOptions = {
+                threshold: 0.7
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        statNumbers.forEach(stat => {
+                            const finalValue = stat.textContent;
+                            const numValue = parseInt(finalValue.replace(/\D/g, ''));
+                            const suffix = finalValue.replace(/\d/g, '');
+                            
+                            animateValue(stat, 0, numValue, 2000, suffix);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // اضافه کردن افکت های تعاملی بیشتر
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.boxShadow = '0 30px 60px rgba(0,0,0,0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+                });
+            });
+
+            // فعال‌سازی ذرات
+            createFloatingParticles();
+        });
+    </script>
+</body>
+</html>
