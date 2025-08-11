@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://tolidi-behrouzi.vercel.app/sitemap.xml
+Sitemap: https://tolidibehrouzi.ir/sitemap.xml
