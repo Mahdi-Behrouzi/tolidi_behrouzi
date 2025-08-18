@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+# اگر پوشه نیست و فایل HTML وجود داره، درخواست /page رو به page.html هدایت کن
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
