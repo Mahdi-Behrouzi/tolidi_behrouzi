@@ -387,48 +387,6 @@ h2 {
   box-shadow: 0 0 5px rgba(0,0,0,0.03);
 }
 
-/* پس‌زمینه کل صفحه لودر */
-.loader-wrapper {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7); /* سایه پس‌زمینه */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* دایره لودر */
-.loader {
-  position: relative;
-  width: 100px;
-  height: 100px;
-}
-
-.loader:before,
-.loader:after {
-  content: '';
-  border-radius: 50%;
-  position: absolute;
-  inset: 0;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
-}
-
-.loader:after {
-  box-shadow: 0 2px 0 #FF3D00 inset;
-  animation: rotate 2s linear infinite;
-}
-
-/* متن وسط */
-.loader-text {
-  position: absolute;
-  top: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Vazirmatn', sans-serif; /* فونت سایتت */
-  font-size: 18px;
-  color: #fff;
-}
 
 /* فوتر حرفه‌ای */
 .footer {
