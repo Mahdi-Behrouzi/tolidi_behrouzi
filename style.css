@@ -1,39 +1,3 @@
-.loader {
-  position: relative;
-  width: 64px;
-  height: 60px;
-}
-.loader::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background: #fff;
-  width: 64px;
-  height: 32px;
-  border-radius: 0 0 50px 50px;
-  animation: move 0.5s linear infinite alternate;
-}
-.loader::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  background: #FF3D00;
-  width: 24px;
-  height: 24px;
-  transform: translateX(-50%) rotate(0deg);
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-  100% { transform: translateX(-50%) rotate(360deg)}
-}
-@keyframes move {
-  0% { transform: rotate(10deg)}
-  100% { transform: rotate(-10deg)}
-}
-      
 * {
   margin: 0;
   padding: 0;
@@ -421,6 +385,49 @@ h2 {
   border-radius: 0.5rem;
   border: 1px solid #eee;
   box-shadow: 0 0 5px rgba(0,0,0,0.03);
+}
+
+/* پس‌زمینه کل صفحه لودر */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* سایه پس‌زمینه */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* دایره لودر */
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+.loader:after {
+  box-shadow: 0 2px 0 #FF3D00 inset;
+  animation: rotate 2s linear infinite;
+}
+
+/* متن وسط */
+.loader-text {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Vazirmatn', sans-serif; /* فونت سایتت */
+  font-size: 18px;
+  color: #fff;
 }
 
 /* فوتر حرفه‌ای */
