@@ -12,10 +12,31 @@
 <!-- تگ title قبلی رو با این عوض کنید -->
 <title>تولیدی بهروزی مشهد | کیف فلاکسی، استخری، جا لباسی، ست نوزادی - ارسال سراسر کشور</title>
   <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="loading.css">
 </head>
 <body>
-
+<!-- Loading.html -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-container">
+    <!-- انیمیشن حلقه‌ها -->
+    <div class="out_container">
+      <div class="ring"></div>
+      <div class="ring"></div>
+    </div>
+    
+    <!-- متن لودینگ -->
+    <div class="loading-text" id="loadingText">
+      در حال بارگذاری<span class="dots"></span>
+    </div>
+    
+    <!-- نوار پیشرفت -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- درصد -->
+    <div class="progress-percent" id="progressPercent">0%</div>
+  </div>
+</div>
 <!-- هدر و منو -->
   <header class="header">
   <div class="container">
@@ -294,6 +315,5 @@
 </footer>
 <div id="pos-article-display-108918"></div>
   <script src="script.js"></script>
- <script src="loading.js"></script>
 </body>
 </html>
