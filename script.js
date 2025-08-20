@@ -296,11 +296,11 @@ class LoadingManager {
 const loading = new LoadingManager();
 
 // مثال‌های استفاده:
-
 // نمایش لودینگ هنگام بارگذاری صفحه
 window.addEventListener('load', () => {
-    // loading.show();
+    loading.show();
 });
+
 
 // نمایش لودینگ برای درخواست AJAX
 function showLoadingForRequest() {
