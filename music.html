@@ -1,0 +1,74 @@
+<!-- music.html -->
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موزیک‌ها</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- منو (جایگزین با منوی اصلی خودت) -->
+<header>
+    <!-- MENU HERE -->
+</header>
+
+<main>
+    <section class="music-section">
+        <h1>آهنگ‌ها</h1>
+        <div class="music-list" id="musicList">
+            <!-- کارت‌ها اینجا ساخته می‌شوند -->
+        </div>
+    </section>
+</main>
+
+<!-- فوتر (جایگزین با فوتر اصلی خودت) -->
+<footer>
+    <!-- FOOTER HERE -->
+</footer>
+
+<script>
+// آرایه آهنگ‌ها
+const musicData = [
+    {
+        title: "آهنگ اول",
+        description: "خواننده: X",
+        cover: "images/cover1.jpg",
+        audio: "music/song1.mp3"
+    },
+    {
+        title: "آهنگ دوم",
+        description: "خواننده: Y",
+        cover: "images/cover2.jpg",
+        audio: "music/song2.mp3"
+    },
+    {
+        title: "آهنگ سوم",
+        description: "خواننده: Z",
+        cover: "images/cover3.jpg",
+        audio: "music/song3.mp3"
+    }
+];
+
+// تابع ساخت کارت‌ها
+const musicList = document.getElementById('musicList');
+
+musicData.forEach(song => {
+    const card = document.createElement('div');
+    card.className = 'music-item';
+    card.innerHTML = `
+        <img src="${song.cover}" alt="${song.title}" class="music-cover">
+        <h2>${song.title}</h2>
+        <p>${song.description}</p>
+        <audio controls>
+            <source src="${song.audio}" type="audio/mpeg">
+            مرورگر شما از پخش این فایل پشتیبانی نمی‌کند.
+        </audio>
+    `;
+    musicList.appendChild(card);
+});
+</script>
+
+</body>
+</html>
