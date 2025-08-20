@@ -1,74 +1,54 @@
-<!-- music.html -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موزیک‌ها</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موزیک‌ها</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- منو (جایگزین با منوی اصلی خودت) -->
-<header>
-    <!-- MENU HERE -->
-</header>
+    <!-- هدر -->
+    <header>
+        <div class="logo">لوگو</div>
+        <nav>
+            <a href="../index.html">خانه</a>
+            <a href="index.html" class="active">موزیک</a>
+            <!-- لینک‌های دیگر -->
+        </nav>
+    </header>
 
-<main>
-    <section class="music-section">
-        <h1>آهنگ‌ها</h1>
-        <div class="music-list" id="musicList">
-            <!-- کارت‌ها اینجا ساخته می‌شوند -->
+    <!-- محتوای اصلی -->
+    <main>
+        <h1>آهنگ‌ها و موزیک‌ها</h1>
+        <div class="music-grid">
+            <!-- نمونه آهنگ -->
+            <div class="music-card">
+                <img src="images/cover1.jpg" alt="کاور آهنگ 1">
+                <h3>عنوان آهنگ 1</h3>
+                <audio controls>
+                    <source src="music/song1.mp3" type="audio/mpeg">
+                    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+                </audio>
+            </div>
+
+            <div class="music-card">
+                <img src="images/cover2.jpg" alt="کاور آهنگ 2">
+                <h3>عنوان آهنگ 2</h3>
+                <audio controls>
+                    <source src="music/song2.mp3" type="audio/mpeg">
+                    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+                </audio>
+            </div>
+
+            <!-- آهنگ‌های بیشتر به همین شکل -->
         </div>
-    </section>
-</main>
+    </main>
 
-<!-- فوتر (جایگزین با فوتر اصلی خودت) -->
-<footer>
-    <!-- FOOTER HERE -->
-</footer>
-
-<script>
-// آرایه آهنگ‌ها
-const musicData = [
-    {
-        title: "آهنگ اول",
-        description: "خواننده: X",
-        cover: "images/cover1.jpg",
-        audio: "music/song1.mp3"
-    },
-    {
-        title: "آهنگ دوم",
-        description: "خواننده: Y",
-        cover: "images/cover2.jpg",
-        audio: "music/song2.mp3"
-    },
-    {
-        title: "آهنگ سوم",
-        description: "خواننده: Z",
-        cover: "images/cover3.jpg",
-        audio: "music/song3.mp3"
-    }
-];
-
-// تابع ساخت کارت‌ها
-const musicList = document.getElementById('musicList');
-
-musicData.forEach(song => {
-    const card = document.createElement('div');
-    card.className = 'music-item';
-    card.innerHTML = `
-        <img src="${song.cover}" alt="${song.title}" class="music-cover">
-        <h2>${song.title}</h2>
-        <p>${song.description}</p>
-        <audio controls>
-            <source src="${song.audio}" type="audio/mpeg">
-            مرورگر شما از پخش این فایل پشتیبانی نمی‌کند.
-        </audio>
-    `;
-    musicList.appendChild(card);
-});
-</script>
+    <!-- فوتر -->
+    <footer>
+        <p>© 2025 توليدي بهروزی. تمامی حقوق محفوظ است.</p>
+    </footer>
 
 </body>
 </html>
