@@ -4,81 +4,78 @@
 /* ================== استایل منو ================== */
 /* MENU_CSS_PLACEHOLDER */
 
-/* ================== استایل فوتر ================== */
-/* FOOTER_CSS_PLACEHOLDER */
-
 body {
   font-family: Vazirmatn, sans-serif;
-  background: #f9f9f9;
+  background: #fafafa;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
 h1 {
-  margin: 20px 0;
-  font-size: 28px;
+  margin: 30px 0;
+  font-size: 26px;
   color: #333;
-}
-
-.gallery-container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* همیشه ۳ ستونه */
   gap: 15px;
+  justify-items: center;
+  padding: 20px;
 }
 
 .gallery-item {
   width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .gallery-item:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 /* لایت‌باکس */
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 1000;
-  padding: 50px;
+  z-index: 9999;
+  padding-top: 60px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background: rgba(0,0,0,0.9);
 }
 
 .lightbox-content {
   margin: auto;
   display: block;
-  max-width: 90%;
+  max-width: 80%;
   max-height: 80vh;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 .close {
   position: absolute;
   top: 20px;
   right: 35px;
-  color: #fff;
   font-size: 40px;
-  font-weight: bold;
+  color: white;
   cursor: pointer;
 }
 
 .caption {
-  margin-top: 15px;
+  text-align: center;
   color: #ccc;
+  margin-top: 15px;
   font-size: 18px;
 }
+
