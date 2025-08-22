@@ -1,158 +1,317 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>گالری تصاویر - تولیدی بهروزی</title>
-  <style>
-    /* ======== جای هدر ======== */
-    /* اینجا CSS هدر و منو رو بعداً اضافه کن */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گالری محصولات</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
-    body {
-      font-family: Vazirmatn, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            direction: rtl;
+            text-align: right;
+            color: #333;
+            padding: 20px;
+        }
 
-    h1 {
-      text-align: center;
-      padding: 20px;
-    }
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
 
-    /* فیلتر دسته بندی */
-    .filter-btns {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .filter-btns button {
-      margin: 5px;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 8px;
-      background: #444;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .filter-btns button:hover {
-      background: #f39c12;
-    }
+        h1 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
 
-    /* گالری */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-    .lightbox.active {
-      display: flex;
-    }
+        .filter-btn {
+            background-color: #e0e0e0;
+            color: #555;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
+        }
 
-    /* ======== جای فوتر ======== */
-    /* اینجا CSS فوتر رو بعداً اضافه کن */
-  </style>
+        .filter-btn:hover {
+            background-color: #d1d1d1;
+        }
+
+        .filter-btn.active {
+            background-color: #004d40;
+            color: #fff;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 8px;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)} 
+            to {transform: scale(1)}
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ======== هدر و منو ======== -->
-  <!-- اینجا هدر و منو سایتت قرار می‌گیره -->
+<div class="gallery-container">
+    <h1>گالری محصولات</h1>
 
-  <h1>گالری تصاویر تولیدی بهروزی</h1>
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">همه</button>
+        <button class="filter-btn" data-filter="cat-1">دسته ۱</button>
+        <button class="filter-btn" data-filter="cat-2">دسته ۲</button>
+    </div>
 
-  <!-- دکمه‌های دسته بندی -->
-  <div class="filter-btns">
-    <button onclick="filterGallery('all')">همه</button>
-    <button onclick="filterGallery('cover')">کاور لباس</button>
-    <button onclick="filterGallery('bag')">کیف</button>
-  </div>
+    <div class="gallery">
+        <div class="gallery-item" data-category="cat-1">
+            <img src="img/IMG_20222064_013211.jpg" alt="محصول ۱" data-full="img/IMG_20222064_013211.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-1">
+            <img src="img/IMG_20222604_013414.jpg" alt="محصول ۲" data-full="img/IMG_20222604_013414.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-1">
+            <img src="img/IMG_2022264_013830.jpg" alt="محصول ۳" data-full="img/IMG_2022264_013830.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-1">
+            <img src="img/IMG_2022264_014311.jpg" alt="محصول ۴" data-full="img/IMG_2022264_014311.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-1">
+            <img src="img/IMG_20222064_014423.jpg" alt="محصول ۵" data-full="img/IMG_20222064_014423.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-1">
+            <img src="img/IMG_202200000_185811.jpg" alt="محصول ۶" data-full="img/IMG_202200000_185811.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-1">
+            <img src="img/IMG_202200000_185844.jpg" alt="محصول ۷" data-full="img/IMG_202200000_185844.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+        </div>
 
-  <!-- گالری -->
-  <div class="gallery-grid">
-    <!-- دسته کاور لباس -->
-    <img src="../img/IMG_20222064_013211.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20222604_013414.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_2022264_013830.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_2022264_014311.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20222064_014423.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_202200000_185811.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_202200000_185844.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_202007.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_203701.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_202634.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_203725.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_204126.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_200932.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_201442.jpg" alt="" data-category="cover">
-    <img src="../img/IMG_20250509_201913.jpg" alt="" data-category="cover">
-  </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_202007.jpg" alt="محصول ۸" data-full="img/IMG_20250509_202007.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_203701.jpg" alt="محصول ۹" data-full="img/IMG_20250509_203701.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_202634.jpg" alt="محصول ۱۰" data-full="img/IMG_20250509_202634.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_203725.jpg" alt="محصول ۱۱" data-full="img/IMG_20250509_203725.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_204126.jpg" alt="محصول ۱۲" data-full="img/IMG_20250509_204126.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_200932.jpg" alt="محصول ۱۳" data-full="img/IMG_20250509_200932.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_201442.jpg" alt="محصول ۱۴" data-full="img/IMG_20250509_201442.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+        <div class="gallery-item" data-category="cat-2">
+            <img src="img/IMG_20250509_201913.jpg" alt="محصول ۱۵" data-full="img/IMG_20250509_201913.jpg">
+            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        </div>
+    </div>
+</div>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="">
-  </div>
+<div id="lightbox" class="lightbox">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="caption"></div>
+</div>
 
-  <!-- ======== فوتر ======== -->
-  <!-- اینجا فوتر سایتت قرار می‌گیره -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const captionText = document.getElementById('caption');
+        const closeBtn = document.querySelector('.close-btn');
 
-  <script>
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const images = document.querySelectorAll('.gallery-grid img');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const allGalleryItems = document.querySelectorAll('.gallery-item');
 
-    images.forEach(img => {
-      img.addEventListener('click', () => {
-        lightbox.classList.add('active');
-        lightbox.querySelector('img').src = img.src;
-      });
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                allGalleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block'; 
+                    } else {
+                        item.style.display = 'none'; 
+                    }
+                });
+            });
+        });
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightbox.style.display = 'block';
+                lightboxImg.src = item.getAttribute('data-full');
+                captionText.innerHTML = item.alt;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape") {
+                lightbox.style.display = 'none';
+            }
+        });
     });
+</script>
 
-    lightbox.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-    });
-
-    // فیلتر دسته بندی
-    function filterGallery(category) {
-      images.forEach(img => {
-        if (category === 'all' || img.dataset.category === category) {
-          img.style.display = 'block';
-        } else {
-          img.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>
+
+              
