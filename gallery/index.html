@@ -1,42 +1,220 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>گالری تصاویر - تولیدی بهروزی</title>
-  <link rel="stylesheet" href="gallery.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>گالری تصاویر | تولیدی بهروزی</title>
+  <meta name="description" content="گالری تصاویر تولیدی بهروزی - دسته: کاور لباس (سایز بزرگ)">
+  <!-- Preload چند تصویر اول برای باز شدن سریع‌تر -->
+  <link rel="preload" as="image" href="../img/IMG_20222064_013211.jpg">
+  <link rel="preload" as="image" href="../img/IMG_20222604_013414.jpg">
+  <link rel="preload" as="image" href="../img/IMG_2022264_013830.jpg">
+
+  <style>
+    /* ========= جای‌نماهای هدر/منو/فوتر ========= */
+    /* HEADER_PLACEHOLDER_CSS */
+    /* MENU_PLACEHOLDER_CSS */
+    /* FOOTER_PLACEHOLDER_CSS */
+
+    :root{--gap:15px;--thumb-h:250px}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#f9f9f9;font-family:Vazirmatn,IRANSans,sans-serif}
+    /* هدر */
+    header{background:#eee;padding:18px 12px;text-align:center}
+    /* منو */
+    nav{background:#d9d9d9;padding:12px;text-align:center}
+    /* محتوای اصلی */
+    .gallery-container{max-width:1200px;margin:32px auto;padding:0 16px}
+    .gallery-title{margin:0 0 18px;font-size:22px;color:#333;text-align:center}
+    .category-chip{display:inline-block;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #ddd;font-size:14px;margin-bottom:18px}
+
+    /* شبکه سه‌ستونه ثابت */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+      justify-items:center;
+    }
+    .thumb{
+      width:100%;
+      height:var(--thumb-h);
+      max-width:420px;
+      object-fit:cover;
+      border-radius:12px;
+      cursor:pointer;
+      transition:transform .25s ease, box-shadow .25s ease, opacity .3s ease;
+      box-shadow:0 6px 12px rgba(0,0,0,.08);
+      opacity:0;            /* برای افکت فیدین */
+      transform:translateY(6px);
+    }
+    .thumb.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .thumb:hover{transform:scale(1.035);box-shadow:0 10px 22px rgba(0,0,0,.18)}
+
+    /* لایت‌باکس */
+    .lightbox{
+      position:fixed;inset:0;
+      display:none;align-items:center;justify-content:center;
+      background:rgba(0,0,0,.92);
+      z-index:9999;
+      animation:fadeIn .18s ease both;
+    }
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .lightbox-img{
+      max-width:90vw;max-height:82vh;border-radius:12px;
+      animation:zoomIn .18s ease both;
+    }
+    @keyframes zoomIn{from{transform:scale(.96);opacity:.6}to{transform:scale(1);opacity:1}}
+    .lb-btn{
+      position:absolute;top:50%;transform:translateY(-50%);
+      font-size:38px;line-height:1;color:#fff;background:transparent;border:0;cursor:pointer;
+      padding:10px 14px;user-select:none;transition:opacity .2s ease;
+    }
+    .lb-btn:hover{opacity:.85}
+    .lb-prev{left:18px}
+    .lb-next{right:18px}
+    .lb-close{top:18px;right:18px;transform:none;font-size:34px}
+    .lb-hidden{display:none !important}
+
+    /* فوتر */
+    footer{background:#eee;text-align:center;padding:18px;margin-top:36px}
+
+    /* اگر اصرار داری همه‌جا سه‌ستونه بمونه، مدیاکوئری نمی‌ذاریم */
+  </style>
 </head>
 <body>
-  <!-- جای هدر -->
+
+  <!-- ================= هدر ================= -->
+  <!-- HEADER_PLACEHOLDER -->
   <header>
-    <!-- هدر اینجا قرار می‌گیرد -->
+    <!-- اینجا کد هدر سایتت را قرار بده -->
   </header>
 
-  <main class="gallery-container">
-    <h2>کاور لباس (سایز بزرگ)</h2>
-    <div class="gallery-grid">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20222064_013211.jpg" alt="کاور لباس 1" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20222604_013414.jpg" alt="کاور لباس 2" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_2022264_013830.jpg" alt="کاور لباس 3" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_2022264_014311.jpg" alt="کاور لباس 4" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20222064_014423.jpg" alt="کاور لباس 5" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_202200000_185811.jpg" alt="کاور لباس 6" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_202200000_185844.jpg" alt="کاور لباس 7" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_202007.jpg" alt="کاور لباس 8" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_203701.jpg" alt="کاور لباس 9" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_202634.jpg" alt="کاور لباس 10" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_203725.jpg" alt="کاور لباس 11" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_204126.jpg" alt="کاور لباس 12" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_200932.jpg" alt="کاور لباس 13" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_201442.jpg" alt="کاور لباس 14" loading="lazy">
-      <img src="https://raw.githubusercontent.com/Mahdi-Behrouzi/tolidibehrouzi/main/img/IMG_20250509_201913.jpg" alt="کاور لباس 15" loading="lazy">
+  <!-- ================= منو ================= -->
+  <!-- MENU_PLACEHOLDER -->
+  <nav>
+    <!-- اینجا کد منو سایتت را قرار بده -->
+  </nav>
+
+  <!-- ================= گالری ================= -->
+  <main class="gallery-container" id="galleryRoot" data-category="کاور لباس (سایز بزرگ)">
+    <h1 class="gallery-title">گالری تصاویر</h1>
+    <div class="category-chip">دسته: کاور لباس (سایز بزرگ)</div>
+
+    <div class="gallery-grid" id="grid">
+      <!-- 15 تصویر—مسیرها برای فایل داخل /gallery تنظیم شده (../img/...) -->
+      <img class="thumb" src="../img/IMG_20222064_013211.jpg" alt="کاور لباس 1" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20222604_013414.jpg" alt="کاور لباس 2" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_2022264_013830.jpg" alt="کاور لباس 3" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_2022264_014311.jpg" alt="کاور لباس 4" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20222064_014423.jpg" alt="کاور لباس 5" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_202200000_185811.jpg" alt="کاور لباس 6" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_202200000_185844.jpg" alt="کاور لباس 7" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_202007.jpg" alt="کاور لباس 8" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_203701.jpg" alt="کاور لباس 9" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_202634.jpg" alt="کاور لباس 10" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_203725.jpg" alt="کاور لباس 11" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_204126.jpg" alt="کاور لباس 12" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_200932.jpg" alt="کاور لباس 13" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_201442.jpg" alt="کاور لباس 14" loading="lazy" decoding="async">
+      <img class="thumb" src="../img/IMG_20250509_201913.jpg" alt="کاور لباس 15" loading="lazy" decoding="async">
     </div>
   </main>
 
-  <!-- جای فوتر -->
+  <!-- ================= فوتر ================= -->
+  <!-- FOOTER_PLACEHOLDER -->
   <footer>
-    <!-- فوتر اینجا قرار می‌گیرد -->
+    <!-- اینجا کد فوتر سایتت را قرار بده -->
   </footer>
 
-  <script src="gallery.js"></script>
+  <script>
+    /* ========= جای‌نماهای هدر/منو/فوتر برای JS (در صورت نیاز) ========= */
+    // HEADER_PLACEHOLDER_JS
+    // MENU_PLACEHOLDER_JS
+    // FOOTER_PLACEHOLDER_JS
+
+    // Lazy fade-in برای تصاویر وقتی وارد دید می‌شوند
+    (function(){
+      const thumbs = document.querySelectorAll('.thumb');
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver(entries=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          });
+        }, {rootMargin: "120px 0px"});
+        thumbs.forEach(t=>io.observe(t));
+      } else {
+        // مرورگرهای قدیمی
+        thumbs.forEach(t=>t.classList.add('is-visible'));
+      }
+    })();
+
+    // لایت‌باکس با کلیدهای جهت‌دار و دکمه‌های قبلی/بعدی
+    (function(){
+      const grid = document.getElementById('grid');
+      const imgs = Array.from(grid.querySelectorAll('.thumb'));
+      if(!imgs.length) return;
+
+      // ساخت لایت‌باکس
+      const lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.innerHTML = `
+        <button class="lb-btn lb-prev" aria-label="قبلی">&#10094;</button>
+        <img class="lightbox-img" alt="نمایش تصویر">
+        <button class="lb-btn lb-next" aria-label="بعدی">&#10095;</button>
+        <button class="lb-btn lb-close" aria-label="بستن">&times;</button>
+      `;
+      document.body.appendChild(lb);
+      const imgEl = lb.querySelector('.lightbox-img');
+      const prevBtn = lb.querySelector('.lb-prev');
+      const nextBtn = lb.querySelector('.lb-next');
+      const closeBtn = lb.querySelector('.lb-close');
+
+      let idx = 0;
+
+      function openAt(i){
+        idx = i;
+        imgEl.src = imgs[idx].src;
+        lb.style.display = 'flex';
+      }
+      function closeLB(){ lb.style.display = 'none'; }
+      function prev(){ idx = (idx - 1 + imgs.length) % imgs.length; imgEl.src = imgs[idx].src; }
+      function next(){ idx = (idx + 1) % imgs.length; imgEl.src = imgs[idx].src; }
+
+      imgs.forEach((im,i)=>{
+        im.addEventListener('click', ()=>openAt(i));
+        // فallback پسوند در صورت خطا (jpg → jpeg → JPG → JPEG → jp)
+        im.addEventListener('error', function(){
+          const exts = ['.jpeg','.JPG','.JPEG','.jp'];
+          const src = im.getAttribute('src');
+          const dot = src.lastIndexOf('.');
+          if(dot > -1){
+            const base = src.slice(0,dot);
+            const currentExt = src.slice(dot);
+            const nextExt = exts.find(e => !src.endsWith(e));
+            if(nextExt){
+              im.src = base + nextExt;
+            }
+          }
+        }, {once:false});
+      });
+
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+      closeBtn.addEventListener('click', closeLB);
+      lb.addEventListener('click', e=>{ if(e.target===lb) closeLB(); });
+      window.addEventListener('keydown', e=>{
+        if(lb.style.display!=='flex') return;
+        if(e.key==='Escape') closeLB();
+        if(e.key==='ArrowLeft') prev();
+        if(e.key==='ArrowRight') next();
+      });
+    })();
+  </script>
 </body>
 </html>
