@@ -782,7 +782,7 @@ h2 {
 .floating-contact-btn {
     position: fixed !important;
     left: 15px !important;
-    bottom: 85px !important;
+    bottom: 90px !important;
     z-index: 99999999 !important;
     display: block !important;
     visibility: visible !important;
@@ -926,11 +926,7 @@ h2 {
     }
 }
 
-/* اصلاح کلی صفحه */
-body, html {
-    overflow-x: visible !important;
-    position: relative !important;
-}
+
 
 /* خط جداکننده */
 .footer-divider {
