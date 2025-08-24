@@ -778,237 +778,160 @@ h2 {
 }
 
 /* کانتینر دکمه شناور - قوی‌ترین حالت */
-.floating-contact {
+/* دکمه تماس شناور - کاملاً ثابت */
+.floating-contact-btn {
     position: fixed !important;
-    left: 25px !important;
-    bottom: 25px !important;
+    left: 15px !important;
+    bottom: 80px !important;
     z-index: 999999 !important;
-    animation: float 4s ease-in-out infinite, pulse 2s ease-in-out infinite !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    animation: smoothFloat 3s ease-in-out infinite !important;
 }
 
 /* دکمه اصلی */
-.contact-btn {
+.call-button {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: linear-gradient(135deg, #00C851, #007E33) !important;
-    color: white !important;
-    text-decoration: none !important;
-    width: 80px !important;
-    height: 80px !important;
+    width: 55px !important;
+    height: 55px !important;
+    background: linear-gradient(135deg, #25D366, #128C7E) !important;
     border-radius: 50% !important;
+    text-decoration: none !important;
+    color: white !important;
     box-shadow: 
-        0 8px 25px rgba(0, 200, 81, 0.4),
-        0 0 0 0 rgba(0, 200, 81, 0.3) !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    border: 3px solid rgba(255, 255, 255, 0.2) !important;
+        0 6px 20px rgba(37, 211, 102, 0.4),
+        0 0 0 0 rgba(37, 211, 102, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
     position: relative !important;
     overflow: visible !important;
-    backdrop-filter: blur(10px) !important;
     margin: 0 !important;
     padding: 0 !important;
-    top: auto !important;
-    right: auto !important;
-}
-
-/* افکت نورانی پشت دکمه */
-.contact-btn::before {
-    content: '' !important;
-    position: absolute !important;
-    top: -10px !important;
-    left: -10px !important;
-    right: -10px !important;
-    bottom: -10px !important;
-    background: conic-gradient(from 0deg, #00C851, #00ff88, #00C851, #007E33, #00C851) !important;
-    border-radius: 50% !important;
-    z-index: -1 !important;
-    opacity: 0 !important;
-    animation: rotate 3s linear infinite !important;
-    transition: opacity 0.3s ease !important;
-}
-
-.contact-btn:hover::before {
-    opacity: 0.7 !important;
+    animation: phonePulse 2s ease-in-out infinite !important;
 }
 
 /* حالت hover */
-.contact-btn:hover {
-    transform: scale(1.15) rotate(5deg) !important;
+.call-button:hover {
+    transform: scale(1.2) rotate(10deg) !important;
     box-shadow: 
-        0 15px 40px rgba(0, 200, 81, 0.6),
-        0 0 0 15px rgba(0, 200, 81, 0.1),
-        0 0 50px rgba(0, 255, 136, 0.3) !important;
-    background: linear-gradient(135deg, #00ff88, #00C851) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
+        0 10px 30px rgba(37, 211, 102, 0.7),
+        0 0 0 10px rgba(37, 211, 102, 0.1) !important;
+    background: linear-gradient(135deg, #00ff88, #25D366) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 /* آیکون تلفن */
-.contact-btn svg {
-    width: 32px !important;
-    height: 32px !important;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)) !important;
-    animation: phoneRing 3s ease-in-out infinite !important;
+.call-button svg {
+    width: 22px !important;
+    height: 22px !important;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)) !important;
+    animation: phoneWiggle 2s ease-in-out infinite !important;
     transition: all 0.3s ease !important;
 }
 
-.contact-btn:hover svg {
-    animation: phoneRingFast 0.6s ease-in-out infinite !important;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) !important;
+.call-button:hover svg {
+    animation: phoneWiggleFast 0.5s ease-in-out infinite !important;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) !important;
 }
 
-/* Tooltip مدرن */
-.tooltip {
-    position: absolute !important;
-    left: 95px !important;
-    top: 50% !important;
-    transform: translateY(-50%) translateX(-20px) !important;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(40, 40, 40, 0.95)) !important;
-    color: white !important;
-    padding: 12px 18px !important;
-    border-radius: 12px !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    white-space: nowrap !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    pointer-events: none !important;
-    z-index: 10000 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(20px) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* فلش tooltip */
-.tooltip::before {
-    content: '' !important;
-    position: absolute !important;
-    right: 100% !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    border: 8px solid transparent !important;
-    border-right-color: rgba(0, 0, 0, 0.9) !important;
-}
-
-.contact-btn:hover .tooltip {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(-50%) translateX(0) !important;
-}
-
-/* انیمیشن‌های شناور */
-@keyframes float {
+/* انیمیشن شناور */
+@keyframes smoothFloat {
     0%, 100% {
-        transform: translateY(0) translateX(0) rotate(0deg);
+        transform: translateY(0px) translateX(0px);
     }
     25% {
-        transform: translateY(-20px) translateX(10px) rotate(2deg);
+        transform: translateY(-12px) translateX(4px);
     }
     50% {
-        transform: translateY(-10px) translateX(15px) rotate(-1deg);
+        transform: translateY(-8px) translateX(8px);
     }
     75% {
-        transform: translateY(-25px) translateX(5px) rotate(1deg);
+        transform: translateY(-15px) translateX(2px);
     }
 }
 
-/* انیمیشن زنگ آرام */
-@keyframes phoneRing {
-    0%, 90%, 100% { 
+/* انیمیشن پالس دکمه */
+@keyframes phonePulse {
+    0%, 100% {
+        box-shadow: 
+            0 6px 20px rgba(37, 211, 102, 0.4),
+            0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+    50% {
+        box-shadow: 
+            0 6px 20px rgba(37, 211, 102, 0.4),
+            0 0 0 15px rgba(37, 211, 102, 0);
+    }
+}
+
+/* انیمیشن تکان دادن تلفن */
+@keyframes phoneWiggle {
+    0%, 85%, 100% { 
         transform: rotate(0deg); 
     }
-    2% { 
-        transform: rotate(15deg); 
-    }
-    4% { 
-        transform: rotate(-15deg); 
-    }
-    6% { 
-        transform: rotate(10deg); 
-    }
-    8% { 
-        transform: rotate(-10deg); 
+    5% { 
+        transform: rotate(12deg); 
     }
     10% { 
+        transform: rotate(-12deg); 
+    }
+    15% { 
+        transform: rotate(8deg); 
+    }
+    20% { 
+        transform: rotate(-8deg); 
+    }
+    25% { 
         transform: rotate(0deg); 
     }
 }
 
-/* انیمیشن زنگ سریع */
-@keyframes phoneRingFast {
+/* انیمیشن تکان سریع */
+@keyframes phoneWiggleFast {
     0%, 100% { 
         transform: rotate(0deg) scale(1); 
     }
     25% { 
-        transform: rotate(20deg) scale(1.1); 
+        transform: rotate(18deg) scale(1.1); 
     }
     50% { 
-        transform: rotate(-20deg) scale(1.1); 
+        transform: rotate(-18deg) scale(1.1); 
     }
     75% { 
-        transform: rotate(15deg) scale(1.1); 
-    }
-}
-
-/* انیمیشن چرخش نور */
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* انیمیشن پالس */
-@keyframes pulse {
-    0% {
-        box-shadow: 
-            0 8px 25px rgba(0, 200, 81, 0.4),
-            0 0 0 0 rgba(0, 200, 81, 0.5);
-    }
-    50% {
-        box-shadow: 
-            0 8px 25px rgba(0, 200, 81, 0.4),
-            0 0 0 20px rgba(0, 200, 81, 0);
-    }
-    100% {
-        box-shadow: 
-            0 8px 25px rgba(0, 200, 81, 0.4),
-            0 0 0 0 rgba(0, 200, 81, 0);
-    }
-}
-
-/* انیمیشن ripple برای کلیک */
-@keyframes ripple {
-    to {
-        transform: scale(2);
-        opacity: 0;
+        transform: rotate(12deg) scale(1.1); 
     }
 }
 
 /* تنظیمات موبایل */
 @media (max-width: 768px) {
-    .floating-contact {
-        left: 20px !important;
-        bottom: 20px !important;
+    .floating-contact-btn {
+        left: 10px !important;
+        bottom: 70px !important;
     }
     
-    .contact-btn {
-        width: 70px !important;
-        height: 70px !important;
+    .call-button {
+        width: 50px !important;
+        height: 50px !important;
     }
     
-    .contact-btn svg {
-        width: 28px !important;
-        height: 28px !important;
-    }
-
-    .tooltip {
-        left: 80px !important;
-        font-size: 13px !important;
-        padding: 10px 14px !important;
+    .call-button svg {
+        width: 20px !important;
+        height: 20px !important;
     }
 }
+
+/* اصلاح کلی صفحه */
+body, html {
+    overflow-x: visible !important;
+    position: relative !important;
+}
+
 /* خط جداکننده */
 .footer-divider {
   height: 1px;
