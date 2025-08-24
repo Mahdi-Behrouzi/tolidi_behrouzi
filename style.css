@@ -777,42 +777,65 @@ h2 {
   color: #ecf0f1;
 }
 
-/* دکمه تماس مستقیم */
-.contact-button-container {
-  margin-top: 20px;
+.floating-contact {
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 20px !important;
+    z-index: 1000 !important;
+    animation: float 3s ease-in-out infinite !important;
 }
 
 .contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #27ae60, #2ecc71);
-  color: white;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-  border: 2px solid transparent;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+    color: white !important;
+    text-decoration: none !important;
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+.contact-btn:hover::after {
+    content: "تماس مستقیم" !important;
+    position: absolute !important;
+    left: 80px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    z-index: 1001 !important;
+    animation: fadeIn 0.3s ease !important;
 }
 
 .contact-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.5);
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
-  border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
 }
 
 .contact-btn svg {
-  animation: ring 2s ease-in-out infinite;
+    width: 26px !important;
+    height: 26px !important;
 }
 
-@keyframes ring {
-  0%, 100% { transform: rotate(0deg); }
-  10%, 30% { transform: rotate(-10deg); }
-  20% { transform: rotate(10deg); }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-50%) translateX(-10px); }
+    to { opacity: 1; transform: translateY(-50%) translateX(0); }
 }
 
 /* خط جداکننده */
