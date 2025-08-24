@@ -782,8 +782,8 @@ h2 {
 .floating-contact-btn {
     position: fixed !important;
     left: 15px !important;
-    bottom: 80px !important;
-    z-index: 999999 !important;
+    bottom: 85px !important;
+    z-index: 99999999 !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
