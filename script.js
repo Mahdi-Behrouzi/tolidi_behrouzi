@@ -366,88 +366,101 @@ loading.setProgress(50, 'در حال آپلود فایل...');
 // نمایش خطا
 loading.showError('اتصال به اینترنت قطع است!');
 */
-// نمایش/مخفی کردن tooltip
-function showTooltip() {
-    const tooltip = document.querySelector('.tooltip');
-    if (tooltip) {
-        tooltip.style.opacity = '1';
-        tooltip.style.visibility = 'visible';
-    }
-}
-
-function hideTooltip() {
-    const tooltip = document.querySelector('.tooltip');
-    if (tooltip) {
-        tooltip.style.opacity = '0';
-        tooltip.style.visibility = 'hidden';
-    }
-}
-
 // انیمیشن ورود دکمه
 window.addEventListener('load', function() {
-    const btn = document.querySelector('.floating-contact');
+    const btn = document.querySelector('.floating-contact-btn');
     if (btn) {
         btn.style.opacity = '0';
         btn.style.transform = 'translateY(100px) scale(0.5)';
         
         setTimeout(() => {
-            btn.style.transition = 'all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            btn.style.transition = 'all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
             btn.style.opacity = '1';
             btn.style.transform = 'translateY(0) scale(1)';
-        }, 500);
+        }, 300);
     }
 });
 
-// افکت کلیک
+// افکت کلیک با موج
 document.addEventListener('DOMContentLoaded', function() {
-    const contactBtn = document.querySelector('.contact-btn');
-    if (contactBtn) {
-        contactBtn.addEventListener('click', function(e) {
+    const callButton = document.querySelector('.call-button');
+    if (callButton) {
+        callButton.addEventListener('click', function(e) {
+            // لاگ تماس
+            console.log('📞 تماس گرفته شد: +989399538811');
+            
+            // افکت فشردن
+            this.style.transform = 'scale(0.9)';
+            
             // ایجاد موج کلیک
             const ripple = document.createElement('div');
-            ripple.style.position = 'absolute';
-            ripple.style.width = '140px';
-            ripple.style.height = '140px';
-            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-            ripple.style.borderRadius = '50%';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s ease-out';
-            ripple.style.top = '50%';
-            ripple.style.left = '50%';
-            ripple.style.marginTop = '-70px';
-            ripple.style.marginLeft = '-70px';
-            ripple.style.pointerEvents = 'none';
+            ripple.style.cssText = `
+                position: absolute;
+                width: 110px;
+                height: 110px;
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: clickWave 0.6s ease-out;
+                top: 50%;
+                left: 50%;
+                margin-top: -55px;
+                margin-left: -55px;
+                pointer-events: none;
+                z-index: 1;
+            `;
             
             this.appendChild(ripple);
             
+            // بازگشت به حالت عادی
             setTimeout(() => {
-                ripple.remove();
-            }, 600);
+                this.style.transform = '';
+            }, 150);
             
-            console.log('📞 تماس: +989399538811');
+            // حذف موج
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.parentNode.removeChild(ripple);
+                }
+            }, 600);
         });
+
+        // اضافه کردن انیمیشن موج
+        if (!document.querySelector('#ripple-animation')) {
+            const style = document.createElement('style');
+            style.id = 'ripple-animation';
+            style.textContent = `
+                @keyframes clickWave {
+                    to {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
     }
 });
 
-// تغییر رنگ بر اساس وقت
-function updateColors() {
+// تغییر رنگ بر اساس وقت روز
+function updateButtonColor() {
     const hour = new Date().getHours();
-    const btn = document.querySelector('.contact-btn');
+    const btn = document.querySelector('.call-button');
     
     if (btn) {
-        if (hour >= 18 || hour <= 6) {
-            // شب - رنگ‌های آبی
-            btn.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+        if (hour >= 19 || hour <= 6) {
+            // شب - آبی
+            btn.style.background = 'linear-gradient(135deg, #667eea, #764ba2) !important';
         } else if (hour >= 6 && hour <= 12) {
-            // صبح - رنگ‌های طلایی
-            btn.style.background = 'linear-gradient(135deg, #f093fb, #f5576c)';
+            // صبح - نارنجی
+            btn.style.background = 'linear-gradient(135deg, #ff9a56, #ff6b35) !important';
         } else {
-            // عصر - رنگ سبز اصلی
-            btn.style.background = 'linear-gradient(135deg, #00C851, #007E33)';
+            // روز - سبز
+            btn.style.background = 'linear-gradient(135deg, #25D366, #128C7E) !important';
         }
     }
 }
 
-// بروزرسانی رنگ هر 30 ثانیه
-updateColors();
-setInterval(updateColors, 30000);
+// اجرای تغییر رنگ
+updateButtonColor();
+setInterval(updateButtonColor, 60000); // هر دقیقه چک کن
