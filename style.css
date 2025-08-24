@@ -777,13 +777,16 @@ h2 {
   color: #ecf0f1;
 }
 
-/* کانتینر دکمه شناور */
+/* کانتینر دکمه شناور - قوی‌ترین حالت */
 .floating-contact {
     position: fixed !important;
     left: 25px !important;
     bottom: 25px !important;
-    z-index: 9999 !important;
+    z-index: 999999 !important;
     animation: float 4s ease-in-out infinite, pulse 2s ease-in-out infinite !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* دکمه اصلی */
@@ -805,6 +808,10 @@ h2 {
     position: relative !important;
     overflow: visible !important;
     backdrop-filter: blur(10px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    top: auto !important;
+    right: auto !important;
 }
 
 /* افکت نورانی پشت دکمه */
@@ -1002,8 +1009,6 @@ h2 {
         padding: 10px 14px !important;
     }
 }
-
-
 /* خط جداکننده */
 .footer-divider {
   height: 1px;
