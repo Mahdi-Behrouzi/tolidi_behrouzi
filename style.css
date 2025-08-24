@@ -553,66 +553,6 @@ h2 {
   50% { background-position: 100% 50%; }
 }
 
-floating-contact {
-    position: fixed !important;
-    left: 20px !important;
-    bottom: 20px !important;
-    z-index: 1000 !important;
-    animation: float 3s ease-in-out infinite !important;
-}
-
-.contact-btn {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: linear-gradient(135deg, #4CAF50, #45a049) !important;
-    color: white !important;
-    text-decoration: none !important;
-    width: 70px !important;
-    height: 70px !important;
-    border-radius: 50% !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
-    transition: all 0.3s ease !important;
-    position: relative !important;
-    border: none !important;
-    overflow: hidden !important;
-}
-
-.contact-btn:hover::after {
-    content: "تماس مستقیم" !important;
-    position: absolute !important;
-    left: 80px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    background: rgba(0, 0, 0, 0.9) !important;
-    color: white !important;
-    padding: 8px 12px !important;
-    border-radius: 8px !important;
-    font-size: 14px !important;
-    white-space: nowrap !important;
-    z-index: 1001 !important;
-    animation: fadeIn 0.3s ease !important;
-}
-
-.contact-btn:hover {
-    transform: scale(1.1) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
-}
-
-.contact-btn svg {
-    width: 26px !important;
-    height: 26px !important;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-50%) translateX(-10px); }
-    to { opacity: 1; transform: translateY(-50%) translateX(0); }
-}
 /* محتوای اصلی فوتر */
 .footer-content {
   max-width: 1200px;
@@ -836,6 +776,233 @@ floating-contact {
 .contact-item:hover span {
   color: #ecf0f1;
 }
+
+/* کانتینر دکمه شناور */
+.floating-contact {
+    position: fixed !important;
+    left: 25px !important;
+    bottom: 25px !important;
+    z-index: 9999 !important;
+    animation: float 4s ease-in-out infinite, pulse 2s ease-in-out infinite !important;
+}
+
+/* دکمه اصلی */
+.contact-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #00C851, #007E33) !important;
+    color: white !important;
+    text-decoration: none !important;
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    box-shadow: 
+        0 8px 25px rgba(0, 200, 81, 0.4),
+        0 0 0 0 rgba(0, 200, 81, 0.3) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    border: 3px solid rgba(255, 255, 255, 0.2) !important;
+    position: relative !important;
+    overflow: visible !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* افکت نورانی پشت دکمه */
+.contact-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -10px !important;
+    left: -10px !important;
+    right: -10px !important;
+    bottom: -10px !important;
+    background: conic-gradient(from 0deg, #00C851, #00ff88, #00C851, #007E33, #00C851) !important;
+    border-radius: 50% !important;
+    z-index: -1 !important;
+    opacity: 0 !important;
+    animation: rotate 3s linear infinite !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.contact-btn:hover::before {
+    opacity: 0.7 !important;
+}
+
+/* حالت hover */
+.contact-btn:hover {
+    transform: scale(1.15) rotate(5deg) !important;
+    box-shadow: 
+        0 15px 40px rgba(0, 200, 81, 0.6),
+        0 0 0 15px rgba(0, 200, 81, 0.1),
+        0 0 50px rgba(0, 255, 136, 0.3) !important;
+    background: linear-gradient(135deg, #00ff88, #00C851) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* آیکون تلفن */
+.contact-btn svg {
+    width: 32px !important;
+    height: 32px !important;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)) !important;
+    animation: phoneRing 3s ease-in-out infinite !important;
+    transition: all 0.3s ease !important;
+}
+
+.contact-btn:hover svg {
+    animation: phoneRingFast 0.6s ease-in-out infinite !important;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) !important;
+}
+
+/* Tooltip مدرن */
+.tooltip {
+    position: absolute !important;
+    left: 95px !important;
+    top: 50% !important;
+    transform: translateY(-50%) translateX(-20px) !important;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(40, 40, 40, 0.95)) !important;
+    color: white !important;
+    padding: 12px 18px !important;
+    border-radius: 12px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    pointer-events: none !important;
+    z-index: 10000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* فلش tooltip */
+.tooltip::before {
+    content: '' !important;
+    position: absolute !important;
+    right: 100% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    border: 8px solid transparent !important;
+    border-right-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.contact-btn:hover .tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(-50%) translateX(0) !important;
+}
+
+/* انیمیشن‌های شناور */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-10px) translateX(15px) rotate(-1deg);
+    }
+    75% {
+        transform: translateY(-25px) translateX(5px) rotate(1deg);
+    }
+}
+
+/* انیمیشن زنگ آرام */
+@keyframes phoneRing {
+    0%, 90%, 100% { 
+        transform: rotate(0deg); 
+    }
+    2% { 
+        transform: rotate(15deg); 
+    }
+    4% { 
+        transform: rotate(-15deg); 
+    }
+    6% { 
+        transform: rotate(10deg); 
+    }
+    8% { 
+        transform: rotate(-10deg); 
+    }
+    10% { 
+        transform: rotate(0deg); 
+    }
+}
+
+/* انیمیشن زنگ سریع */
+@keyframes phoneRingFast {
+    0%, 100% { 
+        transform: rotate(0deg) scale(1); 
+    }
+    25% { 
+        transform: rotate(20deg) scale(1.1); 
+    }
+    50% { 
+        transform: rotate(-20deg) scale(1.1); 
+    }
+    75% { 
+        transform: rotate(15deg) scale(1.1); 
+    }
+}
+
+/* انیمیشن چرخش نور */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* انیمیشن پالس */
+@keyframes pulse {
+    0% {
+        box-shadow: 
+            0 8px 25px rgba(0, 200, 81, 0.4),
+            0 0 0 0 rgba(0, 200, 81, 0.5);
+    }
+    50% {
+        box-shadow: 
+            0 8px 25px rgba(0, 200, 81, 0.4),
+            0 0 0 20px rgba(0, 200, 81, 0);
+    }
+    100% {
+        box-shadow: 
+            0 8px 25px rgba(0, 200, 81, 0.4),
+            0 0 0 0 rgba(0, 200, 81, 0);
+    }
+}
+
+/* انیمیشن ripple برای کلیک */
+@keyframes ripple {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* تنظیمات موبایل */
+@media (max-width: 768px) {
+    .floating-contact {
+        left: 20px !important;
+        bottom: 20px !important;
+    }
+    
+    .contact-btn {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .contact-btn svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .tooltip {
+        left: 80px !important;
+        font-size: 13px !important;
+        padding: 10px 14px !important;
+    }
+}
+
 
 /* خط جداکننده */
 .footer-divider {
