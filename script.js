@@ -366,12 +366,29 @@ loading.setProgress(50, 'در حال آپلود فایل...');
 // نمایش خطا
 loading.showError('اتصال به اینترنت قطع است!');
 */
+
+function showTooltip() {
+    const tooltip = document.querySelector('.tooltip');
+    if (tooltip) {
+        tooltip.style.opacity = '1';
+        tooltip.style.visibility = 'visible';
+    }
+}
+
+function hideTooltip() {
+    const tooltip = document.querySelector('.tooltip');
+    if (tooltip) {
+        tooltip.style.opacity = '0';
+        tooltip.style.visibility = 'hidden';
+    }
+}
+
 // انیمیشن ورود دکمه
 window.addEventListener('load', function() {
-    const btn = document.querySelector('.floating-contact-btn');
+    const btn = document.querySelector('.floating-contact');
     if (btn) {
         btn.style.opacity = '0';
-        btn.style.transform = 'translateY(100px) scale(0.5)';
+        btn.style.transform = 'translateY(100px) scale(0.8)';
         
         setTimeout(() => {
             btn.style.transition = 'all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
@@ -381,31 +398,30 @@ window.addEventListener('load', function() {
     }
 });
 
-// افکت کلیک با موج
+// افکت کلیک
 document.addEventListener('DOMContentLoaded', function() {
-    const callButton = document.querySelector('.call-button');
-    if (callButton) {
-        callButton.addEventListener('click', function(e) {
-            // لاگ تماس
-            console.log('📞 تماس گرفته شد: +989399538811');
+    const contactBtn = document.querySelector('.contact-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function(e) {
+            console.log('📞 تماس: +989399538811');
             
             // افکت فشردن
-            this.style.transform = 'scale(0.9)';
+            this.style.transform = 'scale(0.95)';
             
             // ایجاد موج کلیک
             const ripple = document.createElement('div');
             ripple.style.cssText = `
                 position: absolute;
-                width: 110px;
-                height: 110px;
-                background: rgba(255, 255, 255, 0.4);
+                width: 120px;
+                height: 120px;
+                background: rgba(255, 255, 255, 0.5);
                 border-radius: 50%;
                 transform: scale(0);
-                animation: clickWave 0.6s ease-out;
+                animation: rippleEffect 0.6s ease-out;
                 top: 50%;
                 left: 50%;
-                margin-top: -55px;
-                margin-left: -55px;
+                margin-top: -60px;
+                margin-left: -60px;
                 pointer-events: none;
                 z-index: 1;
             `;
@@ -420,17 +436,17 @@ document.addEventListener('DOMContentLoaded', function() {
             // حذف موج
             setTimeout(() => {
                 if (ripple.parentNode) {
-                    ripple.parentNode.removeChild(ripple);
+                    ripple.remove();
                 }
             }, 600);
         });
 
-        // اضافه کردن انیمیشن موج
-        if (!document.querySelector('#ripple-animation')) {
+        // اضافه کردن استایل انیمیشن موج
+        if (!document.querySelector('#ripple-style')) {
             const style = document.createElement('style');
-            style.id = 'ripple-animation';
+            style.id = 'ripple-style';
             style.textContent = `
-                @keyframes clickWave {
+                @keyframes rippleEffect {
                     to {
                         transform: scale(2);
                         opacity: 0;
@@ -441,26 +457,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
-// تغییر رنگ بر اساس وقت روز
-function updateButtonColor() {
-    const hour = new Date().getHours();
-    const btn = document.querySelector('.call-button');
-    
-    if (btn) {
-        if (hour >= 19 || hour <= 6) {
-            // شب - آبی
-            btn.style.background = 'linear-gradient(135deg, #667eea, #764ba2) !important';
-        } else if (hour >= 6 && hour <= 12) {
-            // صبح - نارنجی
-            btn.style.background = 'linear-gradient(135deg, #ff9a56, #ff6b35) !important';
-        } else {
-            // روز - سبز
-            btn.style.background = 'linear-gradient(135deg, #25D366, #128C7E) !important';
-        }
-    }
-}
-
-// اجرای تغییر رنگ
-updateButtonColor();
-setInterval(updateButtonColor, 60000); // هر دقیقه چک کن
