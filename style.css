@@ -790,135 +790,63 @@ h2 {
 .floating-contact {
     position: fixed !important;
     left: 20px !important;
-    bottom: 80px !important;
-    z-index: 9999 !important;
+    bottom: 20px !important;
+    z-index: 1000 !important;
     animation: float 3s ease-in-out infinite !important;
-    display: block !important;
-    visibility: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
 .contact-btn {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: linear-gradient(135deg, #25D366, #128C7E) !important;
+    background: linear-gradient(135deg, #4CAF50, #45a049) !important;
     color: white !important;
     text-decoration: none !important;
-    width: 60px !important;
-    height: 60px !important;
+    width: 70px !important;
+    height: 70px !important;
     border-radius: 50% !important;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
     transition: all 0.3s ease !important;
-    border: none !important;
-    outline: none !important;
     position: relative !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
 }
 
-.contact-btn:hover {
-    transform: scale(1.15) !important;
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6) !important;
-    background: linear-gradient(135deg, #128C7E, #25D366) !important;
-}
-
-.contact-btn svg {
-    width: 24px !important;
-    height: 24px !important;
-    animation: ring 2s infinite !important;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3)) !important;
-}
-
-.contact-btn:hover svg {
-    animation: ring 0.6s infinite !important;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6)) !important;
-}
-
-/* Tooltip */
-.tooltip {
+.contact-btn:hover::after {
+    content: "تماس مستقیم" !important;
     position: absolute !important;
-    left: 70px !important;
+    left: 80px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     background: rgba(0, 0, 0, 0.9) !important;
     color: white !important;
     padding: 8px 12px !important;
-    border-radius: 6px !important;
-    font-size: 13px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
     white-space: nowrap !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition: all 0.3s ease !important;
-    pointer-events: none !important;
-    z-index: 1000000 !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    z-index: 1001 !important;
+    animation: fadeIn 0.3s ease !important;
 }
 
-.contact-btn:hover .tooltip {
-    opacity: 1 !important;
-    visibility: visible !important;
+.contact-btn:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* انیمیشن شناور */
+.contact-btn svg {
+    width: 26px !important;
+    height: 26px !important;
+}
+
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-    }
-    33% {
-        transform: translateY(-12px) translateX(6px);
-    }
-    66% {
-        transform: translateY(-8px) translateX(-4px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-/* انیمیشن زنگ تلفن */
-@keyframes ring {
-    0%, 10% { transform: rotate(0deg); }
-    15% { transform: rotate(18deg); }
-    25% { transform: rotate(-18deg); }
-    35% { transform: rotate(12deg); }
-    45% { transform: rotate(-12deg); }
-    55% { transform: rotate(8deg); }
-    65% { transform: rotate(-8deg); }
-    75% { transform: rotate(4deg); }
-    85% { transform: rotate(-4deg); }
-    100% { transform: rotate(0deg); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-50%) translateX(-10px); }
+    to { opacity: 1; transform: translateY(-50%) translateX(0); }
 }
-
-/* تنظیمات موبایل */
-@media (max-width: 768px) {
-    .floating-contact {
-        left: 15px !important;
-        bottom: 70px !important;
-    }
-    
-    .contact-btn {
-        width: 55px !important;
-        height: 55px !important;
-    }
-    
-    .contact-btn svg {
-        width: 22px !important;
-        height: 22px !important;
-    }
-
-    .tooltip {
-        left: 65px !important;
-        font-size: 12px !important;
-        padding: 6px 10px !important;
-    }
-}
-
-/* اصلاح کلی */
-body, html {
-    overflow-x: visible !important;
-    position: relative !important;
-}
-
 /* پایین فوتر */
 .footer-bottom {
   background: rgba(0, 0, 0, 0.3);
