@@ -1,317 +1,499 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+            <!DOCTYPE html>
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گالری محصولات</title>
-    
+    <title>گالری محصولات تولیدی بهروزی</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
             direction: rtl;
-            text-align: right;
-            color: #333;
-            padding: 20px;
         }
-
-        .gallery-container {
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .category-section {
+            margin-bottom: 4rem;
+        }
+        
+        .category-title {
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
             border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
-
-        h1 {
-            text-align: center;
-            color: #004d40;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-        }
-
-        .filter-buttons {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .filter-btn {
-            background-color: #e0e0e0;
-            color: #555;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .filter-btn:hover {
-            background-color: #d1d1d1;
-        }
-
-        .filter-btn.active {
-            background-color: #004d40;
-            color: #fff;
-        }
-
+        
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            transition: all 0.5s ease;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
-
+        
         .gallery-item {
             position: relative;
+            border-radius: 15px;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 1;
             cursor: pointer;
-            transition: transform 0.3s ease, opacity 0.5s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            background: white;
         }
-
+        
         .gallery-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
-
-        .gallery-item img {
+        
+        .gallery-image {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
+            object-position: center;
+            transition: transform 0.3s ease;
         }
-
-        .gallery-item:hover img {
+        
+        .gallery-item:hover .gallery-image {
             transform: scale(1.05);
         }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .gallery-item:hover .overlay {
-            opacity: 1;
-        }
-
-        .product-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .lightbox {
+        
+        /* Modal Styles */
+        .modal {
             display: none;
             position: fixed;
-            z-index: 100;
-            padding-top: 60px;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
+            height: 100vh;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-
-        .lightbox-content {
-            margin: auto;
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
             display: block;
-            width: 80%;
-            max-width: 700px;
-            border-radius: 8px;
-            animation-name: zoom;
-            animation-duration: 0.6s;
         }
-
-        @keyframes zoom {
-            from {transform: scale(0)} 
-            to {transform: scale(1)}
-        }
-
+        
         .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #ff4757;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
             font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2001;
+            box-shadow: 0 4px 20px rgba(255,71,87,0.4);
         }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
+        
+        .close-btn:hover {
+            background: #ff3742;
+            transform: scale(1.1);
         }
-
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
+        
+        .close-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1e3c72;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2001;
+            box-shadow: 0 4px 20px rgba(30,60,114,0.4);
+        }
+        
+        .nav-btn:hover {
+            background: #2a5298;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        .prev-btn {
+            left: 30px;
+        }
+        
+        .next-btn {
+            right: 30px;
+        }
+        
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+            
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            .close-btn {
+                top: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .prev-btn {
+                left: 20px;
+            }
+            
+            .next-btn {
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                gap: 0.5rem;
+            }
+            
+            .close-btn {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .nav-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .prev-btn {
+                left: 15px;
+            }
+            
+            .next-btn {
+                right: 15px;
+            }
+        }
+        
+        /* Loading animation */
+        .gallery-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.9s; }
+        .gallery-item:nth-child(10) { animation-delay: 1.0s; }
+        .gallery-item:nth-child(11) { animation-delay: 1.1s; }
+        .gallery-item:nth-child(12) { animation-delay: 1.2s; }
+        .gallery-item:nth-child(13) { animation-delay: 1.3s; }
+        .gallery-item:nth-child(14) { animation-delay: 1.4s; }
+        .gallery-item:nth-child(15) { animation-delay: 1.5s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-
-<div class="gallery-container">
-    <h1>گالری محصولات</h1>
-
-    <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">همه</button>
-        <button class="filter-btn" data-filter="cat-1">دسته ۱</button>
-        <button class="filter-btn" data-filter="cat-2">دسته ۲</button>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item" data-category="cat-1">
-            <img src="img/IMG_20222064_013211.jpg" alt="محصول ۱" data-full="img/IMG_20222064_013211.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
+    <div class="container">
+        <div class="header">
+            <h1>گالری محصولات</h1>
+            <p>تولیدی بهروزی مشهد</p>
         </div>
-        <div class="gallery-item" data-category="cat-1">
-            <img src="img/IMG_20222604_013414.jpg" alt="محصول ۲" data-full="img/IMG_20222604_013414.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-1">
-            <img src="img/IMG_2022264_013830.jpg" alt="محصول ۳" data-full="img/IMG_2022264_013830.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-1">
-            <img src="img/IMG_2022264_014311.jpg" alt="محصول ۴" data-full="img/IMG_2022264_014311.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-1">
-            <img src="img/IMG_20222064_014423.jpg" alt="محصول ۵" data-full="img/IMG_20222064_014423.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-1">
-            <img src="img/IMG_202200000_185811.jpg" alt="محصول ۶" data-full="img/IMG_202200000_185811.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-1">
-            <img src="img/IMG_202200000_185844.jpg" alt="محصول ۷" data-full="img/IMG_202200000_185844.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۱</span></div>
-        </div>
-
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_202007.jpg" alt="محصول ۸" data-full="img/IMG_20250509_202007.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_203701.jpg" alt="محصول ۹" data-full="img/IMG_20250509_203701.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_202634.jpg" alt="محصول ۱۰" data-full="img/IMG_20250509_202634.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_203725.jpg" alt="محصول ۱۱" data-full="img/IMG_20250509_203725.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_204126.jpg" alt="محصول ۱۲" data-full="img/IMG_20250509_204126.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_200932.jpg" alt="محصول ۱۳" data-full="img/IMG_20250509_200932.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_201442.jpg" alt="محصول ۱۴" data-full="img/IMG_20250509_201442.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
-        </div>
-        <div class="gallery-item" data-category="cat-2">
-            <img src="img/IMG_20250509_201913.jpg" alt="محصول ۱۵" data-full="img/IMG_20250509_201913.jpg">
-            <div class="overlay"><span class="product-name">محصول دسته ۲</span></div>
+        
+        <div class="category-section">
+            <h2 class="category-title">ست سه تایی کاور لباس (سایز بزرگ)</h2>
+            <div class="gallery">
+                <div class="gallery-item" data-index="0">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20222064_013211.jpg" alt="ست سه تایی کاور لباس - مدل 1">
+                </div>
+                
+                <div class="gallery-item" data-index="1">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20222604_013414.jpg" alt="ست سه تایی کاور لباس - مدل 2">
+                </div>
+                
+                <div class="gallery-item" data-index="2">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_2022264_013830.jpg" alt="ست سه تایی کاور لباس - مدل 3">
+                </div>
+                
+                <div class="gallery-item" data-index="3">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_2022264_014311.jpg" alt="ست سه تایی کاور لباس - مدل 4">
+                </div>
+                
+                <div class="gallery-item" data-index="4">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20222064_014423.jpg" alt="ست سه تایی کاور لباس - مدل 5">
+                </div>
+                
+                <div class="gallery-item" data-index="5">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_202200000_185811.jpg" alt="ست سه تایی کاور لباس - مدل 6">
+                </div>
+                
+                <div class="gallery-item" data-index="6">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_202200000_185844.jpg" alt="ست سه تایی کاور لباس - مدل 7">
+                </div>
+                
+                <div class="gallery-item" data-index="7">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_202007.jpg" alt="ست سه تایی کاور لباس - مدل 8">
+                </div>
+                
+                <div class="gallery-item" data-index="8">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_203701.jpg" alt="ست سه تایی کاور لباس - مدل 9">
+                </div>
+                
+                <div class="gallery-item" data-index="9">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_202634.jpg" alt="ست سه تایی کاور لباس - مدل 10">
+                </div>
+                
+                <div class="gallery-item" data-index="10">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_203725.jpg" alt="ست سه تایی کاور لباس - مدل 11">
+                </div>
+                
+                <div class="gallery-item" data-index="11">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_204126.jpg" alt="ست سه تایی کاور لباس - مدل 12">
+                </div>
+                
+                <div class="gallery-item" data-index="12">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_200932.jpg" alt="ست سه تایی کاور لباس - مدل 13">
+                </div>
+                
+                <div class="gallery-item" data-index="13">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_201442.jpg" alt="ست سه تایی کاور لباس - مدل 14">
+                </div>
+                
+                <div class="gallery-item" data-index="14">
+                    <img class="gallery-image" src="https://github.com/mahdi_behrouzi/tolidibehrouzi/raw/main/img/IMG_20250509_201913.jpg" alt="ست سه تایی کاور لباس - مدل 15">
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="lightbox" class="lightbox">
-    <span class="close-btn">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
-    <div id="caption"></div>
-</div>
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <button class="nav-btn prev-btn" onclick="prevImage()">‹</button>
+        <button class="nav-btn next-btn" onclick="nextImage()">›</button>
+        <div class="modal-content">
+            <img class="modal-image" id="modalImage" src="" alt="">
+        </div>
+    </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const galleryItems = document.querySelectorAll('.gallery-item img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const captionText = document.getElementById('caption');
-        const closeBtn = document.querySelector('.close-btn');
-
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const allGalleryItems = document.querySelectorAll('.gallery-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                allGalleryItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block'; 
-                    } else {
-                        item.style.display = 'none'; 
-                    }
-                });
-            });
-        });
-
-        galleryItems.forEach(item => {
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.gallery-image');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        
+        // Add click event to gallery items
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
             item.addEventListener('click', () => {
-                lightbox.style.display = 'block';
-                lightboxImg.src = item.getAttribute('data-full');
-                captionText.innerHTML = item.alt;
+                openModal(index);
             });
         });
-
-        closeBtn.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
-
-        lightbox.addEventListener('click', (event) => {
-            if (event.target === lightbox) {
-                lightbox.style.display = 'none';
+        
+        function openModal(index) {
+            currentImageIndex = index;
+            const img = images[index];
+            modalImage.src = img.src;
+            modalImage.alt = img.alt;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateModalImage();
+        }
+        
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        }
+        
+        function updateModalImage() {
+            const img = images[currentImageIndex];
+            modalImage.style.opacity = '0';
+            setTimeout(() => {
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+                modalImage.style.opacity = '1';
+            }, 150);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                nextImage();
+            } else if (e.key === 'ArrowRight') {
+                prevImage();
             }
         });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === "Escape") {
-                lightbox.style.display = 'none';
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
             }
         });
-    });
-</script>
-
+        
+        // Touch support for mobile navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        modal.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        modal.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextImage();
+                } else {
+                    prevImage();
+                }
+            }
+        }
+        
+        // Loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        });
+    </script>
 </body>
 </html>
-
-              
